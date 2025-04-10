@@ -17,19 +17,21 @@ struct Level1FillView: View {
                 ZStack {
                     // 1. The hollow letter shape (used for display and later, masking)
                     // We fill it with a light color to show the target area.
+                    // Use eoFill: true to handle the inner hole correctly.
                     scaledLetterPath
-                        .fill(Color.gray.opacity(0.2))
+                        // Use FillStyle to specify the even-odd rule for the fill
+                        .fill(Color.gray.opacity(0.2), style: FillStyle(eoFill: true))
 
                     // 2. The Drawing Canvas, overlaid on the letter shape
                     DrawingCanvasView(selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
-                        // Apply the mask here:
-                        .mask {
-                            // Use the scaled letter path as the mask shape.
-                            // The drawing canvas content will only appear where this path is.
-                            scaledLetterPath
-                        }
+                        // Replace .mask with .clipShape using the even-odd fill rule
+                        .clipShape(
+                            scaledLetterPath, // The shape to clip to
+                            style: FillStyle(eoFill: true) // Use the even-odd rule
+                        )
 
                     // 3. Optionally, draw the outline stroke for clarity
+                    // Stroking doesn't need eoFill.
                     scaledLetterPath
                          .stroke(Color.gray, lineWidth: 2)
 
