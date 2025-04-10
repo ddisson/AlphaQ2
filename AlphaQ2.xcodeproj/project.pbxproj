@@ -25,6 +25,8 @@
 		64884D782DA7898200A13332 /* RetryOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D762DA7898200A13332 /* RetryOverlayView.swift */; };
 		64884D792DA7898200A13332 /* SuccessOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D772DA7898200A13332 /* SuccessOverlayView.swift */; };
 		64884D7B2DA78C4600A13332 /* Level2TraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D7A2DA78C4600A13332 /* Level2TraceView.swift */; };
+		64884D7D2DA7AEE600A13332 /* Level3FreeDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D7C2DA7AEE600A13332 /* Level3FreeDrawView.swift */; };
+		64884D812DA7B04400A13332 /* ShapeRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D7E2DA7B04400A13332 /* ShapeRecognitionService.swift */; };
 		64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */; };
 		64B830682D9F8E8F003D8E9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830672D9F8E8F003D8E9E /* ContentView.swift */; };
 		64B8306A2D9F8E92003D8E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B830692D9F8E92003D8E9E /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		64884D762DA7898200A13332 /* RetryOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetryOverlayView.swift; path = AlphaQ2/Modules/Painting/Views/RetryOverlayView.swift; sourceTree = SOURCE_ROOT; };
 		64884D772DA7898200A13332 /* SuccessOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuccessOverlayView.swift; path = AlphaQ2/Modules/Painting/Views/SuccessOverlayView.swift; sourceTree = SOURCE_ROOT; };
 		64884D7A2DA78C4600A13332 /* Level2TraceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level2TraceView.swift; path = AlphaQ2/Modules/Painting/Views/Level2TraceView.swift; sourceTree = SOURCE_ROOT; };
+		64884D7C2DA7AEE600A13332 /* Level3FreeDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level3FreeDrawView.swift; path = AlphaQ2/Modules/Painting/Views/Level3FreeDrawView.swift; sourceTree = SOURCE_ROOT; };
+		64884D7E2DA7B04400A13332 /* ShapeRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeRecognitionService.swift; sourceTree = "<group>"; };
 		64B830622D9F8E8F003D8E9E /* AlphaQ2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaQ2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaQ2App.swift; sourceTree = "<group>"; };
 		64B830672D9F8E8F003D8E9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		64884D662DA7765300A13332 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64884D7C2DA7AEE600A13332 /* Level3FreeDrawView.swift */,
 				64884D7A2DA78C4600A13332 /* Level2TraceView.swift */,
 				64884D762DA7898200A13332 /* RetryOverlayView.swift */,
 				64884D772DA7898200A13332 /* SuccessOverlayView.swift */,
@@ -187,6 +192,22 @@
 				64884D732DA77B0400A13332 /* Extensions */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		64884D7F2DA7B04400A13332 /* ShapeRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				64884D7E2DA7B04400A13332 /* ShapeRecognitionService.swift */,
+			);
+			path = ShapeRecognition;
+			sourceTree = "<group>";
+		};
+		64884D802DA7B04400A13332 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				64884D7F2DA7B04400A13332 /* ShapeRecognition */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		64A18D082DA773E9004C5ABA /* Painting */ = {
@@ -236,6 +257,7 @@
 		64B830642D9F8E8F003D8E9E /* AlphaQ2 */ = {
 			isa = PBXGroup;
 			children = (
+				64884D802DA7B04400A13332 /* Services */,
 				64884D742DA77B0400A13332 /* Core */,
 				64884D5F2DA7751A00A13332 /* Data */,
 				64A18D0C2DA77478004C5ABA /* Views */,
@@ -425,7 +447,9 @@
 				64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */,
 				64884D692DA777A000A13332 /* DrawingCanvasView.swift in Sources */,
 				64884D642DA7764B00A13332 /* Line.swift in Sources */,
+				64884D812DA7B04400A13332 /* ShapeRecognitionService.swift in Sources */,
 				64884D6B2DA7784700A13332 /* ColorPaletteView.swift in Sources */,
+				64884D7D2DA7AEE600A13332 /* Level3FreeDrawView.swift in Sources */,
 				64884D792DA7898200A13332 /* SuccessOverlayView.swift in Sources */,
 				64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */,
 			);

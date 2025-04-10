@@ -36,11 +36,10 @@ struct Level2TraceView: View {
 
                     // 1. The tracing guide path (stroked, maybe dotted)
                     scaledTracePath
-                        // Try drawing a solid, thicker, blue line for maximum visibility
-                        .stroke(Color.blue, lineWidth: 5)
-                        // .stroke(Color.gray.opacity(0.7), lineWidth: 2)
-                        // .stroke(style: StrokeStyle(lineWidth: 2, dash: [5, 3])) // Dotted line style
-                        // .foregroundColor(.gray.opacity(0.7)) // foregroundColor is not needed when color is in stroke()
+                        // Restore the dashed line style
+                        .stroke(style: StrokeStyle(lineWidth: 2, dash: [5, 3])) // Dotted line style
+                        .foregroundColor(.gray.opacity(0.7))
+                        // .stroke(Color.blue, lineWidth: 5) // Debugging line
 
                     // 2. The Drawing Canvas, overlaid
                     DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
@@ -67,7 +66,22 @@ struct Level2TraceView: View {
                      // Recheck coverage if size changes after drawing started
                      checkTraceCoverage(viewSize: newSize)
                 }
-                // TODO (Phase 3.4.3): Add overlay modifiers and .disabled(levelCompleted)
+                // Add overlays for Retry/Success feedback
+                .overlay {
+                    if showRetryOverlay {
+                        RetryOverlayView { resetLevel() }
+                    }
+                }
+                .overlay {
+                    if levelCompleted {
+                        SuccessOverlayView { 
+                            // TODO: Implement actual navigation/proceed action
+                            print("Level 2 Completed! Proceeding...")
+                        }
+                    }
+                }
+                // Disable drawing if level is completed
+                .disabled(levelCompleted)
             }
 
             // Divider, Palette, and Check Button (similar to Level 1)
@@ -77,13 +91,12 @@ struct Level2TraceView: View {
                  ColorPaletteView(selectedColor: $selectedColor)
                  Spacer()
                  Button("Check") {
-                     // Placeholder for trace completion check (Phase 3.4.3)
-                     // triggerTraceCompletionCheck()
-                     print("Check button tapped (Level 2 - placeholder)")
+                     triggerTraceCompletionCheck()
                  }
                  .buttonStyle(.borderedProminent)
                  .padding(.trailing)
-                 // TODO (Phase 3.4.3): .disabled(levelCompleted)
+                 // Disable check button when level completed
+                 .disabled(levelCompleted)
             }
             .padding(.vertical, 5)
             .background(.thinMaterial)
@@ -184,6 +197,45 @@ struct Level2TraceView: View {
         print("Trace Check: Points On Path=\(pointsOnPath), Points Covered=\(pointsCovered), Percentage=\(tracePercentage)")
         
         // Next Step (3.4.3): Add logic here to check if tracePercentage >= threshold
+    }
+
+    /// Called when the 'Check' button is tapped.
+    private func triggerTraceCompletionCheck() {
+        guard !levelCompleted else { return }
+
+        // Get threshold from settings
+        let threshold = Double(persistenceService.loadUserSettings().traceThresholdPercentage)
+
+        print("Checking trace completion: Trace = \(tracePercentage)%, Threshold = \(threshold)%")
+
+        if tracePercentage >= threshold {
+            // Success!
+            print("Trace threshold met!")
+            withAnimation {
+                levelCompleted = true
+                showRetryOverlay = false
+            }
+            // TODO: Play success sound
+            // TODO: Mark level/letter as complete in PersistenceService if needed
+        } else {
+            // Failure
+            print("Trace threshold NOT met.")
+            withAnimation {
+                showRetryOverlay = true
+            }
+            // TODO: Play failure/try again sound
+        }
+    }
+
+    /// Resets the drawing and hides overlays for retry.
+    private func resetLevel() {
+        print("Resetting Level 2.")
+        withAnimation {
+            lines = []
+            tracePercentage = 0.0
+            showRetryOverlay = false
+            levelCompleted = false
+        }
     }
 
     /// Checks if a given point is covered by the user's drawn lines.
