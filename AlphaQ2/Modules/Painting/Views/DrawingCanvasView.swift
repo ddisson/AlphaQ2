@@ -48,9 +48,6 @@ struct DrawingCanvasView: View {
                         currentLine = Line() // Create a fresh Line struct
                     }
             )
-            // Optional: Add a background color or border to visualize the canvas area
-            .background(Color.white)
-            .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
         }
     }
 }

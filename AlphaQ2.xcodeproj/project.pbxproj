@@ -22,6 +22,9 @@
 		64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D6E2DA77A4600A13332 /* Level1FillView.swift */; };
 		64884D712DA77A8D00A13332 /* LetterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D702DA77A8D00A13332 /* LetterData.swift */; };
 		64884D752DA77B0400A13332 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D722DA77B0400A13332 /* Color+Extensions.swift */; };
+		64884D782DA7898200A13332 /* RetryOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D762DA7898200A13332 /* RetryOverlayView.swift */; };
+		64884D792DA7898200A13332 /* SuccessOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D772DA7898200A13332 /* SuccessOverlayView.swift */; };
+		64884D7B2DA78C4600A13332 /* Level2TraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D7A2DA78C4600A13332 /* Level2TraceView.swift */; };
 		64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */; };
 		64B830682D9F8E8F003D8E9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830672D9F8E8F003D8E9E /* ContentView.swift */; };
 		64B8306A2D9F8E92003D8E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B830692D9F8E92003D8E9E /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		64884D6E2DA77A4600A13332 /* Level1FillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level1FillView.swift; path = AlphaQ2/Modules/Painting/Views/Level1FillView.swift; sourceTree = SOURCE_ROOT; };
 		64884D702DA77A8D00A13332 /* LetterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterData.swift; sourceTree = "<group>"; };
 		64884D722DA77B0400A13332 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		64884D762DA7898200A13332 /* RetryOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetryOverlayView.swift; path = AlphaQ2/Modules/Painting/Views/RetryOverlayView.swift; sourceTree = SOURCE_ROOT; };
+		64884D772DA7898200A13332 /* SuccessOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuccessOverlayView.swift; path = AlphaQ2/Modules/Painting/Views/SuccessOverlayView.swift; sourceTree = SOURCE_ROOT; };
+		64884D7A2DA78C4600A13332 /* Level2TraceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level2TraceView.swift; path = AlphaQ2/Modules/Painting/Views/Level2TraceView.swift; sourceTree = SOURCE_ROOT; };
 		64B830622D9F8E8F003D8E9E /* AlphaQ2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaQ2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaQ2App.swift; sourceTree = "<group>"; };
 		64B830672D9F8E8F003D8E9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -155,6 +161,9 @@
 		64884D662DA7765300A13332 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64884D7A2DA78C4600A13332 /* Level2TraceView.swift */,
+				64884D762DA7898200A13332 /* RetryOverlayView.swift */,
+				64884D772DA7898200A13332 /* SuccessOverlayView.swift */,
 				64884D6E2DA77A4600A13332 /* Level1FillView.swift */,
 				64884D6C2DA779D600A13332 /* PaintingInteractionView.swift */,
 				64884D6A2DA7784700A13332 /* ColorPaletteView.swift */,
@@ -407,14 +416,17 @@
 				64884D712DA77A8D00A13332 /* LetterData.swift in Sources */,
 				64884D612DA7751A00A13332 /* PersistenceService.swift in Sources */,
 				64B830722D9F8E92003D8E9E /* AlphaQ2.xcdatamodeld in Sources */,
+				64884D7B2DA78C4600A13332 /* Level2TraceView.swift in Sources */,
 				64B830682D9F8E8F003D8E9E /* ContentView.swift in Sources */,
 				64884D602DA7751A00A13332 /* UserSettings.swift in Sources */,
+				64884D782DA7898200A13332 /* RetryOverlayView.swift in Sources */,
 				64884D6D2DA779D600A13332 /* PaintingInteractionView.swift in Sources */,
 				64884D752DA77B0400A13332 /* Color+Extensions.swift in Sources */,
 				64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */,
 				64884D692DA777A000A13332 /* DrawingCanvasView.swift in Sources */,
 				64884D642DA7764B00A13332 /* Line.swift in Sources */,
 				64884D6B2DA7784700A13332 /* ColorPaletteView.swift in Sources */,
+				64884D792DA7898200A13332 /* SuccessOverlayView.swift in Sources */,
 				64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

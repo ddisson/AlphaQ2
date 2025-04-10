@@ -17,6 +17,14 @@ struct Level1FillView: View {
     // State to track the current fill percentage (for display/debugging)
     @State private var fillPercentage: Double = 0.0
 
+    // State to control showing the 'Retry' overlay
+    @State private var showRetryOverlay: Bool = false
+    // State to indicate level completion (used to disable further drawing/show success)
+    @State private var levelCompleted: Bool = false
+
+    // Access to persistence service to get the threshold
+    private let persistenceService = PersistenceService()
+
     // Define grid density (higher means more points to check, more accuracy, more computation)
     private let gridDensity: CGFloat = 15 // Check every 15 points
 
@@ -60,13 +68,44 @@ struct Level1FillView: View {
                 // Calculate and store the scaled path when the view size is known
                 .onAppear { updateScaledPath(size: geometry.size) }
                 .onChange(of: geometry.size) { newSize in updateScaledPath(size: newSize) }
+                // Add overlays for Retry/Success feedback
+                .overlay {
+                    if showRetryOverlay {
+                        RetryOverlayView { // Action to perform on retry
+                            resetLevel()
+                        }
+                    }
+                }
+                .overlay {
+                    if levelCompleted {
+                        SuccessOverlayView { // Action to perform on success (e.g., navigate)
+                            // For now, just print a message
+                            print("Level 1 Completed! Proceeding...")
+                        }
+                    }
+                }
+                // Disable drawing if level is completed
+                .disabled(levelCompleted)
             }
 
-            // Divider and Color Palette (similar to PaintingInteractionView)
+            // Divider and Color Palette
             Divider()
-            ColorPaletteView(selectedColor: $selectedColor)
-                .padding()
-                .background(.thinMaterial)
+            HStack {
+                 Spacer()
+                 ColorPaletteView(selectedColor: $selectedColor)
+                 Spacer()
+                 // Add a "Check" button
+                 Button("Check") {
+                     // Manually trigger the check and success/failure logic
+                     // Simply call the check function
+                     triggerCompletionCheck()
+                 }
+                 .buttonStyle(.borderedProminent)
+                 .padding(.trailing)
+                 .disabled(levelCompleted) // Disable check if already completed
+            }
+            .padding(.vertical, 5) // Add some vertical padding to the Hstack
+            .background(.thinMaterial)
         }
         .navigationTitle("Level 1: Fill '\(letterData.id)'")
         .navigationBarTitleDisplayMode(.inline)
@@ -137,9 +176,52 @@ struct Level1FillView: View {
 
         print("Fill Check: Points Inside=\(pointsInsideLetter), Points Covered=\(pointsCovered), Percentage=\(fillPercentage)")
 
-        // Next Step (3.3.4): Add logic here to check if fillPercentage >= threshold
-        // let threshold = PersistenceService().loadUserSettings().fillThresholdPercentage // Example
-        // if fillPercentage >= Double(threshold) { ... show success ... }
+        // Note: Completion check is now done in `triggerCompletionCheck` when button is pressed
+        // or potentially automatically after drawing stops (could add .onEnded to gesture).
+    }
+
+    /// Called when the 'Check' button is tapped or potentially after drawing ends.
+    private func triggerCompletionCheck() {
+        // Prevent checking if already completed
+        guard !levelCompleted else { return }
+
+        // Ensure fill percentage is up-to-date (it should be from onChange)
+        // let currentFill = fillPercentage // Use the state variable
+
+        // Get threshold from settings
+        let threshold = Double(persistenceService.loadUserSettings().fillThresholdPercentage)
+
+        print("Checking completion: Fill = \(fillPercentage)%, Threshold = \(threshold)%")
+
+        if fillPercentage >= threshold {
+            // Success!
+            print("Threshold met!")
+            withAnimation {
+                levelCompleted = true
+                showRetryOverlay = false // Hide retry if it was showing
+            }
+            // TODO: Play success sound
+            // TODO: Mark letter as complete in PersistenceService
+            // persistenceService.completeLetter(letterData.id)
+        } else {
+            // Failure
+            print("Threshold NOT met.")
+            withAnimation {
+                showRetryOverlay = true
+            }
+            // TODO: Play failure/try again sound
+        }
+    }
+
+    /// Resets the drawing and hides overlays.
+    private func resetLevel() {
+        print("Resetting level.")
+        withAnimation {
+            lines = [] // Clear drawings
+            fillPercentage = 0.0
+            showRetryOverlay = false
+            levelCompleted = false // Ensure level is not marked complete
+        }
     }
 
     /// Checks if a given point lies close enough to any of the drawn lines.
