@@ -1,0 +1,124 @@
+# Art Style Guide – Alphabet Game Project
+
+## 1. Visual Theme & Mood
+
+**Pixar-Inspired Look**: Vibrant colors, friendly, cartoonish characters, soft shading, gentle gradients.
+
+**Overall Mood**: Whimsical, warm, and inviting. The goal is to spark curiosity and maintain a playful environment.
+
+---
+
+## 2. Color Palette
+
+### Primary Colors
+Bright, saturated hues that appeal to young children. Examples:
+
+- **Sky Blue**: `#6ECFF6`  
+- **Sunny Yellow**: `#FFE066`  
+- **Coral Red**: `#FF6F61`  
+- **Leaf Green**: `#8BC34A`  
+- **Lavender**: `#B39DDB`
+
+### Secondary/Accent Colors
+Softer tints/pastels of the above for backgrounds, highlights, and subtle variations.
+
+### Neutrals
+Soft grays and off-whites:
+
+- `#F4F4F4`  
+- `#CFCFCF`
+
+**Usage**: Ensure high contrast for text and interactive elements. Keep the interface cheerful and not overwhelming.
+
+---
+
+## 3. Typography
+
+### Primary Font
+A rounded, playful sans-serif (e.g., **Comic Neue**, **Fredoka One**, or similar):
+
+- Large, easy-to-read letters
+- Slightly thicker strokes to match the cartoon style
+
+### Secondary Font
+A light sans-serif (e.g., **Lato**, **Nunito**) for smaller text or sub-labels.
+
+### Font Sizes
+
+- **Titles/Headings**: ~36–48pt (big, bold)  
+- **Body Text**: ~24–28pt (still large for children’s readability)  
+- **Button Text**: ~24pt
+
+---
+
+## 4. Buttons & Interactive Elements
+
+- **Shape**: Rounded rectangles or pill-shaped, soft corners
+
+### Color States
+- **Default**: Bright color fill (Sky Blue, Coral Red, etc.) with white text  
+- **Hover/Pressed**: Slightly darker or lighter shade, subtle shadow  
+- **Disabled**: Grayed-out or lighter tone  
+
+**Icons on Buttons**: Large, flat illustrations with thick outlines.
+
+**Call to Action**: Use a bright accent color (e.g., **Coral Red** or **Sunny Yellow**) to stand out.
+
+---
+
+## 5. Iconography & Illustrations
+
+- **Icon Style**: Simple, cartoonish, consistent line weight, bright fill colors or pastel fills  
+- **Letter Characters**: Subtle faces, big eyes, expressive gestures—like Pixar characters  
+- **Shapes**: Rounded corners, soft angles  
+- **Outlines**: Medium thickness, slightly curved lines
+
+---
+
+## 6. Character/Letter Design
+
+### Expressive Letter Creatures
+- Each letter has a playful personality  
+- *Example*: Letter **A** wearing a little hat or shoes  
+- Gentle shading to make them pop
+
+### Supporting Characters
+- Friendly animals or objects that represent the letter (e.g., **Apple**, **Ant**) in a cuddly style
+
+---
+
+## 7. Animation & Effects
+
+- **Movement**: Bouncy, spring-like animations for transitions (inspired by childlike energy)  
+- **Particle Effects**: Sparkles, stardust, small confetti bursts on task completion or taps  
+- **Easing**: Soft ease-in-out for a playful, friendly feel
+
+---
+
+## 8. Voice & Tone
+
+- **In-App Text**: Simple language, warm, encouraging (e.g., “Great job!”, “Let’s try again!”)  
+- **Voiceover**: Friendly, enthusiastic narrator voice
+
+---
+
+## 9. Additional Guidelines
+
+- **Scaling**: All graphics should scale well for iPad resolution  
+- **Consistency**: Reuse colors, shapes, and fonts across all screens  
+- **Child-Friendly**: Large tap targets (minimum 9–10mm) for little fingers  
+- **Sound Design**: Soft, pleasant confirmation sounds and success jingles; minimal negative feedback
+
+---
+
+## 10. Implementation Tips
+
+- Keep file sizes optimized  
+- Use vector-based assets where possible for sharp scaling  
+- Test color contrasts to maintain clarity on iPad screens
+
+---
+
+## End of Style Guide
+
+Use this as the foundation for all screens, interactions, and assets throughout the Alphabet Game project.

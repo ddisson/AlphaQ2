@@ -1,0 +1,453 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# General Intro
+Below is final requireents for AlphaQuest Project. You are a senior SWIFT developer and can easily handle this task. 
+- Please ask me if you need any action and/or materials from me during step evaluation.
+- Please don't forget to update documentation accordingly to the steps you've completed. 
+
+# AlphaQuest: Product Requirements Document (PRD)
+
+## 1. Project Description
+AlphaQuest is an iPad game designed for a 3-year-old child to learn the alphabet. It uses interactive, multi-stage levels that teach letter recognition, pronunciation, and writing skills.
+
+### Key Product Goal
+- Teach children the alphabet by associating letters with words, practicing letter formation via multiple difficulty levels, and providing engaging, positive feedback.
+
+### MVP Scope
+- Focus on letters **‘A’** and **‘B’** initially.
+- Gradually expand to more letters after testing.
+
+---
+
+## 2. General Requirements
+1. **Platform:** iPad (iOS) only for now.  
+2. **Supported Devices/iOS Versions:** Standard iPad models, recent iOS versions.  
+3. **Orientation:** Landscape only.  
+4. **Target Audience:** 3-year-old children.  
+5. **Visual Style:** Pixar-style cartoonish look and feel.  
+6. **Accessibility:** No specific accessibility features required at this time (open to future enhancements).  
+7. **Offline vs. Online:** Local for MVP (no online/cloud saves).  
+
+---
+
+## 3. Gameplay Flow
+
+1. **Tutorial/Onboarding**  
+   - A short tutorial explaining how to tap letters, pick colors, and draw/paint.  
+   - Could be animated or voice-guided.  
+   - Option to **skip** for parents.
+
+2. **Letter Selection Menu**  
+   - Displays letters ‘A’ and ‘B’ (MVP), with placeholders for future letters.  
+   - Shows a **progress map** or **progress bar**: locked letters appear grey, completed letters in color.
+
+3. **Letter Introduction Screen**  
+   - Large letter (e.g., ‘A’) animates into the center.  
+   - Audio plays the letter’s sound (e.g., “Aah”).  
+   - “Next” navigates to the Word Association Screen.
+
+4. **Word Association Screen**  
+   - Four words beginning with the letter, each with an image (e.g., Apple, Ant, Airplane, Alligator for ‘A’).  
+   - Tapping an image plays the word’s pronunciation audio.  
+   - “Next” proceeds to the painting/tracing levels.
+
+5. **Painting/Tracing Levels**  
+   Each letter has **three** sequential sub-levels:
+
+   **Level 1: Fill Inside Hollow Letter**  
+   - A large, hollow outline of the letter.  
+   - Child chooses a color and paints inside the outline (mask-based so paint stays within the borders).  
+   - **Particle effects** or sparkles appear for correct painting.  
+   - Success if **at least 80%** of the area is filled.  
+   - On success, moves to Level 2; if under 80%, a friendly “Oops, let’s try again!” and a **Retry** button.
+
+   **Level 2: Trace Thin Letter Lines**  
+   - A thin, dotted or solid outline of the letter that must be traced.  
+   - Again, an 80% threshold for coverage.  
+   - “Retry” if insufficient; on success, moves to Level 3.
+
+   **Level 3: Free Draw (No Outline)**  
+   - Blank screen + color palette.  
+   - Child attempts to draw/write the letter from memory.  
+   - A **lenient shape recognition** checks if it resembles the letter (default 80% threshold).  
+   - There is a button 'Check'. On click it force the shape recognition check.
+   - “Retry” if incorrect; on success, proceeds to the congratulations screen.
+
+6. **Congratulations Screen**  
+   - Displays “You did it!” with celebratory animations/confetti. 
+   - Displays Play sound celebration (random from pack)
+   - Updates the **progress bar** or **progress map** for that letter.  
+   - Allows navigation to the letter selection menu or the next letter.
+
+---
+
+## 4. Audio and Sound
+- **Background Music:** Cheerful, loopable tune in Pixar-like style (provided later).  
+- **Voiceovers:** For letters, words, feedback (e.g., “Great job!” “Try again!”).  
+- **Sound Effects:** For painting strokes, success, failure.
+
+---
+
+## 5. Scoring/Rewards
+- **Progress Bar / Progress Map:**  
+  - Fills up as letters are completed.  
+  - Each letter displayed as a milestone (colored if completed, grey/locked if not).
+- **Sticker Collection (Future):** Could be added if more rewards are needed.
+
+---
+
+## 6. Parent Settings
+- **PIN or hidden button** to access.  
+- Adjust fill threshold (e.g., 80% → 70%).  
+- Adjust shape recognition sensitivity.  
+- Toggle music on/off.  
+- Reset progress.
+
+---
+
+## 7. Additional Considerations
+- **Future Letters & Localization:**  
+  - After MVP testing, add more letters systematically.  
+  - Eventually add languages like Russian.  
+- **Art/Animation Compliance:**  
+  - Use original or licensed Pixar-like style art.  
+- **Data Persistence:**  
+  - `UserDefaults` for local storage of completed letters and thresholds.  
+- **Error Feedback:**  
+  - Always friendly and simple: “Oops, let’s try again!” with a fun animation.  
+
+---
+
+## 8. Documentation References
+| **Area**             | **Documentation Link**          | **Relevance**                                                         |
+|----------------------|----------------------------------|-----------------------------------------------------------------------|
+| General Development  | Apple Developer Documentation    | Foundation for iOS app dev with Swift/Xcode.                          |
+| UI Design            | UIKit, SwiftUI                   | Building screens, handling touch, and animations.                     |
+| Audio Handling       | Audio, AVAudioSession            | Playing letter sounds, words, and music.                              |
+| Drawing              | iOS Drawing Concepts             | Handling touch events, painting, and shape recognition logic.         |
+| Shape Recognition    | Custom Logic or Vision framework | Implementing or referencing custom solutions for letter recognition.  |
+| Data Persistence     | UserDefaults                     | Storing local progress (letters completed, fill thresholds).          |
+| Animations           | SwiftUI Animations or UIKit Animations | Enhancing letter intros, transitions, and success effects.     |
+
+---
+
+# Step-by-Step Development Plan
+
+Below is a high-level plan to guide your development team through each phase.
+
+## 1. Finalize Requirements and Architecture
+
+### Tasks
+1. **Review PRD & Clarify Requirements**  
+   - Ensure all team members understand the feature set (tutorial, 3-level flow for painting/tracing, etc.).
+2. **Define Technical Stack & Architecture**  
+   - SwiftUI vs. UIKit for UI.  
+   - Decide on approach for touch drawing, shape recognition (custom vs. Apple’s Vision).
+3. **Plan for Future Expandability**  
+   - Ensure code can easily add new letters.  
+   - Consider how future localization will be handled.
+
+### Materials to Produce
+- **Approved PRD** (this document).  
+- **Architecture Diagram** (modules: UI, drawing engine, shape recognition, data storage).  
+- **Technical Specs** on 3rd-party libraries or frameworks.
+
+---
+
+## 2. Create UX/UI Wireframes and Art Style Guides
+
+### Tasks
+1. **Wireframe All Screens**  
+   - Main Menu (with progress map), Tutorial, Letter Introduction, Word Association, 3 painting/tracing levels, Congratulations, Parent Settings.
+2. **Establish Pixar-Style Look & Feel**  
+   - Design references (colors, fonts, iconography).
+3. **Particle Effects / Animations**  
+   - Outline how sparkles/confetti appear during painting and on success.
+
+### Materials to Produce
+- **Low-Fidelity Wireframes** (paper or digital sketches).
+- **High-Fidelity Mockups** with color schemes, fonts, buttons.
+- **Style Guide** (Pixar-like visuals).
+- **Animation Samples** (sparkles, confetti).
+
+---
+
+## 3. Develop Core Functionality (MVP Prototype)
+
+This document provides a detailed, step-by-step breakdown of the tasks required for developing the MVP prototype, focusing on the core functionality for our interactive drawing and letter recognition features.
+
+---
+
+## Phase 3.1: Project Setup and Initial Scaffolding
+
+### 3.1.1 Project Initialization
+- **Task:** Set up a new project repository and branch (e.g., “MVP-Prototyping”).
+- **Deliverable:** Project skeleton with basic folder structure (e.g., separate folders for UI, drawing, audio, and models).
+- **Testing:** Confirm that the project builds successfully in Xcode.
+
+### 3.1.2 Establish Architecture & Dependencies
+- **Task:** Define and document the architecture (e.g., MVC/MVVM pattern) with clear module boundaries:
+  - UI Components
+  - Drawing Engine
+  - Shape Recognition Module
+  - Data Persistence
+- **Deliverable:** Architecture diagram and a short document outlining major modules.
+- **Testing:** Conduct a code review to ensure that the architecture is agreed upon by the team.
+
+### 3.1.3 Data Persistence Setup
+- **Task:** Implement basic data persistence using `UserDefaults` for storing progress and settings.
+- **Deliverable:** A utility class or extension for saving and retrieving progress.
+- **Testing:** Write unit tests to simulate saving and retrieving progress data.
+
+---
+
+## Phase 3.2: Implementing the Touch Drawing & Color Palette System
+
+### 3.2.1 Canvas View for Drawing
+- **Task:** Create a custom view (or integrate a library) to support finger-based drawing.
+- **Deliverable:** A prototype canvas that registers touch events and draws corresponding strokes.
+- **Testing:** Manual testing on iPad simulator/device to ensure drawing accuracy and responsiveness.
+
+### 3.2.2 Color Palette UI
+- **Task:** Develop a simple color palette that allows users to select colors.
+- **Deliverable:** Selectable color buttons that update the active drawing color.
+- **Testing:** Verify that tapping each color correctly changes the drawing color.
+
+### 3.2.3 Integration of Drawing and Palette
+- **Task:** Integrate the canvas view and the color palette into one screen.
+- **Deliverable:** A complete view demonstrating interactive drawing with color selection.
+- **Testing:** End-to-end manual testing to ensure drawn strokes appear in the correct color.
+
+---
+
+## Phase 3.3: Level 1 – Fill Inside Hollow Letter
+
+### 3.3.1 Render Hollow Letter Outline
+- **Task:** Create a view that displays a hollow outline of the letter (e.g., ‘A’).
+- **Deliverable:** An image or vector path of the letter that acts as a mask for drawing.
+- **Testing:** Confirm that the hollow outline is correctly placed and visible.
+
+### 3.3.2 Implement Fill Restriction (Masking)
+- **Task:** Set up masking so that drawing only appears within the letter borders.
+- **Deliverable:** A mask layer or clipping path limiting the drawing area.
+- **Testing:** Test by drawing on the canvas to ensure paint remains inside the borders.
+
+### 3.3.3 80% Fill Detection Logic
+- **Task:** Implement a function that calculates the filled area compared to the hollow letter mask.
+- **Deliverable:** A module or function that returns a success state when at least 80% of the area is filled.
+- **Testing:** Unit tests and simulations using mock data representing various fill levels.
+
+### 3.3.4 Success/Failure Flow
+- **Task:** Add logic for “Success” (proceed) and “Retry” states based on fill percentage.
+- **Deliverable:** UI elements (buttons/messages) allowing the child to retry or advance.
+- **Testing:** Manual testing to verify correct behavior when thresholds are met or not met.
+
+---
+
+## Phase 3.4: Level 2 – Tracing Thin Letter Lines
+
+### 3.4.1 Display Tracing Outline
+- **Task:** Render the letter’s outline using a thin, possibly dotted, line for tracing.
+- **Deliverable:** A separate view or asset displaying the thin tracing guide.
+- **Testing:** Confirm the outline is visible and correctly aligned.
+
+### 3.4.2 Stroke Tracking for Tracing
+- **Task:** Implement logic to verify that the child is accurately tracing over the provided line.
+- **Deliverable:** A system that evaluates whether the drawn strokes closely follow the tracing guide (80% threshold).
+- **Testing:** Manual tests using simulated strokes, with logging for analysis.
+
+### 3.4.3 Feedback and Navigation for Tracing Level
+- **Task:** Integrate success (advance to Level 3) and failure (“Retry”) flows.
+- **Deliverable:** Navigation components and visual feedback similar to Level 1, tailored for tracing.
+- **Testing:** Manual testing with different tracing patterns to verify threshold calculations.
+
+---
+
+## Phase 3.5: Level 3 – Free Draw (No Outline) with Shape Recognition
+
+### 3.5.1 Blank Canvas for Free Drawing
+- **Task:** Set up a blank canvas with the color palette for free drawing.
+- **Deliverable:** A clear drawing view with no guiding lines.
+- **Testing:** Verify manually that the canvas is correctly blank and responsive.
+
+### 3.5.2 Implement Shape Recognition Logic
+- **Task:** Develop or integrate a lenient shape recognition algorithm to compare the drawing with a reference of the letter.
+  - Option to use custom logic or Apple’s Vision framework.
+- **Deliverable:** A module that assesses whether the drawing resembles the target letter based on an 80% matching threshold.
+- **Testing:** Write unit tests with sample input data; perform manual tests with actual user drawings.
+
+### 3.5.3 Success/Failure Flow for Free Draw
+- **Task:** Provide visual/audio feedback and appropriate navigation based on the recognition result.
+- **Deliverable:** “Retry” and “Success” buttons/messages for user feedback.
+- **Testing:** Verify through manual tests that both success and failure cases are handled properly.
+
+---
+
+## Phase 3.6: Implement Tutorial/Onboarding Flow
+
+### 3.6.1 Design Tutorial Screens
+- **Task:** Create a sequence of onboarding screens demonstrating how to draw, pick a color, and interact with the UI.
+- **Deliverable:** A storyboard or flow diagram for the tutorial.
+- **Testing:** Internal review to ensure clarity and effectiveness.
+
+### 3.6.2 Integrate Tutorial with Main Flow
+- **Task:** Link the tutorial screens to the initial “Letter Introduction” screen.
+- **Deliverable:** Seamless transition from tutorial to the main MVP workflow, including a “Skip” option.
+- **Testing:** Manual walkthrough to verify navigation and overall flow.
+
+---
+
+## Phase 3.7: Integrate Audio and Real-Time Feedback
+
+### 3.7.1 Audio Integration for Screens
+- **Task:** Incorporate audio files for letter pronunciations, word associations, and feedback.
+- **Deliverable:** Integrate AVAudioSession for playing sounds at appropriate times without overlap.
+- **Testing:** Confirm on-device audio playback works smoothly.
+
+### 3.7.2 Visual and Audio Feedback Effects
+- **Task:** Implement particle effects (e.g., sparkles, confetti) that trigger on successful fills or tracing.
+- **Deliverable:** Animations enhancing the user experience upon successful completion of tasks.
+- **Testing:** Manual testing to ensure visual/audio effects are appealing and non-distracting.
+
+---
+
+## Phase 3.8: End-to-End Integration Testing
+
+### 3.8.1 Full Flow Testing for the Letter “A”
+- **Task:** Conduct a complete walkthrough, starting from the tutorial through all three drawing levels for letter “A.”
+- **Deliverable:** A complete, playable MVP prototype for letter “A.”
+- **Testing:** Manual, end-to-end testing (preferably with a real user) to identify UX friction and ensure seamless transitions.
+
+### 3.8.2 Feedback and Iterative Improvement
+- **Task:** Collect testing feedback and make adjustments to fill thresholds, shape recognition logic, and UI interactions as needed.
+- **Deliverable:** Revised versions of the MVP prototype incorporating tester feedback.
+- **Testing:** Iterative testing cycles to refine functionality and user experience.
+
+---
+
+# Order of Implementation and Testing
+
+1. **Foundation Setup (Phase 3.1):**  
+   - Establish project structure, architecture, and persistence.
+
+2. **Core Interaction (Phase 3.2):**  
+   - Implement the drawing engine and color palette, then integrate them.
+
+3. **Sequential Level Development:**
+   - **Level 1 (Phase 3.3):** Implement hollow fill functionality.
+   - **Level 2 (Phase 3.4):** Develop tracing functionality.
+   - **Level 3 (Phase 3.5):** Implement free drawing with shape recognition.
+
+4. **Tutorial Integration (Phase 3.6):**  
+   - Develop the onboarding flow to ensure users understand the core functionality.
+
+5. **Audio & Feedback Integration (Phase 3.7):**  
+   - Add audio cues and visual effects once the core interactions are stable.
+
+6. **End-to-End Testing (Phase 3.8):**  
+   - Execute full user flow tests and iterate based on feedback.
+
+### Materials to Produce
+- **Prototype Code** in Swift/SwiftUI/UIKit.  
+- **Placeholder Art & Audio** for quick testing.  
+- **Drawing Mask Assets** (vector path for letter outlines).  
+- **Recognition Script** or logic for letter shape.
+
+---
+
+## 4. Integrate Visual & Audio Assets
+
+### Tasks
+1. **Pixar-Style Artwork**  
+   - Swap placeholder UI elements with final images, backgrounds, animations.
+2. **Voiceovers & Sound Effects**  
+   - Integrate final recordings (letter pronunciations, words, feedback).
+3. **Particle/Confetti Effects**  
+   - Program sparkles for painting success and confetti on completion.
+
+### Materials to Produce
+- **Final Artwork** (backgrounds, letter assets).  
+- **Audio Files** (voiceovers, music, SFX).  
+- **Animation Assets** (Lottie or SwiftUI-based animations).
+
+---
+
+## 5. Build Out Remaining Features & Polish
+
+### Tasks
+1. **Implement Letter ‘B’**  
+   - Word association, 3-level painting/tracing flow.
+2. **Menu/Progress Map**  
+   - Track and display letter completion (locked/unlocked).
+3. **Parent Settings**  
+   - Adjust fill thresholds, shape recognition sensitivity.
+   - Music toggle, reset progress.
+4. **Error Feedback & “Retry”**  
+   - Child-friendly messaging for each sub-level.
+
+### Materials to Produce
+- **Assets for ‘B’** (outlines, words, images).  
+- **Progress Map Icons** (locked/unlocked states).
+- **Parent Settings UI** (if not already designed).
+
+---
+
+## 6. Testing & Quality Assurance
+
+### Tasks
+1. **Functional Testing**  
+   - Verify painting, tracing, shape recognition, transitions, parent settings.
+2. **Performance Testing**  
+   - Ensure smooth animations, no audio lag on standard iPad hardware.
+3. **User Testing**  
+   - Watch a real 3-year-old use the prototype.
+   - Adjust thresholds or interactions based on feedback.
+4. **Bug Fixing & Polishing**  
+   - Address discovered issues or UI/UX friction.
+
+### Materials to Produce
+- **Test Cases** (functional & performance).  
+- **User Feedback Logs** from parents/children.  
+- **Bug-Tracking** entries (Jira, Trello, etc.).
+
+---
+
+## 7. Final Launch Preparations
+
+### Tasks
+1. **App Store Readiness** (if publishing)  
+   - Bundle ID, icons, iPad screenshots.
+   - Listing (title, description, keywords).
+2. **Finalize Documentation**  
+   - Readme or in-app “Help” for parents.
+3. **Localization (Future)**  
+   - Plan structure for Russian or other languages (not MVP).
+
+### Materials to Produce
+- **App Icon & Screenshots** for store listing.  
+- **Store Description** (if distributed publicly).
+
+---
+
+## 8. Post-Launch & Future Updates
+
+### Tasks
+1. **Gather User Feedback**  
+   - Adjust fill thresholds or shape recognition if frustration occurs.
+2. **Add New Letters**  
+   - Use the same 3-level approach for the rest of the alphabet.
+3. **Enhance Rewards**  
+   - Stickers, star ratings, etc.
+4. **Add Multi-Language**  
+   - Integrate additional localizations (e.g., Russian).
+
+### Materials to Produce
+- **Feedback Logs** & **Plan for Next Letters**.  
+- **Localization Assets** (translations, voice recordings).
+
+---
+
+**End of File**

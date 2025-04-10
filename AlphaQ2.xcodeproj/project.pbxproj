@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640CFDF32DA50C1000515C21 /* Congratulations Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDED2DA50C1000515C21 /* Congratulations Screen.png */; };
+		640CFDF42DA50C1000515C21 /* Parent Settings Screen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDEE2DA50C1000515C21 /* Parent Settings Screen.jpeg */; };
+		640CFDF52DA50C1000515C21 /* Letter Selection Menu.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDEF2DA50C1000515C21 /* Letter Selection Menu.jpeg */; };
+		640CFDF62DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDF02DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg */; };
+		640CFDF72DA50C1000515C21 /* Word Association Screen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDF12DA50C1000515C21 /* Word Association Screen.jpeg */; };
+		640CFDF82DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDF22DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg */; };
+		64884D602DA7751A00A13332 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D5B2DA7751A00A13332 /* UserSettings.swift */; };
+		64884D612DA7751A00A13332 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D5D2DA7751A00A13332 /* PersistenceService.swift */; };
+		64884D642DA7764B00A13332 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D622DA7764B00A13332 /* Line.swift */; };
+		64884D692DA777A000A13332 /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D682DA777A000A13332 /* DrawingCanvasView.swift */; };
+		64884D6B2DA7784700A13332 /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D6A2DA7784700A13332 /* ColorPaletteView.swift */; };
+		64884D6D2DA779D600A13332 /* PaintingInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D6C2DA779D600A13332 /* PaintingInteractionView.swift */; };
+		64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D6E2DA77A4600A13332 /* Level1FillView.swift */; };
+		64884D712DA77A8D00A13332 /* LetterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D702DA77A8D00A13332 /* LetterData.swift */; };
+		64884D752DA77B0400A13332 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D722DA77B0400A13332 /* Color+Extensions.swift */; };
 		64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */; };
 		64B830682D9F8E8F003D8E9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830672D9F8E8F003D8E9E /* ContentView.swift */; };
 		64B8306A2D9F8E92003D8E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B830692D9F8E92003D8E9E /* Assets.xcassets */; };
@@ -36,6 +51,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		640CFDED2DA50C1000515C21 /* Congratulations Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Congratulations Screen.png"; path = "AlphaQ2/Assets.xcassets/mockups/Congratulations Screen.png"; sourceTree = SOURCE_ROOT; };
+		640CFDEE2DA50C1000515C21 /* Parent Settings Screen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Parent Settings Screen.jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Parent Settings Screen.jpeg"; sourceTree = SOURCE_ROOT; };
+		640CFDEF2DA50C1000515C21 /* Letter Selection Menu.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Letter Selection Menu.jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Letter Selection Menu.jpeg"; sourceTree = SOURCE_ROOT; };
+		640CFDF02DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Painting:Tracing Level Screen (Unified Design).jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Painting:Tracing Level Screen (Unified Design).jpeg"; sourceTree = SOURCE_ROOT; };
+		640CFDF12DA50C1000515C21 /* Word Association Screen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Word Association Screen.jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Word Association Screen.jpeg"; sourceTree = SOURCE_ROOT; };
+		640CFDF22DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Tutorial:Onboarding Screen.jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Tutorial:Onboarding Screen.jpeg"; sourceTree = SOURCE_ROOT; };
+		64884D5B2DA7751A00A13332 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		64884D5D2DA7751A00A13332 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		64884D622DA7764B00A13332 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		64884D682DA777A000A13332 /* DrawingCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingCanvasView.swift; path = AlphaQ2/Modules/Painting/Views/DrawingCanvasView.swift; sourceTree = SOURCE_ROOT; };
+		64884D6A2DA7784700A13332 /* ColorPaletteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPaletteView.swift; path = AlphaQ2/Modules/Painting/Views/ColorPaletteView.swift; sourceTree = SOURCE_ROOT; };
+		64884D6C2DA779D600A13332 /* PaintingInteractionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaintingInteractionView.swift; path = AlphaQ2/Modules/Painting/Views/PaintingInteractionView.swift; sourceTree = SOURCE_ROOT; };
+		64884D6E2DA77A4600A13332 /* Level1FillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level1FillView.swift; path = AlphaQ2/Modules/Painting/Views/Level1FillView.swift; sourceTree = SOURCE_ROOT; };
+		64884D702DA77A8D00A13332 /* LetterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterData.swift; sourceTree = "<group>"; };
+		64884D722DA77B0400A13332 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		64B830622D9F8E8F003D8E9E /* AlphaQ2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaQ2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaQ2App.swift; sourceTree = "<group>"; };
 		64B830672D9F8E8F003D8E9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +105,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		640CFDEC2DA50BF400515C21 /* Mockups */ = {
+			isa = PBXGroup;
+			children = (
+				640CFDED2DA50C1000515C21 /* Congratulations Screen.png */,
+				640CFDEF2DA50C1000515C21 /* Letter Selection Menu.jpeg */,
+				640CFDF02DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg */,
+				640CFDEE2DA50C1000515C21 /* Parent Settings Screen.jpeg */,
+				640CFDF22DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg */,
+				640CFDF12DA50C1000515C21 /* Word Association Screen.jpeg */,
+			);
+			path = Mockups;
+			sourceTree = "<group>";
+		};
+		64884D5C2DA7751A00A13332 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64884D702DA77A8D00A13332 /* LetterData.swift */,
+				64884D5B2DA7751A00A13332 /* UserSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64884D5E2DA7751A00A13332 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				64884D5D2DA7751A00A13332 /* PersistenceService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		64884D5F2DA7751A00A13332 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				64884D5C2DA7751A00A13332 /* Models */,
+				64884D5E2DA7751A00A13332 /* Persistence */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		64884D632DA7764B00A13332 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64884D622DA7764B00A13332 /* Line.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64884D662DA7765300A13332 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64884D6E2DA77A4600A13332 /* Level1FillView.swift */,
+				64884D6C2DA779D600A13332 /* PaintingInteractionView.swift */,
+				64884D6A2DA7784700A13332 /* ColorPaletteView.swift */,
+				64884D682DA777A000A13332 /* DrawingCanvasView.swift */,
+			);
+			name = Views;
+			path = AlphaQ2/Modules/Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		64884D732DA77B0400A13332 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				64884D722DA77B0400A13332 /* Color+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		64884D742DA77B0400A13332 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				64884D732DA77B0400A13332 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		64A18D082DA773E9004C5ABA /* Painting */ = {
+			isa = PBXGroup;
+			children = (
+				64884D662DA7765300A13332 /* Views */,
+				64884D632DA7764B00A13332 /* Models */,
+			);
+			path = Painting;
+			sourceTree = "<group>";
+		};
+		64A18D092DA773E9004C5ABA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				64A18D082DA773E9004C5ABA /* Painting */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		64A18D0C2DA77478004C5ABA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		64B830592D9F8E8F003D8E9E = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +227,16 @@
 		64B830642D9F8E8F003D8E9E /* AlphaQ2 */ = {
 			isa = PBXGroup;
 			children = (
+				64884D742DA77B0400A13332 /* Core */,
+				64884D5F2DA7751A00A13332 /* Data */,
+				64A18D0C2DA77478004C5ABA /* Views */,
+				64A18D092DA773E9004C5ABA /* Modules */,
 				64B830652D9F8E8F003D8E9E /* AlphaQ2App.swift */,
 				64B830672D9F8E8F003D8E9E /* ContentView.swift */,
 				64B830692D9F8E92003D8E9E /* Assets.xcassets */,
 				64B8306E2D9F8E92003D8E9E /* Persistence.swift */,
 				64B830702D9F8E92003D8E9E /* AlphaQ2.xcdatamodeld */,
+				640CFDEC2DA50BF400515C21 /* Mockups */,
 				64B8306B2D9F8E92003D8E9E /* Preview Content */,
 			);
 			path = AlphaQ2;
@@ -237,8 +371,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640CFDF62DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg in Resources */,
+				640CFDF52DA50C1000515C21 /* Letter Selection Menu.jpeg in Resources */,
 				64B8306D2D9F8E92003D8E9E /* Preview Assets.xcassets in Resources */,
 				64B8306A2D9F8E92003D8E9E /* Assets.xcassets in Resources */,
+				640CFDF82DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg in Resources */,
+				640CFDF42DA50C1000515C21 /* Parent Settings Screen.jpeg in Resources */,
+				640CFDF32DA50C1000515C21 /* Congratulations Screen.png in Resources */,
+				640CFDF72DA50C1000515C21 /* Word Association Screen.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +404,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				64B8306F2D9F8E92003D8E9E /* Persistence.swift in Sources */,
+				64884D712DA77A8D00A13332 /* LetterData.swift in Sources */,
+				64884D612DA7751A00A13332 /* PersistenceService.swift in Sources */,
 				64B830722D9F8E92003D8E9E /* AlphaQ2.xcdatamodeld in Sources */,
 				64B830682D9F8E8F003D8E9E /* ContentView.swift in Sources */,
+				64884D602DA7751A00A13332 /* UserSettings.swift in Sources */,
+				64884D6D2DA779D600A13332 /* PaintingInteractionView.swift in Sources */,
+				64884D752DA77B0400A13332 /* Color+Extensions.swift in Sources */,
+				64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */,
+				64884D692DA777A000A13332 /* DrawingCanvasView.swift in Sources */,
+				64884D642DA7764B00A13332 /* Line.swift in Sources */,
+				64884D6B2DA7784700A13332 /* ColorPaletteView.swift in Sources */,
 				64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
