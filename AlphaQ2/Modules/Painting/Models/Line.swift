@@ -6,7 +6,7 @@ import AppKit // For NSColor
 import SwiftUI // For CGPoint, Color
 
 /// Represents a single continuous line drawn by the user.
-struct Line: Identifiable {
+struct Line: Identifiable, Equatable {
     let id = UUID()
     var points: [CGPoint] = []
     // Add properties for color and line width

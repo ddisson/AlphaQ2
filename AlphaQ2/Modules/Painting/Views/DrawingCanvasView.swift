@@ -2,12 +2,12 @@ import SwiftUI
 
 /// A view that allows the user to draw continuous lines with their finger.
 struct DrawingCanvasView: View {
-    // State variable to hold all the completed lines
-    @State private var lines: [Line] = []
-    // State variable to hold the line currently being drawn
+    // Binding to the array of lines managed by the parent view
+    @Binding var lines: [Line]
+    // State variable to hold the line currently being drawn (local to this view)
     @State private var currentLine = Line()
 
-    // Bindings to the properties controlled by the parent view (PaintingInteractionView)
+    // Bindings to the properties controlled by the parent view (PaintingInteractionView or Level1FillView)
     @Binding var selectedColor: Color
     @Binding var selectedLineWidth: CGFloat
 
@@ -60,7 +60,7 @@ struct DrawingCanvasView_Previews: PreviewProvider {
     @State static var previewWidth: CGFloat = 5.0
 
     static var previews: some View {
-        DrawingCanvasView(selectedColor: $previewColor, selectedLineWidth: $previewWidth)
+        DrawingCanvasView(lines: .constant([]), selectedColor: $previewColor, selectedLineWidth: $previewWidth)
             .frame(width: 300, height: 400)
     }
 } 
