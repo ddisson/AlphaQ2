@@ -5,8 +5,9 @@ struct LetterData: Identifiable {
     let id: String // The letter itself, e.g., "A", "B"
     let hollowPath: Path // The Path defining the hollow outline for Level 1
     let tracePath: Path // The Path defining the tracing guide line for Level 2
+    let pronunciationAudioFilename: String // Filename for the letter sound (e.g., "letter_a_sound.mp3")
+    let associatedWords: [WordInfo] // Array of words associated with the letter
     // Add other properties later as needed:
-    // var associatedWords: [WordInfo]
     // var pronunciationAudio: String
     // ... etc.
 }
@@ -19,7 +20,16 @@ struct LetterDataProvider {
     static func data(for letterId: String) -> LetterData? {
         switch letterId.uppercased() {
         case "A":
-            return LetterData(id: "A", hollowPath: createHollowAPath(), tracePath: createTraceAPath())
+            return LetterData(id: "A", 
+                              hollowPath: createHollowAPath(), 
+                              tracePath: createTraceAPath(), 
+                              pronunciationAudioFilename: "letter_a_sound.mp3",
+                              associatedWords: [
+                                WordInfo(word: "Apple", imageName: "word_img_apple", audioFilename: "word_apple_sound.mp3"),
+                                WordInfo(word: "Ant", imageName: "word_img_ant", audioFilename: "word_ant_sound.mp3"),
+                                WordInfo(word: "Airplane", imageName: "word_img_airplane", audioFilename: "word_airplane_sound.mp3"),
+                                WordInfo(word: "Alligator", imageName: "word_img_alligator", audioFilename: "word_alligator_sound.mp3")
+                              ])
         // Add case for "B" later
         default:
             return nil

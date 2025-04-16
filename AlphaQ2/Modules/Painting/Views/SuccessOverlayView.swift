@@ -24,6 +24,10 @@ struct SuccessOverlayView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.ultraThinMaterial)
+        // Add the confetti effect as an overlay
+        .overlay(
+            ConfettiView()
+        )
         .transition(.opacity.combined(with: .scale))
         // Add placeholder for particle effects later
         // .overlay(ParticleView().allowsHitTesting(false))

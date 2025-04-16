@@ -21,6 +21,10 @@
 		645C982B2DAF5E1400280A3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C98292DAF5E1400280A3E /* ContentView.swift */; };
 		645C982F2DAF5E4C00280A3E /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C982C2DAF5E4C00280A3E /* MainMenuView.swift */; };
 		645C98322DAF5E6000280A3E /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C98302DAF5E6000280A3E /* AudioService.swift */; };
+		645C98372DAF653300280A3E /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C98332DAF653300280A3E /* ConfettiView.swift */; };
+		645C983D2DAF69F300280A3E /* LetterIntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C983A2DAF69F300280A3E /* LetterIntroductionView.swift */; };
+		645C983F2DAF6E1000280A3E /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C983E2DAF6E1000280A3E /* WordInfo.swift */; };
+		645C98432DAF6E2A00280A3E /* WordAssociationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C98402DAF6E2A00280A3E /* WordAssociationView.swift */; };
 		64884D602DA7751A00A13332 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D5B2DA7751A00A13332 /* UserSettings.swift */; };
 		64884D612DA7751A00A13332 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D5D2DA7751A00A13332 /* PersistenceService.swift */; };
 		64884D642DA7764B00A13332 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D622DA7764B00A13332 /* Line.swift */; };
@@ -78,6 +82,10 @@
 		645C98292DAF5E1400280A3E /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		645C982C2DAF5E4C00280A3E /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		645C98302DAF5E6000280A3E /* AudioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		645C98332DAF653300280A3E /* ConfettiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		645C983A2DAF69F300280A3E /* LetterIntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterIntroductionView.swift; sourceTree = "<group>"; };
+		645C983E2DAF6E1000280A3E /* WordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
+		645C98402DAF6E2A00280A3E /* WordAssociationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAssociationView.swift; sourceTree = "<group>"; };
 		64884D5B2DA7751A00A13332 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		64884D5D2DA7751A00A13332 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		64884D622DA7764B00A13332 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -196,9 +204,81 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
+		645C98342DAF653300280A3E /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				645C98332DAF653300280A3E /* ConfettiView.swift */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		645C98352DAF653300280A3E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				645C98342DAF653300280A3E /* Effects */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		645C98362DAF653300280A3E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				645C98352DAF653300280A3E /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		645C98382DAF670300280A3E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				645C98392DAF672100280A3E /* Audio */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		645C98392DAF672100280A3E /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		645C983B2DAF69F300280A3E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				645C983A2DAF69F300280A3E /* LetterIntroductionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		645C983C2DAF69F300280A3E /* LetterIntroduction */ = {
+			isa = PBXGroup;
+			children = (
+				645C983B2DAF69F300280A3E /* Views */,
+			);
+			path = LetterIntroduction;
+			sourceTree = "<group>";
+		};
+		645C98412DAF6E2A00280A3E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				645C98402DAF6E2A00280A3E /* WordAssociationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		645C98422DAF6E2A00280A3E /* WordAssociation */ = {
+			isa = PBXGroup;
+			children = (
+				645C98412DAF6E2A00280A3E /* Views */,
+			);
+			path = WordAssociation;
+			sourceTree = "<group>";
+		};
 		64884D5C2DA7751A00A13332 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				645C983E2DAF6E1000280A3E /* WordInfo.swift */,
 				64884D702DA77A8D00A13332 /* LetterData.swift */,
 				64884D5B2DA7751A00A13332 /* UserSettings.swift */,
 			);
@@ -291,6 +371,9 @@
 		64A18D092DA773E9004C5ABA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				645C98422DAF6E2A00280A3E /* WordAssociation */,
+				645C983C2DAF69F300280A3E /* LetterIntroduction */,
+				645C98362DAF653300280A3E /* Shared */,
 				645C982E2DAF5E4C00280A3E /* LetterSelection */,
 				645C98232DAF5AD000280A3E /* Tutorial */,
 				64A18D082DA773E9004C5ABA /* Painting */,
@@ -321,6 +404,7 @@
 		64B830642D9F8E8F003D8E9E /* AlphaQ2 */ = {
 			isa = PBXGroup;
 			children = (
+				645C98382DAF670300280A3E /* Resources */,
 				645C982A2DAF5E1400280A3E /* Application */,
 				64884D802DA7B04400A13332 /* Services */,
 				64884D742DA77B0400A13332 /* Core */,
@@ -498,6 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645C983F2DAF6E1000280A3E /* WordInfo.swift in Sources */,
 				64B8306F2D9F8E92003D8E9E /* Persistence.swift in Sources */,
 				645C98242DAF5AD000280A3E /* TutorialPage1View.swift in Sources */,
 				645C982B2DAF5E1400280A3E /* ContentView.swift in Sources */,
@@ -513,12 +598,15 @@
 				645C98282DAF5AD000280A3E /* TutorialView.swift in Sources */,
 				64884D782DA7898200A13332 /* RetryOverlayView.swift in Sources */,
 				64884D6D2DA779D600A13332 /* PaintingInteractionView.swift in Sources */,
+				645C98372DAF653300280A3E /* ConfettiView.swift in Sources */,
 				64884D752DA77B0400A13332 /* Color+Extensions.swift in Sources */,
 				64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */,
 				645C98252DAF5AD000280A3E /* TutorialPage2View.swift in Sources */,
 				64884D692DA777A000A13332 /* DrawingCanvasView.swift in Sources */,
+				645C983D2DAF69F300280A3E /* LetterIntroductionView.swift in Sources */,
 				64884D642DA7764B00A13332 /* Line.swift in Sources */,
 				64884D812DA7B04400A13332 /* ShapeRecognitionService.swift in Sources */,
+				645C98432DAF6E2A00280A3E /* WordAssociationView.swift in Sources */,
 				64884D6B2DA7784700A13332 /* ColorPaletteView.swift in Sources */,
 				645C98262DAF5AD000280A3E /* TutorialPage3View.swift in Sources */,
 				64884D7D2DA7AEE600A13332 /* Level3FreeDrawView.swift in Sources */,
