@@ -2,6 +2,9 @@ import SwiftUI
 
 /// The view for Level 1: Filling the inside of a hollow letter.
 struct Level1FillView: View {
+    // Access the AudioService from the environment
+    @EnvironmentObject private var audioService: AudioService
+    
     let letterData: LetterData
 
     // State for drawing properties, managed by this view or a ViewModel later
@@ -196,20 +199,22 @@ struct Level1FillView: View {
         if fillPercentage >= threshold {
             // Success!
             print("Threshold met!")
+            audioService.playUISound(soundName: "success_level1") // Play success sound
             withAnimation {
                 levelCompleted = true
                 showRetryOverlay = false // Hide retry if it was showing
             }
-            // TODO: Play success sound
             // TODO: Mark letter as complete in PersistenceService
             // persistenceService.completeLetter(letterData.id)
         } else {
             // Failure
             print("Threshold NOT met.")
+            audioService.playUISound(soundName: "failure_try_again") // Play failure sound
             withAnimation {
                 showRetryOverlay = true
             }
-            // TODO: Play failure/try again sound
+            // TODO: Mark letter as incomplete in PersistenceService
+            // persistenceService.incompleteLetter(letterData.id)
         }
     }
 

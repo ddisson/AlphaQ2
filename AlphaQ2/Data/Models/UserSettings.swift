@@ -18,6 +18,9 @@ struct UserSettings: Codable {
     /// Whether background music is enabled.
     var isMusicEnabled: Bool = true
 
+    /// Flag indicating if the user has completed or skipped the initial tutorial.
+    var hasCompletedTutorial: Bool = false
+
     /// Static property to provide default settings.
     static var defaultSettings: UserSettings {
         UserSettings()

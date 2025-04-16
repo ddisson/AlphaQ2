@@ -60,4 +60,16 @@ class PersistenceService {
         saveUserSettings(currentSettings)
         print("Marked letter '\(letter.uppercased())' as completed.")
     }
+
+    /// Marks the tutorial as completed and saves the updated settings.
+    func markTutorialAsCompleted() {
+        var currentSettings = loadUserSettings()
+        if !currentSettings.hasCompletedTutorial {
+            currentSettings.hasCompletedTutorial = true
+            saveUserSettings(currentSettings)
+            print("Marked tutorial as completed.")
+        } else {
+             print("Tutorial was already marked as completed.")
+        }
+    }
 } 
