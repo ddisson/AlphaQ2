@@ -199,17 +199,19 @@ struct Level1FillView: View {
         if fillPercentage >= threshold {
             // Success!
             print("Threshold met!")
-            audioService.playUISound(soundName: "success_level1") // Play success sound
+            audioService.playUISound(soundName: "success") // Play success sound
             withAnimation {
                 levelCompleted = true
                 showRetryOverlay = false // Hide retry if it was showing
             }
-            // TODO: Mark letter as complete in PersistenceService
-            // persistenceService.completeLetter(letterData.id)
+            // Post notification for level completion
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                NotificationCenter.default.post(name: .level1Completed, object: nil)
+            }
         } else {
             // Failure
             print("Threshold NOT met.")
-            audioService.playUISound(soundName: "failure_try_again") // Play failure sound
+            audioService.playUISound(soundName: "try_again") // Play failure sound
             withAnimation {
                 showRetryOverlay = true
             }

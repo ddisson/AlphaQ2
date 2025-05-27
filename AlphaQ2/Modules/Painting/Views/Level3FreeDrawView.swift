@@ -3,7 +3,9 @@ import SwiftUI
 /// The view for Level 3: Free drawing the letter from memory.
 struct Level3FreeDrawView: View {
     // We still need LetterData to know which letter to check against later.
-    let letterData: LetterData 
+    let letterData: LetterData
+    
+    @EnvironmentObject private var audioService: AudioService 
 
     // State for drawing properties
     @State private var selectedColor: Color = Color(hex: "#6ECFF6") // Default Sky Blue
@@ -129,18 +131,22 @@ struct Level3FreeDrawView: View {
         if score >= threshold {
             // Success
             print("Recognition threshold met!")
-             withAnimation {
+            audioService.playCelebrationSound() // Play celebration sound for final level
+            withAnimation {
                  levelCompleted = true
                  showRetryOverlay = false
              }
-             // TODO: Play success sound, mark completion
+             // Post notification for level completion
+             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                 NotificationCenter.default.post(name: .level3Completed, object: nil)
+             }
         } else {
             // Failure
             print("Recognition threshold NOT met.")
+            audioService.playUISound(soundName: "try_again") // Play failure sound
             withAnimation {
                 showRetryOverlay = true
             }
-            // TODO: Play failure sound
         }
     }
 

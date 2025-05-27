@@ -17,44 +17,59 @@ struct LetterIntroductionView: View {
 
     var body: some View {
         ZStack {
-            // Background - Use a consistent app background or theme color
-            Color.blue.opacity(0.2).ignoresSafeArea() // Placeholder background
+            // Safe background color
+            Color.blue.opacity(0.2)
+                .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 40) {
                 Spacer()
                 
-                // The Letter display
+                // Debug info
+                Text("Letter Introduction")
+                    .font(.title)
+                    .foregroundColor(.white)
+                
+                // The Letter display - simplified to avoid crashes
                 Text(letterData.id)
-                    .font(.system(size: letterFontSize, weight: .bold, design: .rounded)) // Use style guide font
-                    .foregroundColor(.white) // Use style guide color
+                    .font(.system(size: 200, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
                     .scaleEffect(scale)
                     .opacity(opacity)
-                    .shadow(radius: 10)
                 
                 Spacer()
-                Spacer()
                 
-                // Next Button (appears after animation)
-                if isLetterVisible { // Show button only after letter animation finishes
+                // Next Button (appears after animation) - simplified
+                if isLetterVisible {
                     Button("Next") {
+                        print("➡️ LetterIntroductionView: Next button tapped for letter \(letterData.id)")
                         onNext()
                     }
-                    .font(.system(size: 24, weight: .bold, design: .rounded)) // Placeholder font
+                    .font(.title2)
                     .padding()
-                    .background(Color(hex: "#FFE066")) // Placeholder color
+                    .background(Color.yellow)
                     .foregroundColor(.black)
-                    .clipShape(Capsule())
-                    .transition(.opacity.combined(with: .scale))
-                     // TODO: Add bouncy animation
+                    .cornerRadius(10)
                 }
                 
                 Spacer()
             }
+            .padding()
         }
         .onAppear {
-            // Trigger animation and sound
+            print("🚀 LetterIntroductionView: onAppear called for letter \(letterData.id)")
+            
+            // Trigger animation with detailed logging
+            print("🎬 LetterIntroductionView: Starting animation for letter \(letterData.id)")
             animateLetter()
-            audioService.playSoundEffect(filename: letterData.pronunciationAudioFilename)
+            
+            // Safely try to play audio
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                print("🔊 LetterIntroductionView: About to play letter sound for \(letterData.id)")
+                audioService.playLetterSound(letter: letterData.id)
+                print("✅ LetterIntroductionView: Audio call completed for letter \(letterData.id)")
+            }
+            
+            print("✅ LetterIntroductionView: Successfully completed onAppear for letter \(letterData.id)")
         }
     }
     

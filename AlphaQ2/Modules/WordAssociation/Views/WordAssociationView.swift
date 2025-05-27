@@ -33,7 +33,7 @@ struct WordAssociationView: View {
                         WordItemView(wordInfo: wordInfo)
                             .onTapGesture {
                                 print("Tapped on \(wordInfo.word)")
-                                audioService.playSoundEffect(filename: wordInfo.audioFilename)
+                                audioService.playWordSound(word: wordInfo.word)
                                 // TODO: Add visual tap feedback (e.g., scale effect)
                             }
                     }

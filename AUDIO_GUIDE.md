@@ -87,3 +87,15 @@ If an audio file needs to be replaced or updated:
 2.  **Add New File:** Add the new file using the same steps as in Section 3, ensuring it has the **exact same filename** if you don't want to change the code that calls it.
 3.  **If Renaming:** If the new file has a different name, you *must* also update the corresponding string passed to the `AudioService` function call(s) in the Swift code.
 4.  **Clean Build:** It's often helpful to clean the build folder (Product -> Clean Build Folder) after changing bundled resources. 
+
+Resources/Audio/
+├── Letters/
+│   ├── Letter_A_sounds/
+│   └── Letter_B_sounds/ (future)
+├── Music/ (fix typo from "Musc")
+│   ├── background_music.m4a
+│   └── celebration_sounds/
+└── SFX/
+    ├── success.m4a
+    ├── failure.m4a
+    └── paint_stroke.m4a 

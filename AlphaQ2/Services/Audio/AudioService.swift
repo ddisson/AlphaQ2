@@ -21,10 +21,24 @@ class AudioService: ObservableObject {
 
     init() {
         configureAudioSession()
-        // Load initial music setting
-        // self.isMusicEnabled = PersistenceService().loadUserSettings().isMusicEnabled
-        // Note: Directly using PersistenceService here tightly couples them.
-        // Consider passing settings or using EnvironmentObject/DI later.
+        // Load initial music setting from UserSettings
+        loadMusicSetting()
+    }
+    
+    /// Loads the music setting from UserSettings.
+    private func loadMusicSetting() {
+        let persistenceService = PersistenceService()
+        let settings = persistenceService.loadUserSettings()
+        self.isMusicEnabled = settings.isMusicEnabled
+    }
+    
+    /// Updates the music setting in UserSettings when changed.
+    func updateMusicSetting(_ enabled: Bool) {
+        isMusicEnabled = enabled
+        let persistenceService = PersistenceService()
+        var settings = persistenceService.loadUserSettings()
+        settings.isMusicEnabled = enabled
+        persistenceService.saveUserSettings(settings)
     }
 
     /// Configures the app's audio session for ambient playback.
@@ -80,8 +94,9 @@ class AudioService: ObservableObject {
     /// Plays a sound effect once.
     /// - Parameter filename: The name of the sound effect file in the app bundle.
     func playSoundEffect(filename: String) {
+        print("🎵 AudioService: Attempting to play sound effect: \(filename)")
         guard let url = Bundle.main.url(forResource: filename, withExtension: nil) else {
-            print("Error: Could not find sound effect file: \(filename)")
+            print("❌ AudioService: Could not find sound effect file: \(filename)")
             return
         }
 
@@ -92,31 +107,44 @@ class AudioService: ObservableObject {
             soundEffectPlayer?.volume = 0.8 // Make SFX louder than background (adjust)
             soundEffectPlayer?.prepareToPlay()
             soundEffectPlayer?.play()
-            print("Playing sound effect: \(filename)")
+            print("✅ AudioService: Successfully playing sound effect: \(filename)")
         } catch {
             print("Error playing sound effect \(filename): \(error.localizedDescription)")
             soundEffectPlayer = nil
         }
     }
     
-    // Convenience function for playing letter sounds (maps letter to filename)
+    // MARK: - Convenience Functions for AlphaQuest Audio Structure
+    
+    /// Plays letter pronunciation sound using the actual file structure.
+    /// - Parameter letter: The letter to play (e.g., "A", "B")
     func playLetterSound(letter: String) {
-        // Example mapping - replace with actual filenames
-        let filename = "letter_\(letter.lowercased())_sound.mp3" 
+        // Your structure: Resources/Audio/Letters/Letter_A_sounds/letter_a.m4a
+        let filename = "letter_\(letter.lowercased()).m4a"
+        print("🔊 AudioService: Playing letter sound for '\(letter)' - filename: \(filename)")
         playSoundEffect(filename: filename)
     }
     
-    // Convenience function for playing word sounds
+    /// Plays word pronunciation sound using the actual file structure.
+    /// - Parameter word: The word to play (e.g., "Apple", "Ant")
     func playWordSound(word: String) {
-         // Example mapping - replace with actual filenames
-        let filename = "word_\(word.lowercased())_sound.mp3"
+        // Your structure: Resources/Audio/Letters/Letter_A_sounds/Apple.m4a
+        let filename = "\(word).m4a"
         playSoundEffect(filename: filename)
     }
     
-    // Convenience function for UI sounds
+    /// Plays UI sound effects.
+    /// - Parameter soundName: The sound effect name (e.g., "success", "failure", "paint_stroke")
     func playUISound(soundName: String) {
-        // Example: "success", "failure", "paint_stroke"
-        let filename = "sfx_\(soundName).mp3"
+        // Future structure: Resources/Audio/SFX/success.m4a
+        let filename = "\(soundName).m4a"
         playSoundEffect(filename: filename)
+    }
+    
+    /// Plays celebration sound (random from available celebration sounds).
+    func playCelebrationSound() {
+        // For now, we can use a simple success sound
+        // Later: randomly select from celebration sounds collection
+        playUISound(soundName: "celebration")
     }
 } 

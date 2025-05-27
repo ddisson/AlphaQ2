@@ -18,8 +18,10 @@ struct LetterData: Identifiable {
 /// In a real app, this might load from a JSON file or database.
 struct LetterDataProvider {
     static func data(for letterId: String) -> LetterData? {
+        print("📊 LetterDataProvider: Requested data for letter '\(letterId)'")
         switch letterId.uppercased() {
         case "A":
+            print("✅ LetterDataProvider: Creating data for letter A")
             return LetterData(id: "A", 
                               hollowPath: createHollowAPath(), 
                               tracePath: createTraceAPath(), 
@@ -30,8 +32,20 @@ struct LetterDataProvider {
                                 WordInfo(word: "Airplane", imageName: "word_img_airplane", audioFilename: "word_airplane_sound.mp3"),
                                 WordInfo(word: "Alligator", imageName: "word_img_alligator", audioFilename: "word_alligator_sound.mp3")
                               ])
-        // Add case for "B" later
+        case "B":
+            print("✅ LetterDataProvider: Creating data for letter B")
+            return LetterData(id: "B", 
+                              hollowPath: createHollowBPath(), 
+                              tracePath: createTraceBPath(), 
+                              pronunciationAudioFilename: "letter_b_sound.mp3",
+                              associatedWords: [
+                                WordInfo(word: "Ball", imageName: "word_img_ball", audioFilename: "word_ball_sound.mp3"),
+                                WordInfo(word: "Bear", imageName: "word_img_bear", audioFilename: "word_bear_sound.mp3"),
+                                WordInfo(word: "Butterfly", imageName: "word_img_butterfly", audioFilename: "word_butterfly_sound.mp3"),
+                                WordInfo(word: "Banana", imageName: "word_img_banana", audioFilename: "word_banana_sound.mp3")
+                              ])
         default:
+            print("❌ LetterDataProvider: No data available for letter '\(letterId)'")
             return nil
         }
     }
@@ -80,6 +94,70 @@ struct LetterDataProvider {
         // Crossbar (move without drawing)
         path.move(to: CGPoint(x: 30, y: 60))
         path.addLine(to: CGPoint(x: 70, y: 60))
+
+        return path
+    }
+
+    /// Creates a sample hollow path for the letter 'B'.
+    /// IMPORTANT: This is a placeholder path. A proper, visually appealing path
+    /// needs to be created, possibly using a design tool and exported as SVG/coordinates.
+    private static func createHollowBPath() -> Path {
+        // This path describes a very basic, blocky hollow 'B'
+        var path = Path()
+        
+        // Outer shape of B
+        path.move(to: CGPoint(x: 10, y: 10))
+        path.addLine(to: CGPoint(x: 10, y: 90))
+        path.addLine(to: CGPoint(x: 60, y: 90))
+        path.addQuadCurve(to: CGPoint(x: 80, y: 70), control: CGPoint(x: 80, y: 80))
+        path.addQuadCurve(to: CGPoint(x: 60, y: 50), control: CGPoint(x: 80, y: 60))
+        path.addLine(to: CGPoint(x: 70, y: 50))
+        path.addQuadCurve(to: CGPoint(x: 85, y: 30), control: CGPoint(x: 85, y: 40))
+        path.addQuadCurve(to: CGPoint(x: 65, y: 10), control: CGPoint(x: 85, y: 20))
+        path.addLine(to: CGPoint(x: 10, y: 10))
+        path.closeSubpath()
+
+        // Upper inner hole
+        path.move(to: CGPoint(x: 25, y: 25))
+        path.addLine(to: CGPoint(x: 55, y: 25))
+        path.addLine(to: CGPoint(x: 60, y: 35))
+        path.addLine(to: CGPoint(x: 25, y: 35))
+        path.closeSubpath()
+
+        // Lower inner hole
+        path.move(to: CGPoint(x: 25, y: 55))
+        path.addLine(to: CGPoint(x: 60, y: 55))
+        path.addLine(to: CGPoint(x: 65, y: 75))
+        path.addLine(to: CGPoint(x: 25, y: 75))
+        path.closeSubpath()
+
+        return path
+    }
+
+    /// Creates a sample trace path for the letter 'B'.
+    /// IMPORTANT: This is a placeholder path. A proper path for tracing
+    /// would likely be a single continuous stroke.
+    private static func createTraceBPath() -> Path {
+        // This path represents a simplified single stroke 'B' for tracing.
+        var path = Path()
+        
+        // Main vertical line
+        path.move(to: CGPoint(x: 10, y: 10))
+        path.addLine(to: CGPoint(x: 10, y: 90))
+        
+        // Top horizontal and curve
+        path.move(to: CGPoint(x: 10, y: 10))
+        path.addLine(to: CGPoint(x: 60, y: 10))
+        path.addQuadCurve(to: CGPoint(x: 70, y: 30), control: CGPoint(x: 75, y: 20))
+        path.addQuadCurve(to: CGPoint(x: 60, y: 50), control: CGPoint(x: 75, y: 40))
+        path.addLine(to: CGPoint(x: 10, y: 50))
+        
+        // Bottom horizontal and curve
+        path.move(to: CGPoint(x: 10, y: 50))
+        path.addLine(to: CGPoint(x: 65, y: 50))
+        path.addQuadCurve(to: CGPoint(x: 80, y: 70), control: CGPoint(x: 80, y: 60))
+        path.addQuadCurve(to: CGPoint(x: 60, y: 90), control: CGPoint(x: 80, y: 80))
+        path.addLine(to: CGPoint(x: 10, y: 90))
 
         return path
     }

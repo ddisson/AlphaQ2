@@ -3,6 +3,8 @@ import SwiftUI
 /// The view for Level 2: Tracing thin letter lines.
 struct Level2TraceView: View {
     let letterData: LetterData
+    
+    @EnvironmentObject private var audioService: AudioService
 
     // State for drawing properties
     @State private var selectedColor: Color = Color(hex: "#6ECFF6") // Default Sky Blue
@@ -211,19 +213,22 @@ struct Level2TraceView: View {
         if tracePercentage >= threshold {
             // Success!
             print("Trace threshold met!")
+            audioService.playUISound(soundName: "success") // Play success sound
             withAnimation {
                 levelCompleted = true
                 showRetryOverlay = false
             }
-            // TODO: Play success sound
-            // TODO: Mark level/letter as complete in PersistenceService if needed
+            // Post notification for level completion
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                NotificationCenter.default.post(name: .level2Completed, object: nil)
+            }
         } else {
             // Failure
             print("Trace threshold NOT met.")
+            audioService.playUISound(soundName: "try_again") // Play failure sound
             withAnimation {
                 showRetryOverlay = true
             }
-            // TODO: Play failure/try again sound
         }
     }
 
