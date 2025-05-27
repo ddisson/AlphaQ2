@@ -48,6 +48,11 @@
 		64B8307C2D9F8E92003D8E9E /* AlphaQ2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8307B2D9F8E92003D8E9E /* AlphaQ2Tests.swift */; };
 		64B830862D9F8E92003D8E9E /* AlphaQ2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830852D9F8E92003D8E9E /* AlphaQ2UITests.swift */; };
 		64B830882D9F8E92003D8E9E /* AlphaQ2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B830872D9F8E92003D8E9E /* AlphaQ2UITestsLaunchTests.swift */; };
+		64FA81CF2DE5648B009AE37D /* Airplane.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 64FA81C92DE5648B009AE37D /* Airplane.m4a */; };
+		64FA81D02DE5648B009AE37D /* Alligator.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 64FA81CA2DE5648B009AE37D /* Alligator.m4a */; };
+		64FA81D12DE5648B009AE37D /* Ant.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 64FA81CB2DE5648B009AE37D /* Ant.m4a */; };
+		64FA81D22DE5648B009AE37D /* Apple.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 64FA81CC2DE5648B009AE37D /* Apple.m4a */; };
+		64FA81D32DE5648B009AE37D /* letter_a.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 64FA81CD2DE5648B009AE37D /* letter_a.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +117,11 @@
 		64B830812D9F8E92003D8E9E /* AlphaQ2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlphaQ2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B830852D9F8E92003D8E9E /* AlphaQ2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaQ2UITests.swift; sourceTree = "<group>"; };
 		64B830872D9F8E92003D8E9E /* AlphaQ2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaQ2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		64FA81C92DE5648B009AE37D /* Airplane.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Airplane.m4a; sourceTree = "<group>"; };
+		64FA81CA2DE5648B009AE37D /* Alligator.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alligator.m4a; sourceTree = "<group>"; };
+		64FA81CB2DE5648B009AE37D /* Ant.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ant.m4a; sourceTree = "<group>"; };
+		64FA81CC2DE5648B009AE37D /* Apple.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Apple.m4a; sourceTree = "<group>"; };
+		64FA81CD2DE5648B009AE37D /* letter_a.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = letter_a.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +249,8 @@
 		645C98392DAF672100280A3E /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				64FA81C72DE56416009AE37D /* Letters */,
+				64FA81C62DE56410009AE37D /* Musc */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -446,6 +458,33 @@
 			path = AlphaQ2UITests;
 			sourceTree = "<group>";
 		};
+		64FA81C62DE56410009AE37D /* Musc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Musc;
+			sourceTree = "<group>";
+		};
+		64FA81C72DE56416009AE37D /* Letters */ = {
+			isa = PBXGroup;
+			children = (
+				64FA81CE2DE5648B009AE37D /* Letter_A_sounds */,
+			);
+			path = Letters;
+			sourceTree = "<group>";
+		};
+		64FA81CE2DE5648B009AE37D /* Letter_A_sounds */ = {
+			isa = PBXGroup;
+			children = (
+				64FA81C92DE5648B009AE37D /* Airplane.m4a */,
+				64FA81CA2DE5648B009AE37D /* Alligator.m4a */,
+				64FA81CB2DE5648B009AE37D /* Ant.m4a */,
+				64FA81CC2DE5648B009AE37D /* Apple.m4a */,
+				64FA81CD2DE5648B009AE37D /* letter_a.m4a */,
+			);
+			path = Letter_A_sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -553,8 +592,13 @@
 				640CFDF62DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg in Resources */,
 				640CFDF52DA50C1000515C21 /* Letter Selection Menu.jpeg in Resources */,
 				64B8306D2D9F8E92003D8E9E /* Preview Assets.xcassets in Resources */,
+				64FA81D22DE5648B009AE37D /* Apple.m4a in Resources */,
 				64B8306A2D9F8E92003D8E9E /* Assets.xcassets in Resources */,
+				64FA81D02DE5648B009AE37D /* Alligator.m4a in Resources */,
+				64FA81CF2DE5648B009AE37D /* Airplane.m4a in Resources */,
 				640CFDF82DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg in Resources */,
+				64FA81D12DE5648B009AE37D /* Ant.m4a in Resources */,
+				64FA81D32DE5648B009AE37D /* letter_a.m4a in Resources */,
 				640CFDF42DA50C1000515C21 /* Parent Settings Screen.jpeg in Resources */,
 				640CFDF32DA50C1000515C21 /* Congratulations Screen.png in Resources */,
 				640CFDF72DA50C1000515C21 /* Word Association Screen.jpeg in Resources */,
