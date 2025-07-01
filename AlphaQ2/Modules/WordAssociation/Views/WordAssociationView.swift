@@ -16,25 +16,36 @@ struct WordAssociationView: View {
     
     var body: some View {
         ZStack {
-            // Background - Use a consistent app background or theme color
-            Color.green.opacity(0.2).ignoresSafeArea() // Placeholder background
+            // Background - Use app's sky blue theme color
+            Color(hex: "#6ECFF6").ignoresSafeArea()
             
             VStack(spacing: 30) {
                 Spacer()
                 
                 // Display the Letter (optional, smaller)
                 Text("Words for '\(letterData.id)'")
-                    .font(.system(size: 40, weight: .bold, design: .rounded)) // Placeholder font
-                    .foregroundColor(.white) // Placeholder color
+                    .font(.system(size: 40, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .shadow(color: .black.opacity(0.3), radius: 2, x: 1, y: 1)
                     
                 // Grid of associated words/images
                 LazyVGrid(columns: columns, spacing: spacing) {
                     ForEach(letterData.associatedWords) { wordInfo in
                         WordItemView(wordInfo: wordInfo)
                             .onTapGesture {
-                                print("Tapped on \(wordInfo.word)")
-                                audioService.playWordSound(word: wordInfo.word)
-                                // TODO: Add visual tap feedback (e.g., scale effect)
+                                NSLog("👆👆👆 WORD CARD TAPPED: \(wordInfo.word) - audio: \(wordInfo.audioFilename) 👆👆👆")
+                                print("👆👆👆 WORD CARD TAPPED: \(wordInfo.word) - audio: \(wordInfo.audioFilename) 👆👆👆")
+                                
+                                // Add visual feedback
+                                withAnimation(.easeInOut(duration: 0.1)) {
+                                    // Trigger visual press effect
+                                }
+                                
+                                // Stop background music and play word audio for focused listening
+                                audioService.playWordAudioWithMusicStop(filename: wordInfo.audioFilename)
+                                
+                                NSLog("👆👆👆 WORD CARD TAP HANDLING COMPLETED 👆👆👆")
+                                print("👆👆👆 WORD CARD TAP HANDLING COMPLETED 👆👆👆")
                             }
                     }
                 }
@@ -46,16 +57,23 @@ struct WordAssociationView: View {
                 Button("Next") {
                     onNext()
                 }
-                 .font(.system(size: 24, weight: .bold, design: .rounded)) // Placeholder font
-                 .padding()
-                 .background(Color(hex: "#FFE066")) // Placeholder color
-                 .foregroundColor(.black)
-                 .clipShape(Capsule())
-                 // TODO: Add bouncy animation
+                .font(.system(size: 24, weight: .bold, design: .rounded))
+                .padding(.horizontal, 40)
+                .padding(.vertical, 15)
+                .background(Color(hex: "#FFE066"))
+                .foregroundColor(.black)
+                .clipShape(Capsule())
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 2, y: 2)
+                .scaleEffect(1.0)
+                .animation(.bouncy, value: false)
                  
                  Spacer()
             }
             .padding(.vertical)
+        }
+        .onAppear {
+            // Debug: List all available audio files to help troubleshoot
+            audioService.listAllAudioFiles()
         }
         // No .onAppear sound needed here, interaction driven by taps
     }
@@ -64,23 +82,31 @@ struct WordAssociationView: View {
 /// Subview for displaying a single word/image item.
 struct WordItemView: View {
     let wordInfo: WordInfo
+    @State private var isPressed = false
     
     var body: some View {
-        VStack(spacing: 8) {
-            Image(wordInfo.imageName) // Assumes image is in Assets.xcassets
+        VStack(spacing: 12) {
+            Image(wordInfo.imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(maxWidth: 150, maxHeight: 150) // Adjust size as needed
-                .background(Color.white.opacity(0.5)) // Placeholder background for image
+                .frame(maxWidth: 150, maxHeight: 150)
+                .background(Color.white.opacity(0.8))
                 .cornerRadius(15)
-                .shadow(radius: 3)
+                .shadow(color: .black.opacity(0.1), radius: 3, x: 1, y: 1)
                 
             Text(wordInfo.word)
-                 .font(.system(size: 22, weight: .medium, design: .rounded)) // Placeholder font
-                 .foregroundColor(.primary) // Use appropriate text color
+                .font(.system(size: 22, weight: .semibold, design: .rounded))
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
         }
-        .padding(15)
-        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 20))
+        .padding(20)
+        .background(Color.white.opacity(0.9), in: RoundedRectangle(cornerRadius: 20))
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.white.opacity(0.5), lineWidth: 2)
+        )
+        .scaleEffect(isPressed ? 0.95 : 1.0)
+        .animation(.easeInOut(duration: 0.1), value: isPressed)
     }
 }
 

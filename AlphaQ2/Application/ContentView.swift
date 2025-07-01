@@ -9,27 +9,187 @@ struct ContentView: View {
     // Alternatively, load UserSettings via PersistenceService in an @StateObject ViewModel.
     @AppStorage("hasCompletedTutorial") private var hasCompletedTutorial: Bool = false
     
-    // Or, using PersistenceService directly (requires managing state updates):
-    // @State private var settings = PersistenceService().loadUserSettings()
-    // private let persistenceService = PersistenceService()
-
+    // TEMPORARY: Demo mode toggle - change this to false to return to normal game
+    @State private var showAnimationDemo = false
+    
     var body: some View {
-        // Conditionally present the Tutorial or the Main Menu
-        if hasCompletedTutorial {
-            MainMenuView()
+        if showAnimationDemo {
+            // Animation Demo View
+            AnimationDemoView()
         } else {
-            TutorialView {
-                // This closure is the onComplete action from TutorialView
-                print("ContentView: Tutorial complete action triggered.")
-                // Mark tutorial as complete using @AppStorage
-                hasCompletedTutorial = true
-                
-                // Or, if using PersistenceService directly:
-                // persistenceService.markTutorialAsCompleted()
-                // // Force a state update if needed
-                // settings = persistenceService.loadUserSettings()
+            // Normal Game Flow
+            if hasCompletedTutorial {
+                MainMenuView()
+            } else {
+                TutorialView(onComplete: {
+                    hasCompletedTutorial = true
+                })
             }
         }
+    }
+}
+
+/// Animation Demo View with Sprite-Based Letter Character
+struct AnimationDemoView: View {
+    // Animation states
+    @State private var breathingScale: CGFloat = 1.0
+    @State private var bounceOffset: CGFloat = 0
+    @State private var sparkleOpacity: Double = 0
+    @State private var celebrationScale: CGFloat = 1.0
+    @State private var rotationAngle: Double = 0
+    @State private var pulseOpacity: Double = 1.0
+    
+    var body: some View {
+        VStack(spacing: 30) {
+            Text("✨ Sprite-Based Character Animation Demo ✨")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(Color(hex: "#6ECFF6"))
+            
+            Text("Testing your layered sprite character with animations!")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+            
+            // Animated Letter "A" with Sprite Layers
+            ZStack {
+                // Your sprite-based character
+                AnimatedLetterCharacterView(letter: "A")
+                    .frame(width: 250, height: 250)
+                    .scaleEffect(breathingScale)
+                    .scaleEffect(celebrationScale)
+                    .offset(y: bounceOffset)
+                    .rotationEffect(.degrees(rotationAngle))
+                    .opacity(pulseOpacity)
+                
+                // Sparkles - positioned around the letter
+                ForEach(0..<8, id: \.self) { index in
+                    Text("✨")
+                        .font(.title2)
+                        .opacity(sparkleOpacity)
+                        .offset(
+                            x: cos(Double(index) * .pi / 4) * 160,
+                            y: sin(Double(index) * .pi / 4) * 160
+                        )
+                        .animation(.easeInOut(duration: 0.5).delay(Double(index) * 0.1), value: sparkleOpacity)
+                }
+            }
+            .frame(height: 350)
+            
+            // Control buttons
+            VStack(spacing: 15) {
+                HStack(spacing: 15) {
+                    Button("💓 Breathe") {
+                        withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
+                            breathingScale = breathingScale == 1.0 ? 1.08 : 1.0
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .font(.footnote)
+                    
+                    Button("🎯 Pulse") {
+                        withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true)) {
+                            pulseOpacity = pulseOpacity == 1.0 ? 0.7 : 1.0
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .font(.footnote)
+                }
+                
+                HStack(spacing: 15) {
+                    Button("🌪️ Spin") {
+                        withAnimation(.linear(duration: 3.0).repeatForever(autoreverses: false)) {
+                            rotationAngle += 360
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .font(.footnote)
+                    
+                    Button("🎉 Celebrate") {
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.3)) {
+                            celebrationScale = 1.2
+                            bounceOffset = -20
+                        }
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            sparkleOpacity = 1.0
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                celebrationScale = 1.0
+                                bounceOffset = 0
+                                sparkleOpacity = 0
+                            }
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .font(.footnote)
+                }
+                
+                HStack(spacing: 15) {
+                    Button("🎪 Combo") {
+                        // Combination animation: bounce + sparkles + slight rotation
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+                            celebrationScale = 1.15
+                            bounceOffset = -12
+                        }
+                        withAnimation(.easeInOut(duration: 1.0)) {
+                            rotationAngle += 15
+                        }
+                        withAnimation(.easeInOut(duration: 0.8)) {
+                            sparkleOpacity = 1.0
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                            withAnimation(.easeInOut(duration: 0.6)) {
+                                celebrationScale = 1.0
+                                bounceOffset = 0
+                                sparkleOpacity = 0
+                                rotationAngle -= 15
+                            }
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .font(.footnote)
+                    
+                    Button("🔄 Reset") {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            breathingScale = 1.0
+                            bounceOffset = 0
+                            sparkleOpacity = 0
+                            celebrationScale = 1.0
+                            rotationAngle = 0
+                            pulseOpacity = 1.0
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                    .font(.footnote)
+                }
+                
+                // Switch back to game
+                Button("🎮 Back to Game") {
+                    // This would be handled by parent view
+                }
+                .buttonStyle(.bordered)
+                .font(.footnote)
+                .foregroundColor(.blue)
+            }
+            
+            Text("Your sprite character: base + eye-whites + eye-dots + eye-whites-with-dots + eyebrows + mouth")
+                .font(.caption)
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
+        }
+        .padding()
+        .background(
+            LinearGradient(
+                colors: [
+                    Color(hex: "#F8F9FA"),
+                    Color(hex: "#E8F4FD")
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
     }
 }
 

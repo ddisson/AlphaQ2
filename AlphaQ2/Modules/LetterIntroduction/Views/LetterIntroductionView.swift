@@ -12,43 +12,66 @@ struct LetterIntroductionView: View {
     @State private var scale: CGFloat = 0.1
     @State private var opacity: Double = 0.0
     
-    // Use a large, friendly font consistent with the style guide
-    private let letterFontSize: CGFloat = 250 // Adjust as needed
-
     var body: some View {
         ZStack {
-            // Safe background color
-            Color.blue.opacity(0.2)
+            // Clean sky blue background to match design system
+            Color(hex: "#6ECFF6")
                 .ignoresSafeArea()
+            
+            // Decorative clouds (similar to reference design)
+            VStack {
+                HStack {
+                    Circle()
+                        .fill(Color.white.opacity(0.3))
+                        .frame(width: 80, height: 80)
+                        .offset(x: -20, y: 20)
+                    Spacer()
+                    Circle()
+                        .fill(Color.white.opacity(0.2))
+                        .frame(width: 60, height: 60)
+                        .offset(x: 30, y: 10)
+                }
+                .padding(.horizontal, 40)
+                Spacer()
+                HStack {
+                    Spacer()
+                    Circle()
+                        .fill(Color.white.opacity(0.25))
+                        .frame(width: 100, height: 100)
+                        .offset(x: 40, y: -30)
+                }
+                .padding(.horizontal, 20)
+            }
             
             VStack(spacing: 40) {
                 Spacer()
                 
-                // Debug info
-                Text("Letter Introduction")
-                    .font(.title)
-                    .foregroundColor(.white)
-                
-                // The Letter display - simplified to avoid crashes
-                Text(letterData.id)
-                    .font(.system(size: 200, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
+                // Large Letter A using base image (no character features)
+                Image("letter-a-base")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 350, height: 350)
                     .scaleEffect(scale)
                     .opacity(opacity)
+                    .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
                 
                 Spacer()
                 
-                // Next Button (appears after animation) - simplified
+                // Next Button (appears after animation)
                 if isLetterVisible {
-                    Button("Next") {
+                    Button("NEXT") {
                         print("➡️ LetterIntroductionView: Next button tapped for letter \(letterData.id)")
                         onNext()
                     }
-                    .font(.title2)
-                    .padding()
-                    .background(Color.yellow)
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 18)
+                    .background(Color(hex: "#FFE066")) // Sunny Yellow to match design
                     .foregroundColor(.black)
-                    .cornerRadius(10)
+                    .clipShape(Capsule())
+                    .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
+                    .scaleEffect(1.0)
+                    .animation(.bouncy, value: isLetterVisible)
                 }
                 
                 Spacer()
@@ -56,34 +79,33 @@ struct LetterIntroductionView: View {
             .padding()
         }
         .onAppear {
-            print("🚀 LetterIntroductionView: onAppear called for letter \(letterData.id)")
+            NSLog("🚀🚀🚀 LETTER INTRO ON APPEAR: letter \(letterData.id) 🚀🚀🚀")
+            print("🚀🚀🚀 LETTER INTRO ON APPEAR: letter \(letterData.id) 🚀🚀🚀")
             
-            // Trigger animation with detailed logging
-            print("🎬 LetterIntroductionView: Starting animation for letter \(letterData.id)")
+            // Trigger animation
             animateLetter()
             
-            // Safely try to play audio
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                print("🔊 LetterIntroductionView: About to play letter sound for \(letterData.id)")
+            // Play letter sound when screen opens (letter_a.m4a for letter A)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                NSLog("🎵 AUTO-PLAYING letter sound: letter_\(letterData.id.lowercased()).m4a")
+                print("🎵 AUTO-PLAYING letter sound: letter_\(letterData.id.lowercased()).m4a")
                 audioService.playLetterSound(letter: letterData.id)
-                print("✅ LetterIntroductionView: Audio call completed for letter \(letterData.id)")
             }
-            
-            print("✅ LetterIntroductionView: Successfully completed onAppear for letter \(letterData.id)")
         }
     }
     
     private func animateLetter() {
-        // Use a spring animation for a playful effect
-        withAnimation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.2)) {
+        // Clean, elegant entrance animation with spring effect
+        withAnimation(.interpolatingSpring(stiffness: 200, damping: 20).delay(0.3)) {
             scale = 1.0
             opacity = 1.0
         }
-        // Set flag slightly later to allow button transition
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-             withAnimation {
-                  isLetterVisible = true
-             }
+        
+        // Show next button after letter animation completes
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            withAnimation(.easeInOut(duration: 0.4)) {
+                isLetterVisible = true
+            }
         }
     }
 }

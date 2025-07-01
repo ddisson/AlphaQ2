@@ -1,49 +1,83 @@
 import SwiftUI
 
 /// First page of the tutorial: Welcome & Tapping.
+/// Enhanced with Pixar-inspired design system.
 struct TutorialPage1View: View {
     @Binding var currentPage: Int
 
     var body: some View {
         ZStack {
-            // Placeholder background color - replace with style guide/mockup
-            Color(hex: "#6ECFF6").ignoresSafeArea()
+            // Beautiful sky blue gradient background
+            Color.skyBlueGradient
+                .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 30) {
                 Spacer()
-                Text("Welcome!")
-                    .font(.system(size: 48, weight: .bold, design: .rounded)) // Placeholder font
-                    .foregroundColor(.white)
                 
-                // Placeholder for graphic
-                Image(systemName: "sparkles") // Replace with tutorial_graphic_welcome
+                // Welcome title with enhanced typography
+                Text("Welcome!")
+                    .largeTitleStyle()
+                    .foregroundColor(.neutralWhite)
+                    .shadow(color: .primarySkyBlue.opacity(0.3), radius: 6, x: 0, y: 3)
+                
+                // Pixar-style character placeholder
+                Image(systemName: "figure.wave")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 150)
-                    .foregroundColor(.white)
-                    .padding()
-
-                Text("Tap Next to start!")
-                    .font(.system(size: 24, weight: .medium, design: .rounded)) // Placeholder font
-                    .foregroundColor(.white)
-                    .padding(.bottom)
-
-                Button("Next ->") {
-                    withAnimation {
-                        currentPage += 1 // Go to next page
+                    .frame(height: 120)
+                    .foregroundColor(.neutralWhite)
+                    .shadow(color: .primarySkyBlue.opacity(0.4), radius: 8, x: 0, y: 4)
+                    .scaleEffect(1.0)
+                    .animation(
+                        Animation.easeInOut(duration: 2.0)
+                            .repeatForever(autoreverses: true),
+                        value: UUID()
+                    )
+                
+                // Beautiful description text
+                VStack(spacing: 12) {
+                    Text("Let's learn the alphabet together!")
+                        .heading2Style()
+                        .foregroundColor(.neutralWhite)
+                        .multilineTextAlignment(.center)
+                        .shadow(color: .primarySkyBlue.opacity(0.2), radius: 3, x: 0, y: 2)
+                    
+                    Text("Tap anywhere to explore")
+                        .bodyLargeStyle()
+                        .foregroundColor(.neutralWhite.opacity(0.9))
+                        .shadow(color: .primarySkyBlue.opacity(0.2), radius: 2, x: 0, y: 1)
+                }
+                
+                // Beautiful next button with proper style
+                Button("Start Adventure →") {
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.6)) {
+                        currentPage += 1
                     }
                 }
-                .font(.system(size: 24, weight: .bold, design: .rounded)) // Placeholder font
-                .padding()
-                .background(Color(hex: "#FFE066")) // Placeholder color
-                .foregroundColor(.black)
-                .clipShape(Capsule())
-                // TODO: Add bouncy animation
+                .buttonStyle(PrimaryButtonStyle(backgroundColor: .primarySunnyYellow, textColor: .neutralBlack))
+                .shadow(color: .primarySunnyYellow.opacity(0.4), radius: 8, x: 0, y: 4)
                 
                 Spacer()
                 Spacer()
             }
-            .padding()
+            .padding(.horizontal, 24)
+            
+            // Gentle floating sparkles for magical feel
+            ForEach(0..<12, id: \.self) { i in
+                Circle()
+                    .fill(Color.neutralWhite.opacity(0.1))
+                    .frame(width: CGFloat.random(in: 4...8))
+                    .position(
+                        x: CGFloat.random(in: 50...370),
+                        y: CGFloat.random(in: 100...600)
+                    )
+                    .animation(
+                        Animation.easeInOut(duration: Double.random(in: 3...6))
+                            .repeatForever(autoreverses: true)
+                            .delay(Double.random(in: 0...2)),
+                        value: UUID()
+                    )
+            }
         }
     }
 }
@@ -51,5 +85,7 @@ struct TutorialPage1View: View {
 struct TutorialPage1View_Previews: PreviewProvider {
     static var previews: some View {
         TutorialPage1View(currentPage: .constant(0))
+            .previewDevice("iPad (10th generation)")
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 } 

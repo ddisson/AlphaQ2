@@ -25,12 +25,12 @@ struct LetterDataProvider {
             return LetterData(id: "A", 
                               hollowPath: createHollowAPath(), 
                               tracePath: createTraceAPath(), 
-                              pronunciationAudioFilename: "letter_a_sound.mp3",
+                              pronunciationAudioFilename: "letter_a.m4a",
                               associatedWords: [
-                                WordInfo(word: "Apple", imageName: "word_img_apple", audioFilename: "word_apple_sound.mp3"),
-                                WordInfo(word: "Ant", imageName: "word_img_ant", audioFilename: "word_ant_sound.mp3"),
-                                WordInfo(word: "Airplane", imageName: "word_img_airplane", audioFilename: "word_airplane_sound.mp3"),
-                                WordInfo(word: "Alligator", imageName: "word_img_alligator", audioFilename: "word_alligator_sound.mp3")
+                                WordInfo(word: "Apple", imageName: "apple", audioFilename: "Apple.m4a"),
+                                WordInfo(word: "Ant", imageName: "ant", audioFilename: "Ant.m4a"),
+                                WordInfo(word: "Airplane", imageName: "airplane", audioFilename: "Airplane.m4a"),
+                                WordInfo(word: "Alligator", imageName: "alligator", audioFilename: "Alligator.m4a")
                               ])
         case "B":
             print("✅ LetterDataProvider: Creating data for letter B")

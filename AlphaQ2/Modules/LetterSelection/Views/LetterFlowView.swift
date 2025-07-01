@@ -115,38 +115,10 @@ struct LetterFlowView: View {
     private func currentStepView(letterData: LetterData) -> some View {
         switch currentStep {
         case .introduction:
-            // Temporary simple view to test if LetterIntroductionView is causing the crash
-            VStack(spacing: 20) {
-                Text("Letter Introduction Test")
-                    .font(.title)
-                
-                Text(letterData.id)
-                    .font(.system(size: 100, weight: .bold))
-                    .foregroundColor(.blue)
-                
-                Button("Next (Test)") {
-                    print("➡️ LetterFlowView: Test Next button tapped")
-                    proceedToNextStep()
-                }
-                .font(.title2)
-                .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-            }
-            .padding()
-            .onAppear {
-                print("🎬 LetterFlowView: Creating LetterIntroductionView for letter \(letterData.id)")
-                print("✅ LetterFlowView: Test introduction view appeared")
-            }
-            
-            // Original LetterIntroductionView - commented out for testing
-            /*
             LetterIntroductionView(letterData: letterData) {
                 print("➡️ LetterFlowView: LetterIntroductionView onNext called")
                 proceedToNextStep()
             }
-            */
             
         case .wordAssociation:
             WordAssociationView(letterData: letterData) {

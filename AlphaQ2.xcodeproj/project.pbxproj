@@ -13,6 +13,9 @@
 		640CFDF62DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDF02DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg */; };
 		640CFDF72DA50C1000515C21 /* Word Association Screen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDF12DA50C1000515C21 /* Word Association Screen.jpeg */; };
 		640CFDF82DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 640CFDF22DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg */; };
+		643610052DED63E50029883F /* LetterCharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643610042DED63E50029883F /* LetterCharacterData.swift */; };
+
+		6436100B2DED89460029883F /* AnimatedLetterCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643610082DED89460029883F /* AnimatedLetterCharacterView.swift */; };
 		645C98242DAF5AD000280A3E /* TutorialPage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C981D2DAF5AD000280A3E /* TutorialPage1View.swift */; };
 		645C98252DAF5AD000280A3E /* TutorialPage2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C981E2DAF5AD000280A3E /* TutorialPage2View.swift */; };
 		645C98262DAF5AD000280A3E /* TutorialPage3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C981F2DAF5AD000280A3E /* TutorialPage3View.swift */; };
@@ -25,6 +28,8 @@
 		645C983D2DAF69F300280A3E /* LetterIntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C983A2DAF69F300280A3E /* LetterIntroductionView.swift */; };
 		645C983F2DAF6E1000280A3E /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C983E2DAF6E1000280A3E /* WordInfo.swift */; };
 		645C98432DAF6E2A00280A3E /* WordAssociationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C98402DAF6E2A00280A3E /* WordAssociationView.swift */; };
+		646516DC2DE81E3F00151CD6 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646516DA2DE81E3F00151CD6 /* ButtonStyles.swift */; };
+		646516DD2DE81E3F00151CD6 /* TypographyStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646516DB2DE81E3F00151CD6 /* TypographyStyles.swift */; };
 		64884D602DA7751A00A13332 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D5B2DA7751A00A13332 /* UserSettings.swift */; };
 		64884D612DA7751A00A13332 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D5D2DA7751A00A13332 /* PersistenceService.swift */; };
 		64884D642DA7764B00A13332 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64884D622DA7764B00A13332 /* Line.swift */; };
@@ -83,6 +88,9 @@
 		640CFDF02DA50C1000515C21 /* Painting:Tracing Level Screen (Unified Design).jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Painting:Tracing Level Screen (Unified Design).jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Painting:Tracing Level Screen (Unified Design).jpeg"; sourceTree = SOURCE_ROOT; };
 		640CFDF12DA50C1000515C21 /* Word Association Screen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Word Association Screen.jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Word Association Screen.jpeg"; sourceTree = SOURCE_ROOT; };
 		640CFDF22DA50C1000515C21 /* Tutorial:Onboarding Screen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Tutorial:Onboarding Screen.jpeg"; path = "AlphaQ2/Assets.xcassets/mockups/Tutorial:Onboarding Screen.jpeg"; sourceTree = SOURCE_ROOT; };
+		643610042DED63E50029883F /* LetterCharacterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterCharacterData.swift; sourceTree = "<group>"; };
+
+		643610082DED89460029883F /* AnimatedLetterCharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedLetterCharacterView.swift; path = AlphaQ2/Views/Components/AnimatedLetterCharacterView.swift; sourceTree = "<group>"; };
 		645C981D2DAF5AD000280A3E /* TutorialPage1View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage1View.swift; sourceTree = "<group>"; };
 		645C981E2DAF5AD000280A3E /* TutorialPage2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage2View.swift; sourceTree = "<group>"; };
 		645C981F2DAF5AD000280A3E /* TutorialPage3View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage3View.swift; sourceTree = "<group>"; };
@@ -95,6 +103,8 @@
 		645C983A2DAF69F300280A3E /* LetterIntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterIntroductionView.swift; sourceTree = "<group>"; };
 		645C983E2DAF6E1000280A3E /* WordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		645C98402DAF6E2A00280A3E /* WordAssociationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAssociationView.swift; sourceTree = "<group>"; };
+		646516DA2DE81E3F00151CD6 /* ButtonStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		646516DB2DE81E3F00151CD6 /* TypographyStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypographyStyles.swift; sourceTree = "<group>"; };
 		64884D5B2DA7751A00A13332 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		64884D5D2DA7751A00A13332 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		64884D622DA7764B00A13332 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -301,6 +311,7 @@
 		64884D5C2DA7751A00A13332 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				643610042DED63E50029883F /* LetterCharacterData.swift */,
 				645C983E2DAF6E1000280A3E /* WordInfo.swift */,
 				64884D702DA77A8D00A13332 /* LetterData.swift */,
 				64884D5B2DA7751A00A13332 /* UserSettings.swift */,
@@ -352,6 +363,8 @@
 		64884D732DA77B0400A13332 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				646516DA2DE81E3F00151CD6 /* ButtonStyles.swift */,
+				646516DB2DE81E3F00151CD6 /* TypographyStyles.swift */,
 				64884D722DA77B0400A13332 /* Color+Extensions.swift */,
 			);
 			path = Extensions;
@@ -430,6 +443,7 @@
 		64B830642D9F8E8F003D8E9E /* AlphaQ2 */ = {
 			isa = PBXGroup;
 			children = (
+				643610082DED89460029883F /* AnimatedLetterCharacterView.swift */,
 				645C98382DAF670300280A3E /* Resources */,
 				645C982A2DAF5E1400280A3E /* Application */,
 				64884D802DA7B04400A13332 /* Services */,
@@ -707,9 +721,11 @@
 				64FA81E52DE57427009AE37D /* MainMenuView.swift in Sources */,
 				64FA81E42DE57427009AE37D /* LetterFlowView.swift in Sources */,
 				645C98242DAF5AD000280A3E /* TutorialPage1View.swift in Sources */,
+
 				645C982B2DAF5E1400280A3E /* ContentView.swift in Sources */,
 				645C98272DAF5AD000280A3E /* TutorialPage4View.swift in Sources */,
 				64884D712DA77A8D00A13332 /* LetterData.swift in Sources */,
+				646516DC2DE81E3F00151CD6 /* ButtonStyles.swift in Sources */,
 				64884D612DA7751A00A13332 /* PersistenceService.swift in Sources */,
 				64B830722D9F8E92003D8E9E /* AlphaQ2.xcdatamodeld in Sources */,
 				64884D7B2DA78C4600A13332 /* Level2TraceView.swift in Sources */,
@@ -717,12 +733,15 @@
 				64FA81DF2DE57414009AE37D /* CongratulationsView.swift in Sources */,
 				64884D602DA7751A00A13332 /* UserSettings.swift in Sources */,
 				645C982F2DAF5E4C00280A3E /* MainMenuView.swift in Sources */,
+				6436100B2DED89460029883F /* AnimatedLetterCharacterView.swift in Sources */,
 				645C98282DAF5AD000280A3E /* TutorialView.swift in Sources */,
 				64884D782DA7898200A13332 /* RetryOverlayView.swift in Sources */,
 				64884D6D2DA779D600A13332 /* PaintingInteractionView.swift in Sources */,
 				645C98372DAF653300280A3E /* ConfettiView.swift in Sources */,
 				64884D752DA77B0400A13332 /* Color+Extensions.swift in Sources */,
 				64884D6F2DA77A4600A13332 /* Level1FillView.swift in Sources */,
+
+				643610052DED63E50029883F /* LetterCharacterData.swift in Sources */,
 				645C98252DAF5AD000280A3E /* TutorialPage2View.swift in Sources */,
 				64884D692DA777A000A13332 /* DrawingCanvasView.swift in Sources */,
 				645C983D2DAF69F300280A3E /* LetterIntroductionView.swift in Sources */,
@@ -734,6 +753,7 @@
 				64884D7D2DA7AEE600A13332 /* Level3FreeDrawView.swift in Sources */,
 				64884D792DA7898200A13332 /* SuccessOverlayView.swift in Sources */,
 				64B830662D9F8E8F003D8E9E /* AlphaQ2App.swift in Sources */,
+				646516DD2DE81E3F00151CD6 /* TypographyStyles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
