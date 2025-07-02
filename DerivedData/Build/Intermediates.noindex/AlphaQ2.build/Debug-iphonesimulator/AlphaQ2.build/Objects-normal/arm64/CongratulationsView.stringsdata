@@ -1,0 +1,24 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Congratulations/Views/CongratulationsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Congratulations!"
+      },
+      {
+        "comment": "",
+        "key": "You mastered the letter '%@'!"
+      },
+      {
+        "comment": "",
+        "key": "Continue Learning"
+      },
+      {
+        "comment": "",
+        "key": "Back to Menu"
+      }
+    ]
+  },
+  "version": 1
+}

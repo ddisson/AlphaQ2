@@ -18,6 +18,36 @@
             endingLineNumber = "8"
             landmarkName = "LetterIntroductionView"
             landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "7495440E-3BAC-4B83-B53A-6A8B37ED6415 - e03244b21f7598a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AlphaQ2.LetterIntroductionView.init(letterData: AlphaQ2.LetterData, onNext: () -&gt; ()) -&gt; AlphaQ2.LetterIntroductionView"
+                  moduleName = "AlphaQ2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterIntroduction/Views/LetterIntroductionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9">
+               </Location>
+               <Location
+                  uuid = "7495440E-3BAC-4B83-B53A-6A8B37ED6415 - 9033123adbde665"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of AlphaQ2.LetterIntroductionView.hasPlayedAudio : Swift.Bool"
+                  moduleName = "AlphaQ2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterIntroduction/Views/LetterIntroductionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

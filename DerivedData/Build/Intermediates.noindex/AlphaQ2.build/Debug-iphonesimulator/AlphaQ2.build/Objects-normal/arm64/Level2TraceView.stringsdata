@@ -1,0 +1,24 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/Level2TraceView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "LEVEL"
+      },
+      {
+        "comment": "",
+        "key": "%lld"
+      },
+      {
+        "comment": "",
+        "key": "Retry"
+      },
+      {
+        "comment": "",
+        "key": "Failed to load letter data for preview."
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,18 @@
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/ColorPaletteView.swift":
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.dia"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.o"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.swiftdeps"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.d"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.swiftconstvalues"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Services/Audio/AudioService.swift":
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.swiftconstvalues"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.o"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.swiftdeps"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.d"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.dia"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Persistence/PersistenceService.swift":
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.dia"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.d"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.swiftconstvalues"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.o"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.swiftdeps"

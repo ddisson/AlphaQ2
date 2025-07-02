@@ -1,0 +1,18 @@
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialView.swift":
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.swiftdeps"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.o"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.swiftconstvalues"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.dia"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.d"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/Level2TraceView.swift":
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.dia"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.o"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.d"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.swiftconstvalues"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.swiftdeps"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Shared/Views/Effects/ConfettiView.swift":
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.swiftconstvalues"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.d"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.o"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.swiftdeps"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.dia"

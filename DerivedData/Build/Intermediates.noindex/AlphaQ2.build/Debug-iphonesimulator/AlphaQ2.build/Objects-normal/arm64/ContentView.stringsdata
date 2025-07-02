@@ -1,0 +1,64 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Application/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "🔧 CONTENT VIEW DEBUG MODE 🔧"
+      },
+      {
+        "comment": "",
+        "key": "💥 CRASH DETECTED 💥"
+      },
+      {
+        "comment": "",
+        "key": "Debug Info: %@"
+      },
+      {
+        "comment": "",
+        "key": "✨ Sprite-Based Character Animation Demo ✨"
+      },
+      {
+        "comment": "",
+        "key": "Testing your layered sprite character with animations!"
+      },
+      {
+        "comment": "",
+        "key": "Your sprite character: base + eye-whites + eye-dots + eye-whites-with-dots + eyebrows + mouth"
+      },
+      {
+        "comment": "",
+        "key": "✨"
+      },
+      {
+        "comment": "",
+        "key": "🎮 Back to Game"
+      },
+      {
+        "comment": "",
+        "key": "💓 Breathe"
+      },
+      {
+        "comment": "",
+        "key": "🎯 Pulse"
+      },
+      {
+        "comment": "",
+        "key": "🌪️ Spin"
+      },
+      {
+        "comment": "",
+        "key": "🎉 Celebrate"
+      },
+      {
+        "comment": "",
+        "key": "🎪 Combo"
+      },
+      {
+        "comment": "",
+        "key": "🔄 Reset"
+      }
+    ]
+  },
+  "version": 1
+}

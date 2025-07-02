@@ -1,10 +1,14 @@
 import AVFoundation
 import SwiftUI // For binding example
+import AudioToolbox // For system sound fallbacks
 
 /// Service responsible for managing audio playback (background music, sound effects).
-class AudioService: ObservableObject {
+@MainActor
+class AudioService: NSObject, ObservableObject {
     private var backgroundMusicPlayer: AVAudioPlayer?
     private var soundEffectPlayer: AVAudioPlayer?
+    private var wordPlayer: AVAudioPlayer?
+    private var letterPlayer: AVAudioPlayer?
     
     // Example state to control music via settings
     @Published var isMusicEnabled: Bool = true { // Load initial value from UserSettings
@@ -19,73 +23,112 @@ class AudioService: ObservableObject {
         }
     }
 
-    init() {
-        NSLog("🎵🎵🎵 AudioService INIT START 🎵🎵🎵")
+    @Published var isMusicPlaying = false
+    @Published var isSoundEffectPlaying = false
+    
+    private var audioFiles: [String] = []
+    private var isInitialized = false
+    
+    override init() {
+        super.init()
         print("🎵🎵🎵 AudioService INIT START 🎵🎵🎵")
+        NSLog("🎵🎵🎵 AudioService INIT START 🎵🎵🎵")
         
-        // Test basic system audio first
-        testBasicAudioSystem()
-        
-        configureAudioSession()
-        loadMusicSetting()
-        
-        NSLog("🎵🎵🎵 AudioService INIT COMPLETE 🎵🎵🎵")
-        print("🎵🎵🎵 AudioService INIT COMPLETE 🎵🎵🎵")
+        do {
+            try setupAudioService()
+            loadMusicSetting()
+            isInitialized = true
+            print("🎵🎵🎵 AudioService INIT COMPLETE 🎵🎵🎵")
+            NSLog("🎵🎵🎵 AudioService INIT COMPLETE 🎵🎵🎵")
+        } catch {
+            print("💥 CRITICAL ERROR: AudioService init failed: \(error)")
+            NSLog("💥 CRITICAL ERROR: AudioService init failed: \(error)")
+            // Don't crash - continue with degraded functionality
+            isInitialized = false
+        }
     }
     
-    /// Test basic audio system functionality
-    private func testBasicAudioSystem() {
-        NSLog("🧪 TESTING: Basic audio system check")
+    private func setupAudioService() throws {
         print("🧪 TESTING: Basic audio system check")
+        NSLog("🧪 TESTING: Basic audio system check")
         
-        // Check if audio files exist in bundle
-        let testFiles = ["letter_a.m4a", "Apple.m4a", "Ant.m4a"]
-        for file in testFiles {
-            if let url = Bundle.main.url(forResource: file, withExtension: nil) {
-                NSLog("✅ FOUND: \(file) at \(url.path)")
-                print("✅ FOUND: \(file) at \(url.path)")
-            } else {
-                NSLog("❌ MISSING: \(file)")
-                print("❌ MISSING: \(file)")
-            }
-        }
-        
-        // List all m4a files
-        let allAudioFiles = Bundle.main.urls(forResourcesWithExtension: "m4a", subdirectory: nil) ?? []
-        NSLog("🎧 Total audio files found: \(allAudioFiles.count)")
-        print("🎧 Total audio files found: \(allAudioFiles.count)")
-        for (index, file) in allAudioFiles.enumerated() {
-            NSLog("🎧 \(index + 1). \(file.lastPathComponent)")
-            print("🎧 \(index + 1). \(file.lastPathComponent)")
+        do {
+            // Configure audio session with comprehensive error handling
+            try configureAudioSession()
+            
+            // Discover and catalog available audio files
+            discoverAudioFiles()
+            
+            print("✅ Audio session configured for playback with mixing.")
+            
+        } catch {
+            print("💥 AudioService setup failed: \(error)")
+            throw error
         }
     }
     
-    /// Tests if the audio system is working by attempting to play a test sound
-    private func testAudioSystem() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            print("🧪 AudioService: Testing audio system...")
-            
-            // Try to create a simple test tone or beep
-            guard let audioURL = Bundle.main.url(forResource: "Apple", withExtension: "m4a") else {
-                print("🧪 AudioService: Test failed - could not find Apple.m4a for testing")
+    private func configureAudioSession() throws {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(
+                .playback,
+                mode: .default,
+                options: [.mixWithOthers, .allowAirPlay]
+            )
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("💥 Audio session configuration failed: \(error)")
+            throw error
+        }
+    }
+    
+    private func discoverAudioFiles() {
+        do {
+            guard let bundlePath = Bundle.main.resourcePath else {
+                print("⚠️ WARNING: Could not get bundle path")
                 return
             }
             
-            do {
-                let testPlayer = try AVAudioPlayer(contentsOf: audioURL)
-                testPlayer.volume = 0.1 // Very quiet for test
-                let success = testPlayer.play()
-                print("🧪 AudioService: Test play result: \(success)")
-                
-                // Stop immediately after test
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    testPlayer.stop()
-                    print("🧪 AudioService: Test completed")
+            let fileManager = FileManager.default
+            let audioExtensions = ["m4a", "mp3", "wav", "aiff"]
+            
+            audioFiles.removeAll()
+            
+            // Search for audio files recursively
+            if let enumerator = fileManager.enumerator(atPath: bundlePath) {
+                while let file = enumerator.nextObject() as? String {
+                    let fileExtension = (file as NSString).pathExtension.lowercased()
+                    if audioExtensions.contains(fileExtension) {
+                        audioFiles.append(file)
+                        let fullPath = (bundlePath as NSString).appendingPathComponent(file)
+                        let fileName = (file as NSString).lastPathComponent
+                        print("✅ FOUND: \(fileName) at \(fullPath)")
+                        NSLog("✅ FOUND: \(fileName) at \(fullPath)")
+                    }
                 }
-            } catch {
-                print("🧪 AudioService: Test failed with error: \(error.localizedDescription)")
             }
+            
+            print("🎧 Total audio files found: \(audioFiles.count)")
+            NSLog("🎧 Total audio files found: \(audioFiles.count)")
+            
+            // List all found files for debugging
+            for (index, file) in audioFiles.enumerated() {
+                let fileName = (file as NSString).lastPathComponent
+                print("🎧 \(index + 1). \(fileName)")
+                NSLog("🎧 \(index + 1). \(fileName)")
+            }
+            
+        } catch {
+            print("💥 Error discovering audio files: \(error)")
         }
+    }
+    
+    func listAvailableAudioFiles() {
+        print("🔍 AudioService: Listing all available audio files in bundle:")
+        for (index, file) in audioFiles.enumerated() {
+            let fileName = (file as NSString).lastPathComponent
+            print("   \(index + 1). \(fileName)")
+        }
+        print("   Total: \(audioFiles.count) audio files found")
     }
     
     /// Loads the music setting from UserSettings.
@@ -104,51 +147,46 @@ class AudioService: ObservableObject {
         persistenceService.saveUserSettings(settings)
     }
 
-    /// Configures the app's audio session for reliable playback.
-    private func configureAudioSession() {
-        do {
-            // Use .playback category for better compatibility and reliability
-            // This ensures audio will play even if the device is in silent mode
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
-            try AVAudioSession.sharedInstance().setActive(true)
-            print("✅ Audio session configured for playback with mixing.")
-        } catch {
-            print("❌ Failed to configure audio session: \(error.localizedDescription)")
-            // Try fallback configuration
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                print("✅ Audio session configured with fallback settings.")
-            } catch {
-                print("❌ Even fallback audio session failed: \(error.localizedDescription)")
-            }
-        }
-    }
-
     /// Plays background music, looping indefinitely.
     /// - Parameter filename: The name of the audio file in the app bundle.
     func playBackgroundMusic(filename: String) {
+        print("Playing background music: \(filename)")
+        
+        // Add safety checks
+        guard !filename.isEmpty else {
+            print("❌ playBackgroundMusic: ERROR - Empty filename provided")
+            return
+        }
+        
         guard isMusicEnabled else { 
             print("Music is disabled, not playing background track.")
             return
         }
-        guard let url = Bundle.main.url(forResource: filename, withExtension: nil) else {
-            print("Error: Could not find background music file: \(filename)")
-            return
-        }
-
+        
         do {
+            guard let url = Bundle.main.url(forResource: filename, withExtension: nil) else {
+                print("❌ Background music file not found: \(filename)")
+                return
+            }
+            
+            print("✅ Found background music file: \(url.path)")
+            
             // Stop existing music if any
             backgroundMusicPlayer?.stop()
             
             backgroundMusicPlayer = try AVAudioPlayer(contentsOf: url)
             backgroundMusicPlayer?.numberOfLoops = -1 // Loop indefinitely
-            backgroundMusicPlayer?.volume = 0.3 // Keep background music softer (adjust as needed)
+            backgroundMusicPlayer?.volume = 0.3 // Lower volume for background
             backgroundMusicPlayer?.prepareToPlay()
-            backgroundMusicPlayer?.play()
-            print("Playing background music: \(filename)")
+            
+            let success = backgroundMusicPlayer?.play() ?? false
+            if success {
+                print("✅ Background music started successfully")
+            } else {
+                print("❌ Failed to start background music")
+            }
         } catch {
-            print("Error playing background music \(filename): \(error.localizedDescription)")
+            print("💥 Error playing background music: \(error)")
             backgroundMusicPlayer = nil
         }
     }
@@ -159,159 +197,110 @@ class AudioService: ObservableObject {
             backgroundMusicPlayer?.stop()
             print("Background music stopped.")
         }
-        // backgroundMusicPlayer = nil // Optionally release player
+        print("✅ Background music stopped successfully")
     }
 
     /// Plays a sound effect once.
     /// - Parameter filename: The name of the sound effect file in the app bundle.
     func playSoundEffect(filename: String) {
-        NSLog("🔊🔊🔊 PLAY SOUND EFFECT START: \(filename) 🔊🔊🔊")
         print("🔊🔊🔊 PLAY SOUND EFFECT START: \(filename) 🔊🔊🔊")
         
-        // Step 1: Find the file
-        var url: URL?
-        NSLog("🔍 STEP 1: Searching for file: \(filename)")
-        print("🔍 STEP 1: Searching for file: \(filename)")
-        
-        // Try direct lookup
-        url = Bundle.main.url(forResource: filename, withExtension: nil)
-        if url != nil {
-            NSLog("✅ FOUND: Direct lookup successful")
-            print("✅ FOUND: Direct lookup successful")
-        } else {
-            NSLog("❌ NOT FOUND: Direct lookup failed")
-            print("❌ NOT FOUND: Direct lookup failed")
-        }
-        
-        // Try without/with extension
-        if url == nil && filename.hasSuffix(".m4a") {
-            let nameWithoutExt = String(filename.dropLast(4))
-            url = Bundle.main.url(forResource: nameWithoutExt, withExtension: "m4a")
-            if url != nil {
-                NSLog("✅ FOUND: Without extension lookup successful")
-                print("✅ FOUND: Without extension lookup successful")
-            }
-        }
-        
-        if url == nil && !filename.hasSuffix(".m4a") {
-            url = Bundle.main.url(forResource: filename, withExtension: "m4a")
-            if url != nil {
-                NSLog("✅ FOUND: With extension lookup successful")
-                print("✅ FOUND: With extension lookup successful")
-            }
-        }
-        
-        // Try comprehensive search
-        if url == nil {
-            NSLog("🔍 STEP 2: Comprehensive bundle search")
-            print("🔍 STEP 2: Comprehensive bundle search")
-            let allAudioFiles = Bundle.main.urls(forResourcesWithExtension: "m4a", subdirectory: nil) ?? []
-            url = allAudioFiles.first { $0.lastPathComponent == filename || $0.deletingPathExtension().lastPathComponent == filename.replacingOccurrences(of: ".m4a", with: "") }
-            if url != nil {
-                NSLog("✅ FOUND: Comprehensive search successful")
-                print("✅ FOUND: Comprehensive search successful")
-            }
-        }
-        
-        guard let audioURL = url else {
-            NSLog("❌❌❌ FATAL: Could not find audio file: \(filename)")
-            print("❌❌❌ FATAL: Could not find audio file: \(filename)")
+        // Add comprehensive safety checks
+        guard !filename.isEmpty else {
+            print("❌ PLAY SOUND EFFECT: ERROR - Empty filename provided")
             return
         }
         
-        NSLog("✅ FILE FOUND: \(audioURL.path)")
-        print("✅ FILE FOUND: \(audioURL.path)")
-        
-        // Step 2: Check file accessibility
-        NSLog("🔍 STEP 3: Checking file accessibility")
-        print("🔍 STEP 3: Checking file accessibility")
-        
-        let fileExists = FileManager.default.fileExists(atPath: audioURL.path)
-        NSLog("📁 File exists: \(fileExists)")
-        print("📁 File exists: \(fileExists)")
-        
         do {
-            let fileSize = try FileManager.default.attributesOfItem(atPath: audioURL.path)[.size] as? Int64 ?? 0
-            NSLog("📏 File size: \(fileSize) bytes")
-            print("📏 File size: \(fileSize) bytes")
-        } catch {
-            NSLog("❌ Could not get file attributes: \(error)")
-            print("❌ Could not get file attributes: \(error)")
-        }
-        
-        // Step 3: Configure audio session
-        NSLog("🔍 STEP 4: Configuring audio session")
-        print("🔍 STEP 4: Configuring audio session")
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            print("🔍 STEP 1: Searching for file: \(filename)")
+            
+            // Try multiple approaches to find the file
+            var fileURL: URL?
+            
+            // Approach 1: Direct lookup
+            if let url = Bundle.main.url(forResource: filename, withExtension: nil) {
+                print("✅ FOUND: Direct lookup successful")
+                fileURL = url
+            }
+            // Approach 2: Without extension
+            else if let url = Bundle.main.url(forResource: String(filename.dropLast(4)), withExtension: "m4a") {
+                print("✅ FOUND: Extension-based lookup successful")
+                fileURL = url
+            }
+            // Approach 3: Search in subdirectories
+            else if let path = Bundle.main.path(forResource: filename, ofType: nil) {
+                print("✅ FOUND: Path-based search successful")
+                fileURL = URL(fileURLWithPath: path)
+            }
+            
+            guard let url = fileURL else {
+                print("❌ STEP 2: File not found anywhere: \(filename)")
+                
+                // List available files for debugging
+                if let resourcePath = Bundle.main.resourcePath {
+                    let resourceURL = URL(fileURLWithPath: resourcePath)
+                    if let contents = try? FileManager.default.contentsOfDirectory(at: resourceURL, includingPropertiesForKeys: nil) {
+                        print("🔍 Available files in bundle:")
+                        for file in contents.prefix(10) { // Show first 10 files
+                            print("   - \(file.lastPathComponent)")
+                        }
+                    }
+                }
+                return
+            }
+            
+            print("✅ FILE FOUND: \(url.path)")
+            
+            print("🔍 STEP 3: Checking file accessibility")
+            let fileExists = FileManager.default.fileExists(atPath: url.path)
+            print("📁 File exists: \(fileExists)")
+            
+            if let attributes = try? FileManager.default.attributesOfItem(atPath: url.path) {
+                if let size = attributes[.size] as? Int64 {
+                    print("📏 File size: \(size) bytes")
+                }
+            }
+            
+            print("🔍 STEP 4: Configuring audio session")
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
-            NSLog("✅ Audio session configured successfully")
             print("✅ Audio session configured successfully")
-        } catch {
-            NSLog("❌ Audio session configuration failed: \(error)")
-            print("❌ Audio session configuration failed: \(error)")
-        }
-        
-        // Step 4: Create audio player
-        NSLog("🔍 STEP 5: Creating AVAudioPlayer")
-        print("🔍 STEP 5: Creating AVAudioPlayer")
-        
-        do {
-            soundEffectPlayer = try AVAudioPlayer(contentsOf: audioURL)
-            NSLog("✅ AVAudioPlayer created successfully")
+            
+            print("🔍 STEP 5: Creating AVAudioPlayer")
+            let player = try AVAudioPlayer(contentsOf: url)
             print("✅ AVAudioPlayer created successfully")
             
-            soundEffectPlayer?.volume = 1.0
-            NSLog("🔊 Volume set to: \(soundEffectPlayer?.volume ?? 0)")
-            print("🔊 Volume set to: \(soundEffectPlayer?.volume ?? 0)")
+            player.volume = 1.0
+            print("🔊 Volume set to: \(player.volume)")
             
-            // Step 5: Prepare to play
-            NSLog("🔍 STEP 6: Preparing to play")
             print("🔍 STEP 6: Preparing to play")
+            let prepareResult = player.prepareToPlay()
+            print("🎬 Prepare result: \(prepareResult)")
+            print("🎵 Player duration: \(player.duration)")
+            print("🎵 Player format: \(player.format)")
             
-            let prepareSuccess = soundEffectPlayer?.prepareToPlay() ?? false
-            NSLog("🎬 Prepare result: \(prepareSuccess)")
-            print("🎬 Prepare result: \(prepareSuccess)")
-            
-            if let player = soundEffectPlayer {
-                NSLog("🎵 Player duration: \(player.duration)")
-                NSLog("🎵 Player format: \(player.format)")
-                print("🎵 Player duration: \(player.duration)")
-                print("🎵 Player format: \(player.format)")
-            }
-            
-            // Step 6: Actually play
-            NSLog("🔍 STEP 7: Starting playback")
             print("🔍 STEP 7: Starting playback")
+            let playResult = player.play()
+            print("🎯 Play result: \(playResult)")
             
-            let playSuccess = soundEffectPlayer?.play() ?? false
-            NSLog("🎯 Play result: \(playSuccess)")
-            print("🎯 Play result: \(playSuccess)")
-            
-            if playSuccess {
-                NSLog("🎉🎉🎉 AUDIO PLAYBACK STARTED SUCCESSFULLY! 🎉🎉🎉")
+            if playResult {
                 print("🎉🎉🎉 AUDIO PLAYBACK STARTED SUCCESSFULLY! 🎉🎉🎉")
+                print("🔧 Player isPlaying: \(player.isPlaying)")
+                print("🔧 Player volume: \(player.volume)")
+                print("🔧 Player currentTime: \(player.currentTime)")
                 
-                // Check player state
-                NSLog("🔧 Player isPlaying: \(soundEffectPlayer?.isPlaying ?? false)")
-                NSLog("🔧 Player volume: \(soundEffectPlayer?.volume ?? 0)")
-                NSLog("🔧 Player currentTime: \(soundEffectPlayer?.currentTime ?? 0)")
-                print("🔧 Player isPlaying: \(soundEffectPlayer?.isPlaying ?? false)")
-                print("🔧 Player volume: \(soundEffectPlayer?.volume ?? 0)")
-                print("🔧 Player currentTime: \(soundEffectPlayer?.currentTime ?? 0)")
+                // Store player to prevent deallocation
+                soundEffectPlayer = player
             } else {
-                NSLog("💥💥💥 AUDIO PLAYBACK FAILED TO START! 💥💥💥")
-                print("💥💥💥 AUDIO PLAYBACK FAILED TO START! 💥💥💥")
+                print("❌ STEP 8: Failed to start playback")
             }
             
         } catch {
-            NSLog("💥💥💥 FATAL: Error creating AVAudioPlayer: \(error.localizedDescription)")
-            print("💥💥💥 FATAL: Error creating AVAudioPlayer: \(error.localizedDescription)")
-            soundEffectPlayer = nil
+            print("💥 STEP ERROR: Exception in playSoundEffect: \(error)")
+            print("💥 Error type: \(type(of: error))")
+            print("💥 Error description: \(error.localizedDescription)")
         }
         
-        NSLog("🔊🔊🔊 PLAY SOUND EFFECT END 🔊🔊🔊")
         print("🔊🔊🔊 PLAY SOUND EFFECT END 🔊🔊🔊")
     }
     
@@ -347,41 +336,72 @@ class AudioService: ObservableObject {
         playSoundEffect(filename: filename)
     }
     
-    /// Stops background music and plays a word audio file.
-    /// This is useful for word cards where we want focused audio experience.
-    /// - Parameter filename: The exact audio filename (e.g., "Apple.m4a")
+    /// Plays a word audio file and temporarily stops background music for clear listening
     func playWordAudioWithMusicStop(filename: String) {
-        NSLog("🗣️🗣️🗣️ PLAY WORD AUDIO CALLED: \(filename) 🗣️🗣️🗣️")
-        print("🗣️🗣️🗣️ PLAY WORD AUDIO CALLED: \(filename) 🗣️🗣️🗣️")
+        print("🎵 WordAudioService: playWordAudioWithMusicStop called for: \(filename)")
         
-        NSLog("⏹️ Stopping background music first...")
-        print("⏹️ Stopping background music first...")
+        // Add safety checks
+        guard !filename.isEmpty else {
+            print("❌ WordAudioService: ERROR - Empty filename provided")
+            return
+        }
+        
+        // Temporarily stop background music for clear word audio
+        print("🔇 WordAudioService: Temporarily stopping background music")
         stopBackgroundMusic()
         
-        NSLog("🎯 Playing word audio: \(filename)")
-        print("🎯 Playing word audio: \(filename)")
-        playWordAudio(filename: filename)
+        // Play the word audio
+        print("🔊 WordAudioService: Playing word audio: \(filename)")
+        playSoundEffect(filename: filename)
         
-        NSLog("🗣️🗣️🗣️ PLAY WORD AUDIO COMPLETED 🗣️🗣️🗣️")
-        print("🗣️🗣️🗣️ PLAY WORD AUDIO COMPLETED 🗣️🗣️🗣️")
-    }
-    
-    /// Test method to list all available audio files for debugging
-    func listAllAudioFiles() {
-        print("🔍 AudioService: Listing all available audio files in bundle:")
-        let allAudioFiles = Bundle.main.urls(forResourcesWithExtension: "m4a", subdirectory: nil) ?? []
-        for (index, file) in allAudioFiles.enumerated() {
-            print("   \(index + 1). \(file.lastPathComponent)")
+        // Restart background music after a delay (length of word + buffer)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            print("🎵 WordAudioService: Restarting background music after word audio")
+            self.playBackgroundMusic(filename: "background_music.mp3")
+            print("✅ WordAudioService: Background music restarted successfully")
         }
-        print("   Total: \(allAudioFiles.count) audio files found")
+        
+        print("✅ WordAudioService: playWordAudioWithMusicStop completed successfully")
     }
     
     /// Plays UI sound effects.
     /// - Parameter soundName: The sound effect name (e.g., "success", "failure", "paint_stroke")
     func playUISound(soundName: String) {
+        print("🎛️ AudioService: Attempting to play UI sound: \(soundName)")
+        
         // Future structure: Resources/Audio/SFX/success.m4a
         let filename = "\(soundName).m4a"
-        playSoundEffect(filename: filename)
+        
+        // Check if the sound file exists before trying to play it
+        if Bundle.main.url(forResource: soundName, withExtension: "m4a") != nil {
+            print("✅ AudioService: Found UI sound file, playing: \(filename)")
+            playSoundEffect(filename: filename)
+        } else {
+            print("ℹ️ AudioService: UI sound '\(filename)' not found - using system fallback")
+            
+            // Use appropriate system sounds as fallback
+            switch soundName.lowercased() {
+            case "success", "complete", "win", "achievement":
+                // Success/achievement system sound
+                AudioServicesPlaySystemSound(1016)
+                print("🔊 AudioService: Played system success sound")
+                
+            case "failure", "error", "wrong", "mistake":
+                // Error/failure system sound  
+                AudioServicesPlaySystemSound(1073)
+                print("🔊 AudioService: Played system error sound")
+                
+            case "celebration", "party", "hooray":
+                // Celebration system sound
+                AudioServicesPlaySystemSound(1152)
+                print("🔊 AudioService: Played system celebration sound")
+                
+            default:
+                // Generic selection system sound
+                AudioServicesPlaySystemSound(1104)
+                print("🔊 AudioService: Played generic system sound")
+            }
+        }
     }
     
     /// Plays celebration sound (random from available celebration sounds).
@@ -389,5 +409,69 @@ class AudioService: ObservableObject {
         // For now, we can use a simple success sound
         // Later: randomly select from celebration sounds collection
         playUISound(soundName: "celebration")
+    }
+
+    /// Plays letter sound (e.g., "letter_a.m4a")
+    func playLetterSound(letterId: String) {
+        print("📢📢📢 PLAY LETTER SOUND CALLED: '\(letterId)' 📢📢📢")
+        
+        // Add safety checks
+        guard !letterId.isEmpty else {
+            print("❌ PLAY LETTER SOUND: ERROR - Empty letterId provided")
+            return
+        }
+        
+        let filename = "letter_\(letterId.lowercased()).m4a"
+        print("🎯 Target filename: \(filename)")
+        
+        playSoundEffect(filename: filename)
+        print("📢📢📢 PLAY LETTER SOUND COMPLETED 📢��📢")
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func findAudioFile(_ filename: String) -> URL? {
+        print("🔍 STEP 1: Searching for file: \(filename)")
+        
+        // First try direct bundle lookup
+        if let url = Bundle.main.url(forResource: filename.replacingOccurrences(of: ".m4a", with: "").replacingOccurrences(of: ".mp3", with: ""), withExtension: filename.contains(".") ? String(filename.split(separator: ".").last!) : "m4a") {
+            print("✅ FOUND: Direct lookup successful")
+            return url
+        }
+        
+        // Search through discovered files
+        for audioFile in audioFiles {
+            let fileName = (audioFile as NSString).lastPathComponent
+            if fileName.lowercased() == filename.lowercased() {
+                let fullPath = Bundle.main.resourcePath! + "/" + audioFile
+                return URL(fileURLWithPath: fullPath)
+            }
+        }
+        
+        print("❌ STEP 2: File not found in bundle: \(filename)")
+        return nil
+    }
+}
+
+enum AudioServiceError: Error, LocalizedError {
+    case notInitialized
+    case fileNotFound(String)
+    case playerCreationFailed
+    case playbackFailed
+    case invalidParameter(String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .notInitialized:
+            return "AudioService not initialized"
+        case .fileNotFound(let filename):
+            return "Audio file not found: \(filename)"
+        case .playerCreationFailed:
+            return "Failed to create audio player"
+        case .playbackFailed:
+            return "Audio playback failed"
+        case .invalidParameter(let message):
+            return "Invalid parameter: \(message)"
+        }
     }
 } 

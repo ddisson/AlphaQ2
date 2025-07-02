@@ -1,0 +1,20 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/WordAssociation/Views/WordAssociationView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Words for '%@'"
+      },
+      {
+        "comment": "",
+        "key": "Next"
+      },
+      {
+        "comment": "",
+        "key": "Failed to load letter data for preview."
+      }
+    ]
+  },
+  "version": 1
+}

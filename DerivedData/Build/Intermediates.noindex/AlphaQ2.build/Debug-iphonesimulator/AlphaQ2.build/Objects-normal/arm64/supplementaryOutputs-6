@@ -1,0 +1,18 @@
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Congratulations/Views/CongratulationsView.swift":
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.swiftdeps"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.dia"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.d"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.swiftconstvalues"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.o"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Models/UserSettings.swift":
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.dia"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.swiftconstvalues"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.d"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.o"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.swiftdeps"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/AlphaQ2/Views/Components/AnimatedLetterCharacterView.swift":
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.swiftdeps"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.o"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.dia"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.d"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.swiftconstvalues"

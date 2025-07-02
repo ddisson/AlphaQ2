@@ -1,0 +1,20 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage2View.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Tap a color!"
+      },
+      {
+        "comment": "",
+        "key": "Next →"
+      },
+      {
+        "comment": "",
+        "key": "Choose your favorite color:"
+      }
+    ]
+  },
+  "version": 1
+}

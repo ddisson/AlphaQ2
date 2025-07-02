@@ -1,0 +1,44 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterIntroduction/Views/LetterIntroductionView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "💥 INITIALIZATION ERROR 💥"
+      },
+      {
+        "comment": "",
+        "key": "Error: %@"
+      },
+      {
+        "comment": "",
+        "key": "Letter ID: %@"
+      },
+      {
+        "comment": "",
+        "key": "Audio File: %@"
+      },
+      {
+        "comment": "",
+        "key": "🔧 DEBUG MODE ACTIVE 🔧"
+      },
+      {
+        "comment": "",
+        "key": "Counter: %lld"
+      },
+      {
+        "comment": "",
+        "key": "✅ APP RUNNING NORMALLY"
+      },
+      {
+        "comment": "",
+        "key": "Next"
+      },
+      {
+        "comment": "",
+        "key": "Failed to load letter data for preview."
+      }
+    ]
+  },
+  "version": 1
+}

@@ -8,7 +8,7 @@ struct Level3FreeDrawView: View {
     @EnvironmentObject private var audioService: AudioService 
 
     // State for drawing properties
-    @State private var selectedColor: Color = Color(hex: "#6ECFF6") // Default Sky Blue
+    @State private var selectedColor: Color = Color(hex: "#FF6F61") // Default Coral Red
     @State private var selectedLineWidth: CGFloat = 8.0 // Standard drawing width
 
     // State to hold the lines drawn by the user
@@ -28,58 +28,151 @@ struct Level3FreeDrawView: View {
     private let shapeRecognitionService = ShapeRecognitionService()
 
     var body: some View {
-        VStack(spacing: 0) {
-            GeometryReader { geometry in
-                ZStack {
-                    // Just the drawing canvas, no guides or clipping
-                    DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
-                        // Optional: Add a very faint background or border if needed
-                        // .background(Color.gray.opacity(0.05))
-                        .onChange(of: lines) { _ in
-                             // No automatic check needed here, rely on button press
-                        }
+        GeometryReader { geometry in
+            ZStack {
+                // Background - Sky Blue as shown in design
+                Color.primarySkyBlue
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 0) {
+                    // Level Indicator at the top
+                    levelIndicatorView
+                        .padding(.top, 20)
                     
-                    // Add overlays (needed for resetLevel logic)
-                    // TODO (Phase 3.5.3): Populate these properly
+                    Spacer()
+                    
+                    // Main drawing area
+                    drawingAreaView(geometry: geometry)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    Spacer()
+                    
+                    // Bottom controls
+                    bottomControlsView
+                        .padding(.bottom, 30)
                 }
-                .overlay {
-                     if showRetryOverlay {
-                         RetryOverlayView { resetLevel() }
-                     }
-                 }
-                 .overlay {
-                     if levelCompleted {
-                         SuccessOverlayView { 
-                            // TODO: Implement proceed logic
-                            print("Level 3 Completed! Proceeding...") 
-                         }
-                     }
-                 }
-                 .disabled(levelCompleted) // Disable drawing area on completion
-                 // Calculate scaled path when view appears/size changes
-                 .onAppear { updateScaledPath(size: geometry.size) }
-                 .onChange(of: geometry.size) { newSize in updateScaledPath(size: newSize) }
             }
-
-            // Divider, Palette, and Check Button (Essential for this level)
-            Divider()
-            HStack {
-                 Spacer()
-                 ColorPaletteView(selectedColor: $selectedColor)
-                 Spacer()
-                 Button("Check") {
-                     // Trigger shape recognition check
-                     triggerShapeRecognitionCheck()
-                 }
-                 .buttonStyle(.borderedProminent)
-                 .padding(.trailing)
-                 .disabled(levelCompleted) // Disable check button on completion
-            }
-            .padding(.vertical, 5)
-            .background(.thinMaterial)
         }
-        .navigationTitle("Level 3: Draw '\(letterData.id)'")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true) // Hide navigation bar for clean design
+    }
+    
+    // MARK: - Level Indicator
+    private var levelIndicatorView: some View {
+        HStack(spacing: 8) {
+            Text("LEVEL")
+                .font(.custom("Fredoka-Medium", size: 20))
+                .foregroundColor(.neutralWhite)
+                .fontWeight(.bold)
+            
+            HStack(spacing: 4) {
+                ForEach(1...3, id: \.self) { level in
+                    Text("\(level)")
+                        .font(.custom("Fredoka-Bold", size: 18))
+                        .foregroundColor(.neutralWhite)
+                        .frame(width: 32, height: 32)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(level == 3 ? Color.primarySunnyYellow : Color.clear)
+                        )
+                }
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.primaryCoralRed)
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+        )
+    }
+    
+    // MARK: - Drawing Area
+    private func drawingAreaView(geometry: GeometryProxy) -> some View {
+        ZStack {
+            // Letter shape container with cream background
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(hex: "#F5F5DC")) // Cream color like in design
+                .frame(width: min(geometry.size.width * 0.6, 400),
+                       height: min(geometry.size.height * 0.5, 300))
+                .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                .overlay(
+                    drawingContent(containerSize: CGSize(
+                        width: min(geometry.size.width * 0.6, 400),
+                        height: min(geometry.size.height * 0.5, 300)
+                    ))
+                )
+        }
+    }
+    
+    private func drawingContent(containerSize: CGSize) -> some View {
+        ZStack {
+            // Just the drawing canvas, no guides or clipping
+            DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
+                .onChange(of: lines) { _ in
+                     // No automatic check needed here, rely on button press
+                }
+        }
+        .overlay {
+             if showRetryOverlay {
+                 RetryOverlayView { resetLevel() }
+             }
+         }
+         .overlay {
+             if levelCompleted {
+                 SuccessOverlayView { 
+                    print("Level 3 Completed! Proceeding...") 
+                 }
+             }
+         }
+         .disabled(levelCompleted) // Disable drawing area on completion
+         // Calculate scaled path when view appears/size changes
+         .onAppear { updateScaledPath(size: containerSize) }
+         .onChange(of: containerSize) { newSize in updateScaledPath(size: newSize) }
+    }
+    
+    // MARK: - Bottom Controls
+    private var bottomControlsView: some View {
+        HStack(spacing: 20) {
+            // Retry Button
+            Button {
+                resetLevel()
+            } label: {
+                Text("Retry")
+                    .font(.custom("Fredoka-Bold", size: 18))
+                    .foregroundColor(.neutralWhite)
+                    .frame(width: 100, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryCoralRed)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    )
+            }
+            .disabled(levelCompleted)
+            
+            Spacer()
+            
+            // Color Palette
+            ColorPaletteView(selectedColor: $selectedColor)
+            
+            Spacer()
+            
+            // Check Button (Green checkmark)
+            Button {
+                triggerShapeRecognitionCheck()
+            } label: {
+                Image(systemName: "checkmark")
+                    .font(.title2)
+                    .foregroundColor(.neutralWhite)
+                    .frame(width: 60, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryLeafGreen)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    )
+            }
+            .disabled(levelCompleted)
+        }
+        .padding(.horizontal, 30)
     }
 
     /// Calculates the scale factor and transforms the reference path to fit the current size.
@@ -96,7 +189,7 @@ struct Level3FreeDrawView: View {
 
         let scaleX = size.width / pathBounds.width
         let scaleY = size.height / pathBounds.height
-        let scale = min(scaleX, scaleY) * 0.9
+        let scale = min(scaleX, scaleY) * 0.8 // Use 80% of space for better padding
         
         guard scale.isFinite && scale > 0 else {
              scaledReferencePath = Path()
@@ -111,8 +204,6 @@ struct Level3FreeDrawView: View {
         let transform = CGAffineTransform(translationX: offsetX, y: offsetY).scaledBy(x: scale, y: scale)
         scaledReferencePath = originalPath.applying(transform)
         print("Level 3: Updated scaledReferencePath for letter '\(letterData.id)'")
-        // Reset score if path changes?
-        // recognitionScore = 0.0 
     }
 
     // Implement the placeholder functions
@@ -132,7 +223,7 @@ struct Level3FreeDrawView: View {
             // Success
             print("Recognition threshold met!")
             audioService.playCelebrationSound() // Play celebration sound for final level
-            withAnimation {
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                  levelCompleted = true
                  showRetryOverlay = false
              }
@@ -144,7 +235,7 @@ struct Level3FreeDrawView: View {
             // Failure
             print("Recognition threshold NOT met.")
             audioService.playUISound(soundName: "try_again") // Play failure sound
-            withAnimation {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                 showRetryOverlay = true
             }
         }
@@ -152,7 +243,7 @@ struct Level3FreeDrawView: View {
 
     private func resetLevel() {
         print("Resetting Level 3.")
-        withAnimation {
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
             lines = []
             recognitionScore = 0.0
             showRetryOverlay = false
@@ -166,6 +257,7 @@ struct Level3FreeDrawView_Previews: PreviewProvider {
         if let letterA = LetterDataProvider.data(for: "A") {
             NavigationView {
                 Level3FreeDrawView(letterData: letterA)
+                    .environmentObject(AudioService())
             }
             .previewInterfaceOrientation(.landscapeLeft)
         } else {

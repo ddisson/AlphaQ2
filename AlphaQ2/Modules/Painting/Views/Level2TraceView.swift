@@ -7,7 +7,7 @@ struct Level2TraceView: View {
     @EnvironmentObject private var audioService: AudioService
 
     // State for drawing properties
-    @State private var selectedColor: Color = Color(hex: "#6ECFF6") // Default Sky Blue
+    @State private var selectedColor: Color = Color(hex: "#FF6F61") // Default Coral Red
     @State private var selectedLineWidth: CGFloat = 8.0 // Moderate width for tracing
 
     // State to hold the lines drawn by the user
@@ -30,81 +30,158 @@ struct Level2TraceView: View {
     private let pathProximityTolerance: CGFloat = 5.0
 
     var body: some View {
-        VStack(spacing: 0) {
-            GeometryReader { geometry in
-                ZStack {
-                    // Background (optional)
-                    // Color.clear
-
-                    // 1. The tracing guide path (stroked, maybe dotted)
-                    scaledTracePath
-                        // Restore the dashed line style
-                        .stroke(style: StrokeStyle(lineWidth: 2, dash: [5, 3])) // Dotted line style
-                        .foregroundColor(.gray.opacity(0.7))
-                        // .stroke(Color.blue, lineWidth: 5) // Debugging line
-
-                    // 2. The Drawing Canvas, overlaid
-                    DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
-                        // No clipping needed here, user traces over the guide
-                        .onChange(of: lines) { _ in
-                            // Calculate coverage when drawing changes
-                            checkTraceCoverage(viewSize: geometry.size)
-                        }
-
-                    // Display trace percentage for debugging
-                    Text("Trace: \(tracePercentage, specifier: "%.1f")%")
-                        .font(.caption)
-                        .foregroundColor(.black)
-                        .padding(5)
-                        .background(.white.opacity(0.7))
-                        .cornerRadius(5)
-                        .position(x: geometry.size.width - 50, y: 20)
+        GeometryReader { geometry in
+            ZStack {
+                // Background - Sky Blue as shown in design
+                Color.primarySkyBlue
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 0) {
+                    // Level Indicator at the top
+                    levelIndicatorView
+                        .padding(.top, 20)
                     
-                    // TODO (Phase 3.4.3): Add Overlays for Retry/Success
+                    Spacer()
+                    
+                    // Main drawing area
+                    drawingAreaView(geometry: geometry)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    Spacer()
+                    
+                    // Bottom controls
+                    bottomControlsView
+                        .padding(.bottom, 30)
                 }
-                .onAppear { updateScaledPath(size: geometry.size) }
-                .onChange(of: geometry.size) { newSize in 
-                     updateScaledPath(size: newSize)
-                     // Recheck coverage if size changes after drawing started
-                     checkTraceCoverage(viewSize: newSize)
-                }
-                // Add overlays for Retry/Success feedback
-                .overlay {
-                    if showRetryOverlay {
-                        RetryOverlayView { resetLevel() }
-                    }
-                }
-                .overlay {
-                    if levelCompleted {
-                        SuccessOverlayView { 
-                            // TODO: Implement actual navigation/proceed action
-                            print("Level 2 Completed! Proceeding...")
-                        }
-                    }
-                }
-                // Disable drawing if level is completed
-                .disabled(levelCompleted)
             }
-
-            // Divider, Palette, and Check Button (similar to Level 1)
-            Divider()
-            HStack {
-                 Spacer()
-                 ColorPaletteView(selectedColor: $selectedColor)
-                 Spacer()
-                 Button("Check") {
-                     triggerTraceCompletionCheck()
-                 }
-                 .buttonStyle(.borderedProminent)
-                 .padding(.trailing)
-                 // Disable check button when level completed
-                 .disabled(levelCompleted)
-            }
-            .padding(.vertical, 5)
-            .background(.thinMaterial)
         }
-        .navigationTitle("Level 2: Trace '\(letterData.id)'")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true) // Hide navigation bar for clean design
+    }
+    
+    // MARK: - Level Indicator
+    private var levelIndicatorView: some View {
+        HStack(spacing: 8) {
+            Text("LEVEL")
+                .font(.custom("Fredoka-Medium", size: 20))
+                .foregroundColor(.neutralWhite)
+                .fontWeight(.bold)
+            
+            HStack(spacing: 4) {
+                ForEach(1...3, id: \.self) { level in
+                    Text("\(level)")
+                        .font(.custom("Fredoka-Bold", size: 18))
+                        .foregroundColor(.neutralWhite)
+                        .frame(width: 32, height: 32)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(level == 2 ? Color.primarySunnyYellow : Color.clear)
+                        )
+                }
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.primaryCoralRed)
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+        )
+    }
+    
+    // MARK: - Drawing Area
+    private func drawingAreaView(geometry: GeometryProxy) -> some View {
+        ZStack {
+            // Letter shape container with cream background
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(hex: "#F5F5DC")) // Cream color like in design
+                .frame(width: min(geometry.size.width * 0.6, 400),
+                       height: min(geometry.size.height * 0.5, 300))
+                .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                .overlay(
+                    drawingContent(containerSize: CGSize(
+                        width: min(geometry.size.width * 0.6, 400),
+                        height: min(geometry.size.height * 0.5, 300)
+                    ))
+                )
+        }
+    }
+    
+    private func drawingContent(containerSize: CGSize) -> some View {
+        ZStack {
+            // 1. The tracing guide path (stroked, dotted)
+            scaledTracePath
+                .stroke(style: StrokeStyle(lineWidth: 3, dash: [8, 4]))
+                .foregroundColor(.gray.opacity(0.6))
+
+            // 2. The Drawing Canvas, overlaid
+            DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
+                .onChange(of: lines) { _ in
+                    checkTraceCoverage(viewSize: containerSize)
+                }
+        }
+        .onAppear { updateScaledPath(size: containerSize) }
+        .onChange(of: containerSize) { newSize in 
+             updateScaledPath(size: newSize)
+             checkTraceCoverage(viewSize: newSize)
+        }
+        .overlay {
+            if showRetryOverlay {
+                RetryOverlayView { resetLevel() }
+            }
+        }
+        .overlay {
+            if levelCompleted {
+                SuccessOverlayView { 
+                    print("Level 2 Completed! Proceeding...")
+                }
+            }
+        }
+        .disabled(levelCompleted)
+    }
+    
+    // MARK: - Bottom Controls
+    private var bottomControlsView: some View {
+        HStack(spacing: 20) {
+            // Retry Button
+            Button {
+                resetLevel()
+            } label: {
+                Text("Retry")
+                    .font(.custom("Fredoka-Bold", size: 18))
+                    .foregroundColor(.neutralWhite)
+                    .frame(width: 100, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryCoralRed)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    )
+            }
+            .disabled(levelCompleted)
+            
+            Spacer()
+            
+            // Color Palette
+            ColorPaletteView(selectedColor: $selectedColor)
+            
+            Spacer()
+            
+            // Check Button (Green checkmark)
+            Button {
+                triggerTraceCompletionCheck()
+            } label: {
+                Image(systemName: "checkmark")
+                    .font(.title2)
+                    .foregroundColor(.neutralWhite)
+                    .frame(width: 60, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryLeafGreen)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    )
+            }
+            .disabled(levelCompleted)
+        }
+        .padding(.horizontal, 30)
     }
 
     /// Calculates the scale factor and transforms the trace path to fit the given size.
@@ -132,7 +209,7 @@ struct Level2TraceView: View {
 
         let scaleX = size.width / pathBounds.width
         let scaleY = size.height / pathBounds.height
-        let scale = min(scaleX, scaleY) * 0.9 // Use 90% of space
+        let scale = min(scaleX, scaleY) * 0.8 // Use 80% of space for better padding
         print("Calculated scale factor: \(scale) (scaleX: \(scaleX), scaleY: \(scaleY))")
 
         // Check for invalid scale factor
@@ -153,12 +230,6 @@ struct Level2TraceView: View {
         print("Final scaledTracePath isEmpty: \(finalPath.isEmpty)")
         print("Final scaledTracePath boundingRect: \(finalPath.boundingRect)")
         scaledTracePath = finalPath
-
-        // Reset state when path changes (similar to Level 1)
-        // lines = [] // Decide if drawing should reset on resize
-        // tracePercentage = 0.0
-        // levelCompleted = false
-        // showRetryOverlay = false
     }
 
     /// Checks how much of the trace path guideline is covered by the user's drawing.
@@ -182,7 +253,6 @@ struct Level2TraceView: View {
                     pointsOnPath += 1
 
                     // 2. Check if this "on-path" point is covered by any user drawing stroke
-                    // Use the isPointCovered logic from Level 1
                     if isPointCoveredByDrawing(point: testPoint) {
                         pointsCovered += 1
                     }
@@ -197,157 +267,93 @@ struct Level2TraceView: View {
             tracePercentage = 0.0 // Avoid division by zero if path is too small or grid too coarse
         }
         print("Trace Check: Points On Path=\(pointsOnPath), Points Covered=\(pointsCovered), Percentage=\(tracePercentage)")
-        
-        // Next Step (3.4.3): Add logic here to check if tracePercentage >= threshold
     }
 
-    /// Called when the 'Check' button is tapped.
+    /// Called when the user taps the "Check" button to verify tracing completion.
     private func triggerTraceCompletionCheck() {
         guard !levelCompleted else { return }
 
         // Get threshold from settings
-        let threshold = Double(persistenceService.loadUserSettings().traceThresholdPercentage)
-
+        let threshold = Double(persistenceService.loadUserSettings().fillThresholdPercentage) // Reuse fill threshold
         print("Checking trace completion: Trace = \(tracePercentage)%, Threshold = \(threshold)%")
 
         if tracePercentage >= threshold {
             // Success!
             print("Trace threshold met!")
-            audioService.playUISound(soundName: "success") // Play success sound
-            withAnimation {
+            audioService.playUISound(soundName: "success")
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                 levelCompleted = true
                 showRetryOverlay = false
             }
             // Post notification for level completion
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 NotificationCenter.default.post(name: .level2Completed, object: nil)
             }
         } else {
             // Failure
             print("Trace threshold NOT met.")
-            audioService.playUISound(soundName: "try_again") // Play failure sound
-            withAnimation {
+            audioService.playUISound(soundName: "try_again")
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                 showRetryOverlay = true
             }
         }
     }
 
-    /// Resets the drawing and hides overlays for retry.
+    /// Checks if a point is near the given path within the specified tolerance.
+    private func isPointNearPath(point: CGPoint, path: Path, tolerance: CGFloat) -> Bool {
+        // Simple implementation: Check if point is within tolerance distance of path
+        // This is a simplified approach - for production, you might want more sophisticated path distance calculation
+        return path.contains(point) || isPointWithinToleranceOfPath(point: point, path: path, tolerance: tolerance)
+    }
+
+    /// Helper function to check if a point is within tolerance of a path
+    private func isPointWithinToleranceOfPath(point: CGPoint, path: Path, tolerance: CGFloat) -> Bool {
+        // Create a small circle around the point and see if it intersects with the path
+        let testPath = Path { path in
+            path.addEllipse(in: CGRect(
+                x: point.x - tolerance,
+                y: point.y - tolerance,
+                width: tolerance * 2,
+                height: tolerance * 2
+            ))
+        }
+        
+        // This is a simplified check - in practice you might want to use more sophisticated geometry
+        let expandedPath = path.strokedPath(StrokeStyle(lineWidth: tolerance * 2))
+        return expandedPath.contains(point)
+    }
+
+    /// Checks if a given point is covered by any user-drawn line.
+    private func isPointCoveredByDrawing(point: CGPoint) -> Bool {
+        for line in lines {
+            for linePoint in line.points {
+                let distance = sqrt(pow(linePoint.x - point.x, 2) + pow(linePoint.y - point.y, 2))
+                if distance <= selectedLineWidth / 2 {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    /// Resets the level state for retry.
     private func resetLevel() {
         print("Resetting Level 2.")
-        withAnimation {
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
             lines = []
             tracePercentage = 0.0
             showRetryOverlay = false
             levelCompleted = false
         }
     }
-
-    /// Checks if a given point is covered by the user's drawn lines.
-    /// (Reuses logic similar to Level1FillView's isPointCovered)
-    private func isPointCoveredByDrawing(point: CGPoint) -> Bool {
-        for line in lines {
-            let minimumDistance = line.lineWidth / 2 + 2 // Tolerance based on brush size
-            var previousPoint = line.points.first
-
-            for currentPoint in line.points.dropFirst() {
-                guard let prev = previousPoint else { continue }
-                if distancePointToLineSegment(point: point, p1: prev, p2: currentPoint) <= minimumDistance {
-                    return true
-                }
-                previousPoint = currentPoint
-            }
-            if line.points.count == 1, let firstPoint = line.points.first {
-                 if distancePoints(p1: point, p2: firstPoint) <= minimumDistance {
-                    return true
-                 }
-            }
-        }
-        return false
-    }
-
-    /// Checks if a point is close to any segment of a given Path.
-    /// NOTE: This is computationally intensive and approximate, especially for curves.
-    /// It iterates through path elements and checks distance to line segments.
-    private func isPointNearPath(point: CGPoint, path: Path, tolerance: CGFloat) -> Bool {
-        var isNear = false
-        var currentPoint: CGPoint? = nil // Use optional to track current position
-        var firstPointOfSubpath: CGPoint? = nil
-
-        path.forEach { element in
-            // If already found to be near, stop checking
-            if isNear { return }
-
-            switch element {
-            case .move(to: let p):
-                currentPoint = p
-                firstPointOfSubpath = p // Remember start for closePath
-            case .line(to: let p):
-                if let start = currentPoint {
-                    if distancePointToLineSegment(point: point, p1: start, p2: p) <= tolerance {
-                        isNear = true
-                        return
-                    }
-                }
-                currentPoint = p
-            case .quadCurve(to: let p, control: let cp):
-                // Approximate curve with line segments (simple approach)
-                if let start = currentPoint {
-                    // Check distance to the line segment approximating the curve
-                    if distancePointToLineSegment(point: point, p1: start, p2: p) <= tolerance * 1.5 { // Wider tolerance for curves
-                         isNear = true
-                         return
-                    }
-                    // Could add more segments for better approximation if needed
-                }
-                currentPoint = p
-            case .curve(to: let p, control1: let cp1, control2: let cp2):
-                // Approximate curve with line segments (simple approach)
-                 if let start = currentPoint {
-                    if distancePointToLineSegment(point: point, p1: start, p2: p) <= tolerance * 1.5 { // Wider tolerance
-                         isNear = true
-                         return
-                    }
-                 }
-                currentPoint = p
-            case .closeSubpath:
-                // Check distance to the closing segment (current -> first of subpath)
-                if let start = currentPoint, let first = firstPointOfSubpath {
-                     if distancePointToLineSegment(point: point, p1: start, p2: first) <= tolerance {
-                        isNear = true
-                        return
-                    }
-                }
-                currentPoint = firstPointOfSubpath // Move back to start for next element
-            }
-        }
-        return isNear
-    }
-
-    // --- Re-add Helper Geometry Functions (or move to Core/Utils) ---
-    private func distancePointToLineSegment(point: CGPoint, p1: CGPoint, p2: CGPoint) -> CGFloat {
-        let l2 = distancePointsSquared(p1: p1, p2: p2)
-        if l2 == 0.0 { return distancePoints(p1: point, p2: p1) }
-        var t = ((point.x - p1.x) * (p2.x - p1.x) + (point.y - p1.y) * (p2.y - p1.y)) / l2
-        t = max(0, min(1, t))
-        let projection = CGPoint(x: p1.x + t * (p2.x - p1.x), y: p1.y + t * (p2.y - p1.y))
-        return distancePoints(p1: point, p2: projection)
-    }
-    private func distancePointsSquared(p1: CGPoint, p2: CGPoint) -> CGFloat {
-        return (p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y)
-    }
-    private func distancePoints(p1: CGPoint, p2: CGPoint) -> CGFloat {
-        return sqrt(distancePointsSquared(p1: p1, p2: p2))
-    }
 }
 
 struct Level2TraceView_Previews: PreviewProvider {
     static var previews: some View {
         if let letterA = LetterDataProvider.data(for: "A") {
-            NavigationView {
-                Level2TraceView(letterData: letterA)
-            }
-            .previewInterfaceOrientation(.landscapeLeft)
+            Level2TraceView(letterData: letterA)
+                .environmentObject(AudioService())
+                .previewInterfaceOrientation(.landscapeLeft)
         } else {
             Text("Failed to load letter data for preview.")
         }

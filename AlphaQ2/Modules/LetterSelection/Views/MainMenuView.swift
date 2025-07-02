@@ -24,6 +24,20 @@ struct MainMenuView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                // MAIN MENU DEBUG BANNER
+                VStack {
+                    HStack {
+                        Text("🎮 MAIN MENU DEBUG 🎮")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .background(Color.green)
+                            .padding(8)
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                .zIndex(1500)
+                
                 // Beautiful sky to green gradient background (matching mockup)
                 LinearGradient(
                     colors: [
@@ -88,14 +102,31 @@ struct MainMenuView: View {
             }
             .navigationBarHidden(true)
             .onAppear {
-                print("🚀 MainMenuView: onAppear called")
-                animateBackground = true
-                // Start background music when main menu appears
-                audioService.playBackgroundMusic(filename: "background_music.mp3")
-                // Only refresh user settings if we're not in the middle of a letter selection
-                if selectedLetter == nil {
-                    userSettings = persistenceService.loadUserSettings()
-                    print("📊 MainMenuView: Loaded user settings - completed letters: \(userSettings.completedLetters)")
+                print("🚀🚀🚀 MAIN MENU ON APPEAR START 🚀🚀🚀")
+                NSLog("🚀🚀🚀 MAIN MENU ON APPEAR START 🚀🚀🚀")
+                
+                do {
+                    print("✅ MainMenuView: onAppear called successfully")
+                    animateBackground = true
+                    
+                    print("🎵 MainMenuView: Starting background music...")
+                    // Start background music when main menu appears
+                    audioService.playBackgroundMusic(filename: "background_music.mp3")
+                    print("✅ MainMenuView: Background music started")
+                    
+                    // Only refresh user settings if we're not in the middle of a letter selection
+                    if selectedLetter == nil {
+                        print("📊 MainMenuView: Loading user settings...")
+                        userSettings = persistenceService.loadUserSettings()
+                        print("📊 MainMenuView: Loaded user settings - completed letters: \(userSettings.completedLetters)")
+                    }
+                    
+                    print("✅ MainMenuView: onAppear completed successfully")
+                    print("🚀🚀🚀 MAIN MENU ON APPEAR COMPLETED 🚀🚀🚀")
+                    
+                } catch {
+                    print("💥 CRITICAL ERROR in MainMenuView onAppear: \(error)")
+                    NSLog("💥 CRITICAL ERROR in MainMenuView onAppear: \(error)")
                 }
             }
         }
@@ -142,17 +173,40 @@ struct MainMenuView: View {
         }
         print("✅ MainMenuView: Letter \(letter) is available, starting flow")
         
+        // Verify letter data exists before proceeding
+        do {
+            let letterData = LetterDataProvider.data(for: letter)
+            guard letterData != nil else {
+                print("❌ MainMenuView: CRITICAL - LetterDataProvider returned nil for letter \(letter)")
+                return
+            }
+            print("✅ MainMenuView: Letter data verified for \(letter)")
+        } catch {
+            print("💥 MainMenuView: CRASH RISK - Error checking letter data: \(error)")
+            return
+        }
+        
         // Stop background music when user selects a letter
-        audioService.stopBackgroundMusic()
-        print("🔇 MainMenuView: Stopped background music for letter selection")
+        do {
+            audioService.stopBackgroundMusic()
+            print("🔇 MainMenuView: Stopped background music for letter selection")
+        } catch {
+            print("⚠️ MainMenuView: Error stopping background music: \(error)")
+        }
         
         // Set the selected letter - this will trigger the fullScreenCover
+        print("🚀 MainMenuView: About to set selectedLetter from \(selectedLetter ?? "nil") to \(letter)")
         selectedLetter = letter
         print("🔍 MainMenuView: selectedLetter set to: \(selectedLetter ?? "nil")")
         
         // Check state after a brief delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             print("🔍 MainMenuView: After delay - selectedLetter: \(self.selectedLetter ?? "nil")")
+            if self.selectedLetter != nil {
+                print("✅ MainMenuView: State transition successful")
+            } else {
+                print("❌ MainMenuView: WARNING - selectedLetter became nil unexpectedly")
+            }
         }
     }
 }

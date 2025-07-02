@@ -30,3 +30,4 @@ struct UserSettings: Codable {
     // It's often good practice to define keys separately, but for simplicity
     // we can use a single key for the whole Codable object.
 } 
+ 

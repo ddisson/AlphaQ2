@@ -1,0 +1,18 @@
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/Level1FillView.swift":
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.d"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.o"
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.swiftdeps"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.dia"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.swiftconstvalues"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Models/WordInfo.swift":
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.swiftdeps"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.swiftconstvalues"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.o"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.d"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.dia"
+"/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/PaintingInteractionView.swift":
+  swift-dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.swiftdeps"
+  object: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.o"
+  const-values: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.swiftconstvalues"
+  dependencies: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.d"
+  diagnostics: "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.dia"

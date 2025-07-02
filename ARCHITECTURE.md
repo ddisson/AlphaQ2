@@ -1,36 +1,285 @@
-# AlphaQuest Project Architecture
+# AlphaQuest Architecture Documentation
 
-This document outlines the chosen architectural pattern and core dependencies for the AlphaQuest project.
+## Project Overview
+AlphaQuest is an educational iPad app for teaching children the alphabet through interactive letter recognition, pronunciation, and drawing activities.
 
-## 1. Architectural Pattern: MVVM + Services
+## Updated Architecture (January 2025)
 
-We will adopt the **MVVM (Model-View-ViewModel)** pattern supplemented by dedicated **Service** layers for shared functionalities.
+### **🎯 Core Design Principle**
+**Single Responsibility & Clear Flow**: Each module has one clear purpose, eliminating duplication and structural confusion.
 
-*   **Models (`Data/Models`)**: Represent the application's data structures (e.g., `LetterData`, `UserSettings`). They are simple data holders with no logic.
-*   **Views (`Modules/*/Views`)**: SwiftUI views responsible solely for UI presentation and user input forwarding. They observe the ViewModel for state changes and remain passive ("dumb").
-*   **ViewModels (`Modules/*/ViewModels`)**: `ObservableObject` classes containing the presentation logic, state management, and data preparation for their corresponding Views. They interact with Models and Services.
-*   **Services (`Services`)**: Encapsulate specific, reusable functionalities or complex business logic (e.g., `AudioService`, `PersistenceService`, `ShapeRecognitionService`, `DrawingEngine`). ViewModels utilize these services, typically via dependency injection to enhance testability.
-*   **Core (`Core`)**: Houses fundamental utilities, extensions, and constants shared across the application.
+---
 
-**Rationale**: This pattern promotes:
-    *   **Separation of Concerns**: Clear boundaries between UI, presentation logic, data, and services.
-    *   **Testability**: ViewModels and Services can be unit-tested independently of the UI.
-    *   **Maintainability**: Easier to understand, modify, and extend individual components.
+## Module Structure
 
-## 2. Core Dependencies (MVP)
+### **1. Application Layer**
+```
+AlphaQ2/
+├── AlphaQ2App.swift           # App entry point
+└── Application/
+    └── ContentView.swift      # Root navigation controller
+```
 
-For the Minimum Viable Product (MVP), we will primarily rely on Apple's native frameworks:
+### **2. Core Infrastructure**
+```
+Core/
+├── Extensions/
+│   ├── ButtonStyles.swift     # UI button styling
+│   ├── Color+Extensions.swift # Color theming
+│   └── TypographyStyles.swift # Text styling
+└── Utils/
+    └── Logger.swift           # Logging utilities
+```
 
-*   **SwiftUI**: The core framework for building the user interface and handling user interactions.
-*   **AVFoundation**: Used by the `AudioService` for managing playback of background music, voiceovers, and sound effects.
-*   **CoreGraphics / QuartzCore**: May be utilized within the `DrawingEngine` or `PaintingCanvasView` for path creation, masking, hit-testing, and rendering on the `Canvas`.
-*   **Foundation**: Provides fundamental data types, collections, and access to `UserDefaults` via the `PersistenceService`.
+### **3. Data Layer**
+```
+Data/
+├── Models/
+│   ├── LetterData.swift           # Letter data model
+│   ├── LetterCharacterData.swift  # Character visual data
+│   ├── UserSettings.swift         # User preferences & progress
+│   └── WordInfo.swift             # Word association data
+└── Persistence/
+    └── PersistenceService.swift   # Local data storage
+```
 
-**Third-Party Libraries**: No external third-party libraries are planned for the core MVP functionality (drawing, simple shape recognition). We will build these features using native frameworks first. This decision can be revisited if specific requirements prove too complex or time-consuming to implement natively.
+### **4. Services Layer**
+```
+Services/
+├── Audio/
+│   └── AudioService.swift            # Audio playback management
+└── ShapeRecognition/
+    └── ShapeRecognitionService.swift # Letter shape recognition
+```
 
-## 3. Testing Strategy
+### **5. Feature Modules**
 
-*   **Unit Tests**: Focus on testing ViewModels, Services, and Models.
-*   **UI Tests**: Can be added later to verify user flows and UI interactions, though manual testing will be primary during early development.
+#### **5.1 LetterSelection Module**
+**Responsibility**: Main navigation and letter flow coordination
+```
+Modules/LetterSelection/
+└── Views/
+    ├── MainMenuView.swift     # Letter selection screen
+    └── LetterFlowView.swift   # ✨ INTEGRATED FLOW COORDINATOR
+```
 
-This architecture provides a solid foundation for building the AlphaQuest game. 
+**Key Change**: `LetterFlowView` now contains **integrated letter introduction** functionality, eliminating the need for a separate `LetterIntroductionView`.
+
+#### **5.2 WordAssociation Module**
+**Responsibility**: Show words that begin with the selected letter
+```
+Modules/WordAssociation/
+└── Views/
+    └── WordAssociationView.swift
+```
+
+#### **5.3 Painting Module**
+**Responsibility**: Interactive drawing and tracing activities
+```
+Modules/Painting/
+├── Models/
+│   └── Line.swift                    # Drawing line data
+└── Views/
+    ├── ColorPaletteView.swift        # Color selection
+    ├── DrawingCanvasView.swift       # Touch drawing canvas
+    ├── Level1FillView.swift          # Fill hollow letter
+    ├── Level2TraceView.swift         # Trace letter outline
+    ├── Level3FreeDrawView.swift      # Free drawing with recognition
+    ├── PaintingInteractionView.swift # Touch interaction handling
+    ├── SuccessOverlayView.swift      # Success feedback
+    └── RetryOverlayView.swift        # Retry feedback
+```
+
+#### **5.4 Tutorial Module**
+**Responsibility**: User onboarding and instruction
+```
+Modules/Tutorial/
+└── Views/
+    ├── TutorialView.swift            # Tutorial coordinator
+    ├── TutorialPage1View.swift       # Introduction
+    ├── TutorialPage2View.swift       # Color selection tutorial
+    ├── TutorialPage3View.swift       # Drawing tutorial
+    └── TutorialPage4View.swift       # Navigation tutorial
+```
+
+#### **5.5 Congratulations Module**
+**Responsibility**: Success celebration and completion
+```
+Modules/Congratulations/
+└── Views/
+    └── CongratulationsView.swift
+```
+
+#### **5.6 Shared Module**
+**Responsibility**: Reusable UI components
+```
+Modules/Shared/
+└── Views/
+    └── Effects/
+        └── ConfettiView.swift        # Celebration effects
+```
+
+---
+
+## **🔄 Letter Learning Flow (Simplified)**
+
+### **Previous Architecture Problem**
+- ❌ **Duplicate Views**: `LetterIntroductionView` + `LetterFlowView` introduction step
+- ❌ **Unclear Responsibilities**: Both handled letter display + audio
+- ❌ **Potential Crashes**: File reference conflicts in Xcode
+
+### **✅ Current Simplified Architecture**
+
+**Single Flow Controller**: `LetterFlowView`
+
+```swift
+LetterFlowView {
+    enum LetterFlowStep {
+        case introduction      // ← INTEGRATED (no separate view)
+        case wordAssociation   // → WordAssociationView
+        case level1Fill        // → Level1FillView
+        case level2Trace       // → Level2TraceView
+        case level3FreeDraw    // → Level3FreeDrawView
+        case congratulations   // → CongratulationsView
+    }
+}
+```
+
+**Introduction Step**: Now directly embedded in `LetterFlowView`:
+- Shows letter image/character
+- Plays pronunciation audio
+- Handles animation
+- Provides "Continue" button
+
+---
+
+## **📱 Navigation Architecture**
+
+```
+MainMenuView
+    ↓ (letter selection)
+LetterFlowView
+    ├── Introduction (integrated)
+    ├── WordAssociationView
+    ├── Level1FillView
+    ├── Level2TraceView
+    ├── Level3FreeDrawView
+    └── CongratulationsView
+```
+
+---
+
+## **🎨 UI Architecture Patterns**
+
+### **1. View Composition**
+- Each view focuses on a single screen/functionality
+- Reusable components in `Shared/` module
+- Consistent styling through `Core/Extensions/`
+
+### **2. State Management**
+- `@State` for local view state
+- `@EnvironmentObject` for shared services (AudioService)
+- `PersistenceService` for data persistence
+
+### **3. Navigation Pattern**
+- **Callback-based navigation**: Views call `onComplete()` callbacks
+- **Notification-based updates**: Painting levels use `NotificationCenter`
+- **Full-screen presentation**: `MainMenuView` → `LetterFlowView`
+
+---
+
+## **🔧 Key Architectural Decisions**
+
+### **1. Integration vs Separation**
+- **✅ CHOSEN**: Integrated letter introduction into flow coordinator
+- **❌ REJECTED**: Separate `LetterIntroductionView` (caused duplication)
+
+### **2. Flow Management**
+- **✅ CHOSEN**: Single `LetterFlowView` manages entire letter journey
+- **❌ REJECTED**: Multiple coordinators (would increase complexity)
+
+### **3. Communication Patterns**
+- **Callbacks**: For simple parent-child communication
+- **Notifications**: For painting level completions (decoupled)
+- **Environment Objects**: For shared services
+
+---
+
+## **📁 File Organization**
+
+### **Modules by Feature**
+Each major feature gets its own module:
+- Clear separation of concerns
+- Easy to navigate and maintain
+- Logical grouping of related files
+
+### **Shared Resources**
+```
+Resources/
+├── Audio/
+│   ├── Letters/Letter_A_sounds/    # Letter pronunciation
+│   ├── Music/                      # Background music
+│   └── SFX/                        # Sound effects
+└── Assets.xcassets/
+    ├── LetterCharacters/           # Letter images
+    ├── Letter_a_words/             # Word association images
+    └── Character_face_animation/   # Animation assets
+```
+
+---
+
+## **🚀 Benefits of New Architecture**
+
+### **1. Eliminated Duplication**
+- ❌ **Before**: Two views handling letter introduction
+- ✅ **After**: Single, integrated flow in `LetterFlowView`
+
+### **2. Clearer Responsibilities**
+- **LetterFlowView**: Flow coordination + letter introduction
+- **Other Views**: Specific functionality only
+
+### **3. Reduced Complexity**
+- Fewer files to maintain
+- Simpler navigation logic
+- No file reference conflicts
+
+### **4. Better Performance**
+- Reduced view hierarchy
+- Fewer object allocations
+- Smoother transitions
+
+---
+
+## **🎯 Future Expansion Plan**
+
+### **Adding New Letters**
+1. Update `LetterDataProvider` with new letter data
+2. Add audio files to `Resources/Audio/Letters/`
+3. Add letter images to `Assets.xcassets/LetterCharacters/`
+4. No code changes needed (data-driven architecture)
+
+### **Adding New Languages**
+1. Localized audio files in `Resources/Audio/Letters/`
+2. Localized text in `Localizable.strings`
+3. Cultural adaptations in letter character designs
+
+### **Adding New Activity Types**
+1. Create new view in appropriate module
+2. Add new case to `LetterFlowStep` enum
+3. Update `LetterFlowView.currentStepView()` method
+
+---
+
+## **📊 Technical Stack**
+
+- **UI Framework**: SwiftUI
+- **Audio**: AVFoundation/AVAudioSession
+- **Drawing**: Custom touch handling with UIKit integration
+- **Persistence**: UserDefaults for local storage
+- **Shape Recognition**: Custom algorithm for letter validation
+- **Platform**: iPad (iOS 17.5+)
+- **Orientation**: Landscape only
+
+---
+
+*This architecture documentation reflects the simplified structure implemented in January 2025, eliminating the duplicate letter introduction views and creating a cleaner, more maintainable codebase.* 

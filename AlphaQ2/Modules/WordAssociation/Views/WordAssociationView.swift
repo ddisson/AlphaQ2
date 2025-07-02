@@ -33,8 +33,8 @@ struct WordAssociationView: View {
                     ForEach(letterData.associatedWords) { wordInfo in
                         WordItemView(wordInfo: wordInfo)
                             .onTapGesture {
-                                NSLog("👆👆👆 WORD CARD TAPPED: \(wordInfo.word) - audio: \(wordInfo.audioFilename) 👆👆👆")
-                                print("👆👆👆 WORD CARD TAPPED: \(wordInfo.word) - audio: \(wordInfo.audioFilename) 👆👆👆")
+                                print("👆 WordAssociationView: Word card tapped - \(wordInfo.word)")
+                                print("🔊 WordAssociationView: Playing audio - \(wordInfo.audioFilename)")
                                 
                                 // Add visual feedback
                                 withAnimation(.easeInOut(duration: 0.1)) {
@@ -43,9 +43,7 @@ struct WordAssociationView: View {
                                 
                                 // Stop background music and play word audio for focused listening
                                 audioService.playWordAudioWithMusicStop(filename: wordInfo.audioFilename)
-                                
-                                NSLog("👆👆👆 WORD CARD TAP HANDLING COMPLETED 👆👆👆")
-                                print("👆👆👆 WORD CARD TAP HANDLING COMPLETED 👆👆👆")
+                                print("✅ WordAssociationView: Audio playback initiated successfully")
                             }
                     }
                 }
@@ -55,7 +53,20 @@ struct WordAssociationView: View {
                 
                 // Next Button
                 Button("Next") {
+                    print("🎯 WordAssociationView: Next button tapped - START")
+                    print("🔍 WordAssociationView: Letter ID: \(letterData.id)")
+                    print("🔍 WordAssociationView: onNext closure type: \(type(of: onNext))")
+                    print("🔍 WordAssociationView: About to call onNext()")
+                    
+                    // Add crash protection
+                    let beforeTime = Date()
+                    print("⏰ WordAssociationView: Calling onNext at \(beforeTime)")
+                    
                     onNext()
+                    
+                    let afterTime = Date()
+                    print("⏰ WordAssociationView: onNext completed at \(afterTime)")
+                    print("✅ WordAssociationView: Next button action completed successfully")
                 }
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .padding(.horizontal, 40)
@@ -72,8 +83,22 @@ struct WordAssociationView: View {
             .padding(.vertical)
         }
         .onAppear {
+            print("🚀 WordAssociationView: onAppear called for letter \(letterData.id)")
+            print("🔍 WordAssociationView: Letter data verification...")
+            print("🔍 WordAssociationView: Associated words count: \(letterData.associatedWords.count)")
+            
+            for (index, word) in letterData.associatedWords.enumerated() {
+                print("🔍 WordAssociationView: Word \(index + 1): \(word.word) (image: \(word.imageName), audio: \(word.audioFilename))")
+            }
+            
             // Debug: List all available audio files to help troubleshoot
-            audioService.listAllAudioFiles()
+            print("🎧 WordAssociationView: Listing available audio files...")
+            audioService.listAvailableAudioFiles()
+            
+            print("✅ WordAssociationView: onAppear completed successfully")
+        }
+        .onDisappear {
+            print("👋 WordAssociationView: onDisappear called for letter \(letterData.id)")
         }
         // No .onAppear sound needed here, interaction driven by taps
     }

@@ -8,7 +8,7 @@ struct Level1FillView: View {
     let letterData: LetterData
 
     // State for drawing properties, managed by this view or a ViewModel later
-    @State private var selectedColor: Color = Color(hex: "#6ECFF6") // Default Sky Blue
+    @State private var selectedColor: Color = Color(hex: "#FF6F61") // Default Coral Red
     @State private var selectedLineWidth: CGFloat = 20.0 // Wider brush for filling
 
     // State to hold the scaled path for rendering and hit testing
@@ -32,88 +32,164 @@ struct Level1FillView: View {
     private let gridDensity: CGFloat = 15 // Check every 15 points
 
     var body: some View {
-        VStack(spacing: 0) {
-            GeometryReader { geometry in
-                ZStack {
-                    // 1. The hollow letter shape (used for display and later, masking)
-                    // We fill it with a light color to show the target area.
-                    // Use eoFill: true to handle the inner hole correctly.
-                    scaledLetterPath
-                        // Use FillStyle to specify the even-odd rule for the fill
-                        .fill(Color.gray.opacity(0.2), style: FillStyle(eoFill: true))
-
-                    // 2. The Drawing Canvas, overlaid on the letter shape
-                    DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
-                        // Replace .mask with .clipShape using the even-odd fill rule
-                        .clipShape(
-                            scaledLetterPath, // The shape to clip to
-                            style: FillStyle(eoFill: true) // Use the even-odd rule
-                        )
-                        // Trigger fill check when lines array changes
-                        .onChange(of: lines) { _ in
-                            checkFillPercentage(viewSize: geometry.size)
-                        }
-
-                    // 3. Optionally, draw the outline stroke for clarity
-                    // Stroking doesn't need eoFill.
-                    scaledLetterPath
-                         .stroke(Color.gray, lineWidth: 2)
-
-                    // Optional: Display fill percentage for debugging
-                    Text("Fill: \(fillPercentage, specifier: "%.1f")%")
-                        .font(.caption)
-                        .foregroundColor(.black)
-                        .padding(5)
-                        .background(.white.opacity(0.7))
-                        .cornerRadius(5)
-                        .position(x: geometry.size.width - 50, y: 20)
+        GeometryReader { geometry in
+            ZStack {
+                // Background - Sky Blue as shown in design
+                Color.primarySkyBlue
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 0) {
+                    // Level Indicator at the top
+                    levelIndicatorView
+                        .padding(.top, 20)
+                    
+                    Spacer()
+                    
+                    // Main drawing area
+                    drawingAreaView(geometry: geometry)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    Spacer()
+                    
+                    // Bottom controls
+                    bottomControlsView
+                        .padding(.bottom, 30)
                 }
-                // Calculate and store the scaled path when the view size is known
-                .onAppear { updateScaledPath(size: geometry.size) }
-                .onChange(of: geometry.size) { newSize in updateScaledPath(size: newSize) }
-                // Add overlays for Retry/Success feedback
-                .overlay {
-                    if showRetryOverlay {
-                        RetryOverlayView { // Action to perform on retry
-                            resetLevel()
-                        }
-                    }
-                }
-                .overlay {
-                    if levelCompleted {
-                        SuccessOverlayView { // Action to perform on success (e.g., navigate)
-                            // For now, just print a message
-                            print("Level 1 Completed! Proceeding...")
-                        }
-                    }
-                }
-                // Disable drawing if level is completed
-                .disabled(levelCompleted)
             }
-
-            // Divider and Color Palette
-            Divider()
-            HStack {
-                 Spacer()
-                 ColorPaletteView(selectedColor: $selectedColor)
-                 Spacer()
-                 // Add a "Check" button
-                 Button("Check") {
-                     // Manually trigger the check and success/failure logic
-                     // Simply call the check function
-                     triggerCompletionCheck()
-                 }
-                 .buttonStyle(.borderedProminent)
-                 .padding(.trailing)
-                 .disabled(levelCompleted) // Disable check if already completed
-            }
-            .padding(.vertical, 5) // Add some vertical padding to the Hstack
-            .background(.thinMaterial)
         }
-        .navigationTitle("Level 1: Fill '\(letterData.id)'")
-        .navigationBarTitleDisplayMode(.inline)
-        // Ignore safe area if needed for the drawing part
-        // .ignoresSafeArea(edges: .top)
+        .navigationBarHidden(true) // Hide navigation bar for clean design
+    }
+    
+    // MARK: - Level Indicator
+    private var levelIndicatorView: some View {
+        HStack(spacing: 8) {
+            Text("LEVEL")
+                .font(.custom("Fredoka-Medium", size: 20))
+                .foregroundColor(.neutralWhite)
+                .fontWeight(.bold)
+            
+            HStack(spacing: 4) {
+                ForEach(1...3, id: \.self) { level in
+                    Text("\(level)")
+                        .font(.custom("Fredoka-Bold", size: 18))
+                        .foregroundColor(.neutralWhite)
+                        .frame(width: 32, height: 32)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(level == 1 ? Color.primarySunnyYellow : Color.clear)
+                        )
+                }
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.primaryCoralRed)
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+        )
+    }
+    
+    // MARK: - Drawing Area
+    private func drawingAreaView(geometry: GeometryProxy) -> some View {
+        ZStack {
+            // Letter shape container with cream background
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(hex: "#F5F5DC")) // Cream color like in design
+                .frame(width: min(geometry.size.width * 0.6, 400),
+                       height: min(geometry.size.height * 0.5, 300))
+                .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                .overlay(
+                    drawingContent(containerSize: CGSize(
+                        width: min(geometry.size.width * 0.6, 400),
+                        height: min(geometry.size.height * 0.5, 300)
+                    ))
+                )
+        }
+    }
+    
+    private func drawingContent(containerSize: CGSize) -> some View {
+        ZStack {
+            // 1. The hollow letter shape (used for display and later, masking)
+            scaledLetterPath
+                .fill(Color.gray.opacity(0.2), style: FillStyle(eoFill: true))
+
+            // 2. The Drawing Canvas, overlaid on the letter shape
+            DrawingCanvasView(lines: $lines, selectedColor: $selectedColor, selectedLineWidth: $selectedLineWidth)
+                .clipShape(
+                    scaledLetterPath,
+                    style: FillStyle(eoFill: true)
+                )
+                .onChange(of: lines) { _ in
+                    checkFillPercentage(viewSize: containerSize)
+                }
+
+            // 3. Letter outline stroke for clarity
+            scaledLetterPath
+                .stroke(Color.gray.opacity(0.3), lineWidth: 2)
+        }
+        .onAppear { updateScaledPath(size: containerSize) }
+        .onChange(of: containerSize) { newSize in 
+            updateScaledPath(size: newSize) 
+        }
+        .overlay {
+            if showRetryOverlay {
+                RetryOverlayView { resetLevel() }
+            }
+        }
+        .overlay {
+            if levelCompleted {
+                SuccessOverlayView { 
+                    print("Level 1 Completed! Proceeding...")
+                }
+            }
+        }
+        .disabled(levelCompleted)
+    }
+    
+    // MARK: - Bottom Controls
+    private var bottomControlsView: some View {
+        HStack(spacing: 20) {
+            // Retry Button
+            Button {
+                resetLevel()
+            } label: {
+                Text("Retry")
+                    .font(.custom("Fredoka-Bold", size: 18))
+                    .foregroundColor(.neutralWhite)
+                    .frame(width: 100, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryCoralRed)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    )
+            }
+            .disabled(levelCompleted)
+            
+            Spacer()
+            
+            // Color Palette
+            ColorPaletteView(selectedColor: $selectedColor)
+            
+            Spacer()
+            
+            // Check Button (Green checkmark)
+            Button {
+                triggerCompletionCheck()
+            } label: {
+                Image(systemName: "checkmark")
+                    .font(.title2)
+                    .foregroundColor(.neutralWhite)
+                    .frame(width: 60, height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryLeafGreen)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                    )
+            }
+            .disabled(levelCompleted)
+        }
+        .padding(.horizontal, 30)
     }
 
     /// Calculates the scale factor and transforms the letter path to fit the given size.
@@ -124,7 +200,7 @@ struct Level1FillView: View {
         // Calculate scale factors, maintaining aspect ratio
         let scaleX = size.width / pathBounds.width
         let scaleY = size.height / pathBounds.height
-        let scale = min(scaleX, scaleY) * 0.9 // Use 90% of space for padding
+        let scale = min(scaleX, scaleY) * 0.8 // Use 80% of space for better padding
 
         // Calculate translation to center the path
         let scaledWidth = pathBounds.width * scale
@@ -138,7 +214,6 @@ struct Level1FillView: View {
 
         // Reset fill percentage when path changes
         fillPercentage = 0.0
-        // We might need to recalculate fill if lines already exist when view resizes
         checkFillPercentage(viewSize: size)
     }
 
@@ -178,18 +253,12 @@ struct Level1FillView: View {
         }
 
         print("Fill Check: Points Inside=\(pointsInsideLetter), Points Covered=\(pointsCovered), Percentage=\(fillPercentage)")
-
-        // Note: Completion check is now done in `triggerCompletionCheck` when button is pressed
-        // or potentially automatically after drawing stops (could add .onEnded to gesture).
     }
 
     /// Called when the 'Check' button is tapped or potentially after drawing ends.
     private func triggerCompletionCheck() {
         // Prevent checking if already completed
         guard !levelCompleted else { return }
-
-        // Ensure fill percentage is up-to-date (it should be from onChange)
-        // let currentFill = fillPercentage // Use the state variable
 
         // Get threshold from settings
         let threshold = Double(persistenceService.loadUserSettings().fillThresholdPercentage)
@@ -198,101 +267,67 @@ struct Level1FillView: View {
 
         if fillPercentage >= threshold {
             // Success!
-            print("Threshold met!")
-            audioService.playUISound(soundName: "success") // Play success sound
-            withAnimation {
+            print("Fill threshold met!")
+            audioService.playUISound(soundName: "success")
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                 levelCompleted = true
-                showRetryOverlay = false // Hide retry if it was showing
+                showRetryOverlay = false
             }
-            // Post notification for level completion
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            // Post notification for level completion after delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 NotificationCenter.default.post(name: .level1Completed, object: nil)
             }
         } else {
             // Failure
-            print("Threshold NOT met.")
-            audioService.playUISound(soundName: "try_again") // Play failure sound
-            withAnimation {
+            print("Fill threshold NOT met.")
+            audioService.playUISound(soundName: "try_again")
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                 showRetryOverlay = true
             }
-            // TODO: Mark letter as incomplete in PersistenceService
-            // persistenceService.incompleteLetter(letterData.id)
         }
     }
 
-    /// Resets the drawing and hides overlays.
-    private func resetLevel() {
-        print("Resetting level.")
-        withAnimation {
-            lines = [] // Clear drawings
-            fillPercentage = 0.0
-            showRetryOverlay = false
-            levelCompleted = false // Ensure level is not marked complete
-        }
-    }
-
-    /// Checks if a given point lies close enough to any of the drawn lines.
+    /// Checks if a given point is covered by any user-drawn line.
     private func isPointCovered(point: CGPoint) -> Bool {
         for line in lines {
-            // Use the line width stored in the Line object
-            let minimumDistance = line.lineWidth / 2 + 2 // Check within half line width + tolerance
-            var previousPoint = line.points.first
-
-            for currentPoint in line.points.dropFirst() {
-                guard let prev = previousPoint else { continue }
-                // Check distance from point to the line segment (prev -> currentPoint)
-                if distancePointToLineSegment(point: point, p1: prev, p2: currentPoint) <= minimumDistance {
+            for linePoint in line.points {
+                let distance = sqrt(pow(linePoint.x - point.x, 2) + pow(linePoint.y - point.y, 2))
+                if distance <= selectedLineWidth / 2 {
                     return true
                 }
-                previousPoint = currentPoint
-            }
-             // Also check the very first point if the line has only one point (a dot)
-            if line.points.count == 1, let firstPoint = line.points.first {
-                 if distancePoints(p1: point, p2: firstPoint) <= minimumDistance {
-                    return true
-                 }
             }
         }
         return false
     }
 
-    // --- Helper Geometry Functions ---
-    // (These could be moved to Core/Utils later)
-
-    /// Calculates the shortest distance from a point to a line segment.
-    private func distancePointToLineSegment(point: CGPoint, p1: CGPoint, p2: CGPoint) -> CGFloat {
-        let l2 = distancePointsSquared(p1: p1, p2: p2)
-        if l2 == 0.0 { return distancePoints(p1: point, p2: p1) } // p1 == p2
-
-        var t = ((point.x - p1.x) * (p2.x - p1.x) + (point.y - p1.y) * (p2.y - p1.y)) / l2
-        t = max(0, min(1, t)) // Clamp t to the range [0, 1]
-
-        let projection = CGPoint(x: p1.x + t * (p2.x - p1.x),
-                               y: p1.y + t * (p2.y - p1.y))
-        return distancePoints(p1: point, p2: projection)
+    /// Resets the level state for retry.
+    private func resetLevel() {
+        print("Resetting Level 1.")
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            lines = []
+            fillPercentage = 0.0
+            showRetryOverlay = false
+            levelCompleted = false
+        }
     }
+}
 
-    /// Calculates the squared distance between two points.
-    private func distancePointsSquared(p1: CGPoint, p2: CGPoint) -> CGFloat {
-        return (p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y)
-    }
-
-    /// Calculates the distance between two points.
-    private func distancePoints(p1: CGPoint, p2: CGPoint) -> CGFloat {
-        return sqrt(distancePointsSquared(p1: p1, p2: p2))
-    }
+// MARK: - Notification Extensions
+extension Notification.Name {
+    static let level1Completed = Notification.Name("level1Completed")
+    static let level2Completed = Notification.Name("level2Completed")
+    static let level3Completed = Notification.Name("level3Completed")
 }
 
 struct Level1FillView_Previews: PreviewProvider {
     static var previews: some View {
-        // Safely unwrap sample data for preview
         if let letterA = LetterDataProvider.data(for: "A") {
-            NavigationView {
-                Level1FillView(letterData: letterA)
-            }
-            .previewInterfaceOrientation(.landscapeLeft)
+            Level1FillView(letterData: letterA)
+                .environmentObject(AudioService())
+                .previewInterfaceOrientation(.landscapeLeft)
         } else {
             Text("Failed to load letter data for preview.")
         }
     }
 } 
+ 

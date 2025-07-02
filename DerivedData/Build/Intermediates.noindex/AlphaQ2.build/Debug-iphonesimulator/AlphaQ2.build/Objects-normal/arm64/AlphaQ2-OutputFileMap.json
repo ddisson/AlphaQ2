@@ -1,0 +1,398 @@
+{
+  "" : {
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2-master.dia",
+    "emit-module-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2-master-emit-module.dia",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2-master.swiftdeps"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/AlphaQ2/Views/Components/AnimatedLetterCharacterView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AnimatedLetterCharacterView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/AlphaQ2App.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2App~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Application/ContentView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Core/Extensions/ButtonStyles.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ButtonStyles~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Core/Extensions/Color+Extensions.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Color+Extensions~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Core/Extensions/TypographyStyles.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TypographyStyles~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Core/Utils/Logger.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Logger~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Models/LetterCharacterData.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterCharacterData~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Models/LetterData.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterData~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Models/UserSettings.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/UserSettings~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Models/WordInfo.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordInfo~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Data/Persistence/PersistenceService.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PersistenceService~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Congratulations/Views/CongratulationsView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/CongratulationsView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterIntroduction/Views/LetterIntroductionView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterIntroductionView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterSelection/Views/LetterFlowView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/LetterFlowView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterSelection/Views/MainMenuView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/MainMenuView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Models/Line.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Line~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/ColorPaletteView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ColorPaletteView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/DrawingCanvasView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/DrawingCanvasView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/Level1FillView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level1FillView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/Level2TraceView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level2TraceView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/Level3FreeDrawView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Level3FreeDrawView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/PaintingInteractionView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/PaintingInteractionView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/RetryOverlayView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/RetryOverlayView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Painting/Views/SuccessOverlayView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/SuccessOverlayView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Shared/Views/Effects/ConfettiView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ConfettiView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage1View.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage1View~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage2View.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage2View~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage3View.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage3View~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage4View.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialPage4View~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/TutorialView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/WordAssociation/Views/WordAssociationView.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/WordAssociationView~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Persistence.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Persistence~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Services/Audio/AudioService.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AudioService~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Services/ShapeRecognition/ShapeRecognitionService.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/ShapeRecognitionService~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/DerivedSources/CoreDataGenerated/AlphaQ2/AlphaQ2+CoreDataModel.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/AlphaQ2+CoreDataModel~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/DerivedSources/CoreDataGenerated/AlphaQ2/Item+CoreDataClass.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/DerivedSources/CoreDataGenerated/AlphaQ2/Item+CoreDataProperties.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/Item+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/dmitrydisson/Documents/Games/AlphaQ2/DerivedData/Build/Intermediates.noindex/AlphaQ2.build/Debug-iphonesimulator/AlphaQ2.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

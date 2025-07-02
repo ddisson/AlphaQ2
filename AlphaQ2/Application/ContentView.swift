@@ -1,7 +1,13 @@
 import SwiftUI
+import CoreData
 
 /// The root view of the application, deciding whether to show the tutorial or the main menu.
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @StateObject private var audioService = AudioService()
+    @State private var debugInfo = "🚀 ContentView Loading..."
+    @State private var crashDetected = false
+    
     // Use @AppStorage for simple persistence tied to UserDefaults
     // It automatically reads the value and updates UserDefaults when changed.
     // We use a different key here than the one PersistenceService uses internally
@@ -13,18 +19,79 @@ struct ContentView: View {
     @State private var showAnimationDemo = false
     
     var body: some View {
-        if showAnimationDemo {
-            // Animation Demo View
-            AnimationDemoView()
-        } else {
-            // Normal Game Flow
-            if hasCompletedTutorial {
-                MainMenuView()
-            } else {
-                TutorialView(onComplete: {
-                    hasCompletedTutorial = true
-                })
+        ZStack {
+            // PROMINENT DEBUG BANNER - ALWAYS VISIBLE
+            VStack {
+                HStack {
+                    Text("🔧 CONTENT VIEW DEBUG MODE 🔧")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                        .background(Color.yellow)
+                        .padding()
+                    Spacer()
+                }
+                Spacer()
             }
+            .zIndex(1000) // Always on top
+            
+            // Main app content
+            if crashDetected {
+                VStack {
+                    Text("💥 CRASH DETECTED 💥")
+                        .font(.largeTitle)
+                        .foregroundColor(.red)
+                        .background(Color.white)
+                    Text("Debug Info: \(debugInfo)")
+                        .padding()
+                }
+            } else {
+                if showAnimationDemo {
+                    // Animation Demo View
+                    AnimationDemoView()
+                } else {
+                    // Normal Game Flow
+                    if hasCompletedTutorial {
+                        MainMenuView()
+                            .environmentObject(audioService)
+                    } else {
+                        TutorialView(onComplete: {
+                            hasCompletedTutorial = true
+                        })
+                        .environmentObject(audioService)
+                    }
+                }
+            }
+        }
+        .onAppear {
+            performSafeContentViewSetup()
+        }
+    }
+    
+    private func performSafeContentViewSetup() {
+        print("🚀🚀🚀 CONTENT VIEW ON APPEAR START 🚀🚀🚀")
+        NSLog("🚀🚀🚀 CONTENT VIEW ON APPEAR START 🚀🚀🚀")
+        
+        do {
+            debugInfo = "✅ ContentView onAppear called"
+            print("✅ ContentView: onAppear called successfully")
+            
+            // Test audio service initialization
+            debugInfo = "🎵 Testing AudioService..."
+            print("🎵 ContentView: Testing AudioService initialization")
+            
+            if audioService.isMusicEnabled {
+                debugInfo = "✅ AudioService responsive"
+                print("✅ ContentView: AudioService is responsive")
+            }
+            
+            debugInfo = "✅ ContentView setup completed"
+            print("✅ ContentView: Setup completed successfully")
+            
+        } catch {
+            print("💥 CRITICAL ERROR in ContentView setup: \(error)")
+            NSLog("💥 CRITICAL ERROR in ContentView setup: \(error)")
+            debugInfo = "💥 ERROR: \(error.localizedDescription)"
+            crashDetected = true
         }
     }
 }

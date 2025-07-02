@@ -1,0 +1,20 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage3View.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Draw with your finger!"
+      },
+      {
+        "comment": "",
+        "key": "Next →"
+      },
+      {
+        "comment": "",
+        "key": "Try drawing here:"
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,24 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/Tutorial/Views/TutorialPage1View.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Welcome!"
+      },
+      {
+        "comment": "",
+        "key": "Start Adventure →"
+      },
+      {
+        "comment": "",
+        "key": "Let's learn the alphabet together!"
+      },
+      {
+        "comment": "",
+        "key": "Tap anywhere to explore"
+      }
+    ]
+  },
+  "version": 1
+}

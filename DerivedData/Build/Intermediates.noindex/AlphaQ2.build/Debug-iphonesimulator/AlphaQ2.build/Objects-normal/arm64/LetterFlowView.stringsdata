@@ -1,0 +1,32 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterSelection/Views/LetterFlowView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "← Exit"
+      },
+      {
+        "comment": "",
+        "key": "Error: Invalid letter data"
+      },
+      {
+        "comment": "",
+        "key": "Loading Letter %@..."
+      },
+      {
+        "comment": "",
+        "key": "LetterDataProvider available: %@"
+      },
+      {
+        "comment": "",
+        "key": "Loading..."
+      },
+      {
+        "comment": "",
+        "key": "🎯 ABOUT TO LOAD LETTER INTRO 🎯"
+      }
+    ]
+  },
+  "version": 1
+}

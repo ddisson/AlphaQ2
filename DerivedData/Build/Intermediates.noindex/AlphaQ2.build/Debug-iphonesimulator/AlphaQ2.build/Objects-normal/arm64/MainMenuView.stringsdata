@@ -1,0 +1,20 @@
+{
+  "source": "/Users/dmitrydisson/Documents/Games/AlphaQ2/AlphaQ2/Modules/LetterSelection/Views/MainMenuView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "🎮 MAIN MENU DEBUG 🎮"
+      },
+      {
+        "comment": "",
+        "key": "Select a Letter"
+      },
+      {
+        "comment": "",
+        "key": "Error: No letter selected"
+      }
+    ]
+  },
+  "version": 1
+}

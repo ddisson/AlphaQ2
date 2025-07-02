@@ -22,3 +22,4 @@ typealias PlatformColor = UIColor
 #elseif os(macOS)
 typealias PlatformColor = NSColor
 #endif 
+ 
